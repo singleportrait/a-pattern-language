@@ -5,6 +5,7 @@ const patternBaseFields = /* groq */ `
   name,
   number,
   "slug": slug.current,
+  confidence,
 `;
 
 const blockContent = /* groq */ `
@@ -37,11 +38,10 @@ export const allPatternsSlugsQuery = defineQuery(`
 export const patternQuery = defineQuery(`
   *[_type == "pattern" && slug.current == $slug] {
     ${patternBaseFields}
-    confidence,
     page,
     problem,
     solution,
-    "smallerPatterns": smallerPatterns[]${blockContent},
-    "largerPatterns": largerPatterns[]${blockContent}
+    "earlierPatterns": earlierPatterns[]${blockContent},
+    "laterPatterns": laterPatterns[]${blockContent}
   }[0]
 `);

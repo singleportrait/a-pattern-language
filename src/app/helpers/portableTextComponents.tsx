@@ -6,7 +6,7 @@ export const portableTextComponents = {
     patternReference: ({ value }: { value: PatternInlineReferenceBlock }) => {
       return (
         <Link href={`/patterns/${value.slug}`} className="underline">
-          {value.number}. {value.name}
+          {value.name} ({value.number})
         </Link>
       );
     },

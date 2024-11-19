@@ -1,4 +1,5 @@
-export interface Pattern {
+import { PortableTextBlock } from "@portabletext/types";
+export interface PatternDto {
   _id: string;
   name: string;
   number: number;
@@ -7,7 +8,8 @@ export interface Pattern {
   page: number;
   problem: string;
   solution: string;
-  // smallerPatterns: BlockContent[];
+  earlierPatterns: PortableTextBlock;
+  laterPatterns: PortableTextBlock;
 }
 
 export interface PatternInlineReferenceBlock {
