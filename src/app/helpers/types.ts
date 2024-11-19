@@ -1,4 +1,4 @@
-export type Pattern = {
+export interface Pattern {
   _id: string;
   name: string;
   number: number;
@@ -8,4 +8,13 @@ export type Pattern = {
   problem: string;
   solution: string;
   // smallerPatterns: BlockContent[];
-};
+}
+
+export interface PatternInlineReferenceBlock {
+  _type: "patternReference";
+  _ref: string;
+  _key: string;
+  name: string;
+  number: number;
+  slug: string;
+}

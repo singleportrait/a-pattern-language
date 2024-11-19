@@ -22,21 +22,23 @@ export const patternQuery = defineQuery(`
     page,
     problem,
     solution,
-    // "smallerPatterns": smallerPatterns[]{
-    //   // if the type is block...
-    //   _type == 'block' => {
-    //     ...,
-    //     // get the childrens array, and...
-    //     children[]{
-    //       ...,
-    //       // if a childrens type is our pattern reference,...
-    //       _type == 'patternReference' => {
-    //         ...,
-    //         // create a new key value pair named "patternName" with the value name value of the referenced pattern document
-    //         "patternName": @->.name
-    //       }
-    //     }
-    //   }
-    // }
+    "smallerPatterns": smallerPatterns[]{
+      // if the type is block...
+      _type == 'block' => {
+        ...,
+        // get the childrens array, and...
+        children[]{
+          ...,
+          // if a childrens type is our pattern reference,...
+          _type == 'patternReference' => {
+            ...,
+            // create a new key value pair named "patternName" with the value name value of the referenced pattern document
+            "name": @->.name,
+            "number": @->.number,
+            "slug": @->.slug.current,
+          }
+        }
+      }
+    }
   }[0]
 `);
