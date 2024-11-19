@@ -54,13 +54,27 @@ export default async function Pattern(props: Props) {
         {pattern.number}. {pattern.name} {confidenceDisplay(pattern.confidence)}
       </h1>
       <p>pg. {pattern.page}</p>
-      <p>Problem: {pattern.problem}</p>
-      <p>Solution: {pattern.solution}</p>
+      <p>
+        Problem:
+        <br />
+        {pattern.problem}
+      </p>
+      <p>
+        Solution:
+        <br />
+        {pattern.solution}
+      </p>
       <br />
       {pattern.smallerPatterns && (
         <div>
           <p>Smaller patterns:</p>
           <BlockContent content={pattern.smallerPatterns} />
+        </div>
+      )}
+      {pattern.largerPatterns && (
+        <div>
+          <p>Larger patterns:</p>
+          <BlockContent content={pattern.largerPatterns} />
         </div>
       )}
     </div>
