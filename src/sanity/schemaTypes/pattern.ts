@@ -70,13 +70,13 @@ export const pattern = defineType({
       type: "blockContent",
     }),
     {
-      title: "Image",
-      name: "image",
+      title: "Diagram",
+      name: "diagram",
       type: "image",
     },
     {
-      title: "Diagram",
-      name: "diagram",
+      title: "Image",
+      name: "image",
       type: "image",
     },
     defineField({

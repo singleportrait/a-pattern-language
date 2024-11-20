@@ -20,3 +20,16 @@ export interface PatternInlineReferenceBlock {
   number: number;
   slug: string;
 }
+
+export interface SubSectionDto {
+  _key: string;
+  description?: string;
+  patterns: PatternDto[];
+}
+export interface SectionDto {
+  _id: string;
+  name: string;
+  order: number;
+  description: string;
+  subSections: SubSectionDto[];
+}

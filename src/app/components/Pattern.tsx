@@ -10,7 +10,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </h1>
       {pattern.earlierPatterns && (
         <div className="max-w-lg">
-          <p>Earlier patterns:</p>
+          <p>Outline:</p>
           <BlockContent content={pattern.earlierPatterns} />
         </div>
       )}
@@ -26,7 +26,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </p>
       {pattern.laterPatterns && (
         <div className="max-w-lg">
-          <p>Later patterns:</p>
+          <p>Usage:</p>
           <BlockContent content={pattern.laterPatterns} />
         </div>
       )}

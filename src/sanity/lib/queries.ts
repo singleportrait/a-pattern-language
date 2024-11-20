@@ -62,3 +62,24 @@ export const patternQuery = defineQuery(`
     "laterPatterns": laterPatterns[]${blockContent}
   }[0]
 `);
+
+export const sectionsQuery = defineQuery(`
+  *[_type == "section"] | order(order asc) {
+    _id,
+    name,
+    order,
+    description,
+    "subSections": subSections[]{
+      _key,
+      description,
+      "patternsOriginal": patterns[],
+      "patterns": patterns[]{
+        "_id": @->._id,
+        "name": @->.name,
+        "number": @->.number,
+        "slug": @->.slug.current,
+        "confidence": @->.confidence,
+      }
+    }
+  }
+`);
