@@ -44,11 +44,6 @@ export const pattern = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "smallerPatterns",
-      title: "Smaller Patterns DEPRECATED",
-      type: "blockContent",
-    }),
-    defineField({
       name: "earlierPatterns",
       title: "Earlier Patterns",
       type: "blockContent",
@@ -64,11 +59,6 @@ export const pattern = defineType({
       title: "Solution",
       type: "text",
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "largerPatterns",
-      title: "Larger Patterns DEPRECATED",
-      type: "blockContent",
     }),
     defineField({
       name: "laterPatterns",

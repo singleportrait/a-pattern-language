@@ -35,6 +35,23 @@ export const allPatternsSlugsQuery = defineQuery(`
   }
 `);
 
+// Return all references included in block content !
+// const blockContentReferencesOnly = /* groq */ `
+// "earlierPatternReferences":
+//   earlierPatterns[@._type == 'block']
+//   .children[@._type == 'patternReference'] {
+//     "name": @->.name,
+//     "number": @->.number,
+//     "slug": @->.slug.current,
+// }
+// `;
+
+// export const allPatternsPatternReferences = defineQuery(`
+//   *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+//     ${patternBaseFields}
+//   }
+// `);
+
 export const patternQuery = defineQuery(`
   *[_type == "pattern" && slug.current == $slug] {
     ${patternBaseFields}

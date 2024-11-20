@@ -9,7 +9,7 @@ export default async function Home() {
   const { data: patterns } = await sanityFetch({
     query: allPatternsSlugsQuery,
   });
-  console.log("Data", patterns);
+  console.log("Patterns", patterns);
   return (
     <div className="p-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
       <h1>A Pattern Language</h1>
