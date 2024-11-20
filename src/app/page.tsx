@@ -5,6 +5,10 @@ import { PatternDto } from "./helpers/types";
 import { confidenceDisplay } from "./helpers/confidence";
 // import Image from "next/image";
 
+export const metadata = {
+  title: "A Pattern Language",
+};
+
 export default async function Home() {
   const { data: patterns } = await sanityFetch({
     query: allPatternsSlugsQuery,

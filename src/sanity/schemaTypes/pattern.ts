@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import CustomNumberInput from "../components/CustomNumberInput";
 
 export const pattern = defineType({
   name: "pattern",
@@ -6,10 +7,13 @@ export const pattern = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "number",
+      name: "numberString",
       title: "Number",
-      type: "number",
-      validation: (rule) => rule.required(),
+      type: "string",
+      options: {
+        search: { weight: 20 },
+      },
+      validation: (rule) => rule.required().regex(/^\d+$/),
     }),
     defineField({
       name: "name",
@@ -75,6 +79,14 @@ export const pattern = defineType({
       name: "diagram",
       type: "image",
     },
+    defineField({
+      name: "number",
+      title: "Number for sorting (automatically generated)",
+      type: "number",
+      components: {
+        input: CustomNumberInput,
+      },
+    }),
   ],
   preview: {
     select: {
@@ -85,7 +97,7 @@ export const pattern = defineType({
     prepare(selection) {
       const { name, number, media } = selection;
       return {
-        title: `${number}. ${name}`,
+        title: `${number ? `${number}. ` : ""}${name}`,
         media: media,
       };
     },
