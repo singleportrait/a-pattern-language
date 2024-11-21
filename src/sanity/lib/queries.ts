@@ -56,7 +56,7 @@ export const allPatternsWithReferencesPatternsQuery = defineQuery(`
   }
 `);
 
-export const patternQuery = defineQuery(`
+export const patternSlugQuery = defineQuery(`
   *[_type == "pattern" && slug.current == $slug] {
     ${patternBaseFields},
     page,
@@ -67,6 +67,17 @@ export const patternQuery = defineQuery(`
     image,
     diagram,
   }[0]
+`);
+
+export const patternSiblingsQuery = defineQuery(`
+  {
+    "previousPattern": *[_type == "pattern" && number == $number - 1] {
+      ${patternBaseFields},
+    }[0],
+    "nextPattern": *[_type == "pattern" && number == $number + 1] {
+      ${patternBaseFields},
+    }[0]
+  }
 `);
 
 export const sectionsQuery = defineQuery(`
