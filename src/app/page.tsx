@@ -50,7 +50,7 @@ export default async function Home() {
 
   return (
     <div className="p-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
-      <h1>A Pattern Language</h1>
+      <h1 className="h1">A Pattern Language</h1>
 
       <h2 className="h2">Patterns in sections</h2>
       <div className="flex flex-col items-center gap-y-8">

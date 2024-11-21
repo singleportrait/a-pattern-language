@@ -15,7 +15,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
           height={400}
         />
       )}
-      <h1>
+      <h1 className="h1">
         {pattern.number}. {pattern.name} {confidenceDisplay(pattern.confidence)}
       </h1>
       {pattern.earlierPatterns && (
