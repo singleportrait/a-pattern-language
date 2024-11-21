@@ -5,7 +5,7 @@ const patternBaseFields = /* groq */ `
   name,
   number,
   "slug": slug.current,
-  confidence,
+  confidence
 `;
 
 const blockContent = /* groq */ `
@@ -36,25 +36,27 @@ export const allPatternsSlugsQuery = defineQuery(`
 `);
 
 // Return all references included in block content !
-// const blockContentReferencesOnly = /* groq */ `
-// "earlierPatternReferences":
-//   earlierPatterns[@._type == 'block']
-//   .children[@._type == 'patternReference'] {
-//     "name": @->.name,
-//     "number": @->.number,
-//     "slug": @->.slug.current,
-// }
-// `;
+const blockContentReferencesOnly = /* groq */ `
+  [@._type == 'block'].children[@._type == 'patternReference'] {
+    "_id": @->._id,
+    "name": @->.name,
+    "number": @->.number,
+    "slug": @->.slug.current,
+    "confidence": @->.confidence,
+  }
+`;
 
-// export const allPatternsPatternReferences = defineQuery(`
-//   *[_type == "pattern" && defined(slug.current)] | order(number asc) {
-//     ${patternBaseFields}
-//   }
-// `);
+// TODO: Add later pattern references
+export const allPatternsWithReferencePatternsQuery = defineQuery(`
+  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+    ${patternBaseFields},
+    "earlierPatternReferences": earlierPatterns${blockContentReferencesOnly},
+  }
+`);
 
 export const patternQuery = defineQuery(`
   *[_type == "pattern" && slug.current == $slug] {
-    ${patternBaseFields}
+    ${patternBaseFields},
     page,
     problem,
     solution,

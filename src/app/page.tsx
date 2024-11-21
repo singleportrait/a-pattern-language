@@ -1,24 +1,37 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { allPatternsSlugsQuery, sectionsQuery } from "@/sanity/lib/queries";
+import {
+  allPatternsWithReferencePatternsQuery,
+  sectionsQuery,
+} from "@/sanity/lib/queries";
 import Link from "next/link";
-import { PatternDto, SectionDto, SubSectionDto } from "./helpers/types";
+import {
+  PatternBaseDto,
+  PatternBaseWithReferencesDto,
+  SectionDto,
+  SubSectionDto,
+} from "./helpers/types";
 import { confidenceDisplay } from "./helpers/confidence";
 import { Fragment } from "react";
+import { addReferenceCounts } from "./helpers/referenceCounts";
 
 export const metadata = {
   title: "A Pattern Language",
 };
 
 export default async function Home() {
-  const { data: patterns } = await sanityFetch({
-    query: allPatternsSlugsQuery,
-  });
-  const { data: sections } = await sanityFetch({
+  const { data: patterns }: { data: PatternBaseWithReferencesDto[] } =
+    await sanityFetch({
+      query: allPatternsWithReferencePatternsQuery,
+    });
+  const { data: sections }: { data: SectionDto[] } = await sanityFetch({
     query: sectionsQuery,
   });
 
-  // console.log("Patterns", patterns);
+  // TODO: Do this as pre-formatting somewhere
+  addReferenceCounts(patterns);
+  console.log("Patterns", patterns);
   // console.log("Sections", sections);
+
   return (
     <div className="p-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
       <h1>A Pattern Language</h1>
@@ -32,14 +45,11 @@ export default async function Home() {
             {section?.subSections?.map((subSection: SubSectionDto) => (
               <Fragment key={subSection._key}>
                 {subSection.description && <p>{subSection.description}</p>}
-                {subSection.patterns.map((pattern: PatternDto) => (
-                  <Link
-                    key={pattern._id}
-                    href={`/patterns/${pattern.slug}`}
-                    className="underline"
-                  >
+                {subSection.patterns.map((pattern: PatternBaseDto) => (
+                  <Link key={pattern._id} href={`/patterns/${pattern.slug}`}>
                     <h4>
-                      {pattern.number}. {pattern.name}{" "}
+                      {pattern.number}.{" "}
+                      <span className="underline">{pattern.name}</span>{" "}
                       {confidenceDisplay(pattern.confidence)}
                     </h4>
                   </Link>
@@ -52,15 +62,14 @@ export default async function Home() {
 
       <hr className="w-full" />
       <h2>All patterns</h2>
-      {patterns.map((pattern: PatternDto) => (
-        <Link
-          key={pattern._id}
-          href={`/patterns/${pattern.slug}`}
-          className="underline"
-        >
+      {patterns.map((pattern: PatternBaseDto) => (
+        <Link key={pattern._id} href={`/patterns/${pattern.slug}`}>
           <p>
-            {pattern.number}. {pattern.name}{" "}
+            {pattern.number}. <span className="underline">{pattern.name}</span>{" "}
             {confidenceDisplay(pattern.confidence)}
+            {pattern.referencesCount ? (
+              <span> - {pattern.referencesCount} references</span>
+            ) : null}
           </p>
         </Link>
       ))}

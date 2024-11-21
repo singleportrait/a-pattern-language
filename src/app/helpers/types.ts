@@ -1,10 +1,14 @@
 import { PortableTextBlock } from "@portabletext/types";
-export interface PatternDto {
+
+export interface PatternBaseDto {
   _id: string;
   name: string;
   number: number;
   slug: string;
   confidence: "low" | "medium" | "high";
+  referencesCount?: number;
+}
+export interface PatternDto extends PatternBaseDto {
   page: number;
   problem: string;
   solution: string;
@@ -12,7 +16,11 @@ export interface PatternDto {
   laterPatterns: PortableTextBlock;
 }
 
-export interface PatternInlineReferenceBlock {
+export interface PatternBaseWithReferencesDto extends PatternBaseDto {
+  earlierPatternReferences?: PatternBaseDto[];
+}
+
+export interface PatternInlineReferenceBlockDto {
   _type: "patternReference";
   _ref: string;
   _key: string;
