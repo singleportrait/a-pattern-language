@@ -30,4 +30,11 @@ export const section = defineType({
       of: [{ type: "subSection" }],
     }),
   ],
+  orderings: [
+    {
+      title: "Order Ascending",
+      name: "orderAsc",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
 });

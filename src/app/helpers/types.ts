@@ -1,12 +1,20 @@
 import { PortableTextBlock } from "@portabletext/types";
 
+interface ImageReferenceDto {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+}
 export interface PatternBaseDto {
   _id: string;
   name: string;
   number: number;
   slug: string;
   confidence: "low" | "medium" | "high";
-  referencesCount?: number;
+  image?: ImageReferenceDto;
+  diagram?: ImageReferenceDto;
 }
 export interface PatternDto extends PatternBaseDto {
   page: number;
@@ -18,6 +26,7 @@ export interface PatternDto extends PatternBaseDto {
 
 export interface PatternBaseWithReferencesDto extends PatternBaseDto {
   earlierPatternReferences?: PatternBaseDto[];
+  references?: PatternBaseDto[];
 }
 
 export interface PatternInlineReferenceBlockDto {

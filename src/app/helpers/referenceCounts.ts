@@ -1,31 +1,39 @@
-import { PatternBaseWithReferencesDto } from "./types";
+import { PatternBaseDto, PatternBaseWithReferencesDto } from "./types";
+
+const formattedPatternData = (pattern: PatternBaseWithReferencesDto) => {
+  return {
+    _id: pattern._id,
+    name: pattern.name,
+    number: pattern.number,
+    slug: pattern.slug,
+    confidence: pattern.confidence,
+  };
+};
 
 export const addReferenceCounts = (
   patterns: PatternBaseWithReferencesDto[]
 ) => {
-  // Create a map to count references
-  const referenceCounts: { [key: string]: number } = {};
+  const references: {
+    [key: string]: PatternBaseDto[];
+  } = {};
 
   patterns.forEach((pattern: PatternBaseWithReferencesDto) => {
     if (pattern.earlierPatternReferences) {
       pattern.earlierPatternReferences.forEach((reference) => {
         const refName = reference.name;
-        // Increment the reference count for the pattern
-        referenceCounts[refName] = (referenceCounts[refName] || 0) + 1;
+        // Add the reference for the pattern
+        if (references[refName]) {
+          if (!references[refName].find((ref) => ref._id === pattern._id)) {
+            references[refName].push(formattedPatternData(pattern));
+          }
+        } else {
+          references[refName] = [formattedPatternData(pattern)];
+        }
       });
     }
   });
 
-  // Convert the referenceCounts object into an array of objects
-  // const result = Object.entries(referenceCounts).map(([name, count]) => ({
-  //   name,
-  //   count,
-  // }));
-
-  // // Sort the array in descending order by count
-  // result.sort((a, b) => b.count - a.count);
-
   patterns.map((pattern: PatternBaseWithReferencesDto) => {
-    pattern.referencesCount = referenceCounts[pattern.name] || 0;
+    pattern.references = references[pattern.name] || [];
   });
 };

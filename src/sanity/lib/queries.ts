@@ -47,9 +47,11 @@ const blockContentReferencesOnly = /* groq */ `
 `;
 
 // TODO: Add later pattern references
-export const allPatternsWithReferencePatternsQuery = defineQuery(`
+export const allPatternsWithReferencesPatternsQuery = defineQuery(`
   *[_type == "pattern" && defined(slug.current)] | order(number asc) {
     ${patternBaseFields},
+    image,
+    diagram,
     "earlierPatternReferences": earlierPatterns${blockContentReferencesOnly},
   }
 `);
@@ -61,7 +63,9 @@ export const patternQuery = defineQuery(`
     problem,
     solution,
     "earlierPatterns": earlierPatterns[]${blockContent},
-    "laterPatterns": laterPatterns[]${blockContent}
+    "laterPatterns": laterPatterns[]${blockContent},
+    image,
+    diagram,
   }[0]
 `);
 
