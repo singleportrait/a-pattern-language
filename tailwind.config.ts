@@ -11,9 +11,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "var(--accent)",
+        "accent-bold": "var(--accent-bold)",
+      },
+      fontFamily: {
+        serif: "Garamond ATF Subhead, Georiga, serif",
       },
       width: {
         128: "32rem",
+      },
+      fontSize: {
+        "10xl": "10rem",
+        "12xl": "18rem",
       },
     },
   },

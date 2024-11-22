@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import {
@@ -9,6 +8,7 @@ import {
 } from "@/sanity/lib/queries";
 import Pattern from "@/app/components/Pattern";
 import { PatternBaseDto, PatternDto } from "@/app/helpers/types";
+import Menu from "@/app/components/Menu";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -58,26 +58,11 @@ export default async function PatternPage(props: Props) {
   console.log("Pattern", pattern);
 
   return (
-    <div className="p-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
-      <div className="flex gap-x-4">
-        {previousPattern && (
-          <Link
-            href={`/patterns/${previousPattern.slug}`}
-            className="underline"
-          >
-            &laquo; {previousPattern.number}. {previousPattern.name}
-          </Link>
-        )}
-        <Link href="/" className="underline">
-          Back to home
-        </Link>
-        {nextPattern && (
-          <Link href={`/patterns/${nextPattern.slug}`} className="underline">
-            {nextPattern.number}. {nextPattern.name} &raquo;
-          </Link>
-        )}
+    <>
+      <Menu nextPattern={nextPattern} previousPattern={previousPattern} />
+      <div className="px-8 py-12 min-h-screen">
+        <Pattern pattern={pattern} />
       </div>
-      <Pattern pattern={pattern} />
-    </div>
+    </>
   );
 }
