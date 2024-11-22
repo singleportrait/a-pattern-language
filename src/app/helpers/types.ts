@@ -48,5 +48,6 @@ export interface SectionDto {
   name: string;
   order: number;
   description: string;
+  image: ImageReferenceDto;
   subSections: SubSectionDto[];
 }

@@ -86,6 +86,7 @@ export const sectionsQuery = defineQuery(`
     name,
     order,
     description,
+    image,
     "subSections": subSections[]{
       _key,
       description,
@@ -96,6 +97,7 @@ export const sectionsQuery = defineQuery(`
         "number": @->.number,
         "slug": @->.slug.current,
         "confidence": @->.confidence,
+        "earlierPatternReferences": @->.earlierPatterns${blockContentReferencesOnly},
       }
     }
   }

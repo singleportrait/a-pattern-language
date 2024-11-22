@@ -15,7 +15,9 @@ export default {
         "accent-bold": "var(--accent-bold)",
       },
       fontFamily: {
-        serif: "Garamond ATF Subhead, Georiga, serif",
+        serif: "Garamond ATF Subhead, var(--font-eb-garamond), Georgia, serif",
+        number:
+          "Garamond ATF Subhead, var(--font-cormorant-garamond), Georgia, serif",
       },
       width: {
         128: "32rem",

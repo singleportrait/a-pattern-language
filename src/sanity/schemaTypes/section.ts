@@ -29,6 +29,11 @@ export const section = defineType({
       type: "array",
       of: [{ type: "subSection" }],
     }),
+    {
+      title: "Image",
+      name: "image",
+      type: "image",
+    },
   ],
   orderings: [
     {
