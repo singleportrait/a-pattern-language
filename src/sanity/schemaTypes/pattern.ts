@@ -93,12 +93,13 @@ export const pattern = defineType({
       name: "name",
       number: "number",
       media: "image",
+      diagram: "diagram",
     },
     prepare(selection) {
-      const { name, number, media } = selection;
+      const { name, number, media, diagram } = selection;
       return {
         title: `${number ? `${number}. ` : ""}${name}`,
-        media: media,
+        media: media || diagram,
       };
     },
   },

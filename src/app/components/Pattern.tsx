@@ -50,11 +50,11 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
           </div>
         )}
         <div className="flex flex-col -mx-5 p-5 bg-accent gap-y-10 items-center">
-          <div className="space-y-2">
+          <div className="space-y-2 w-full">
             <p className="uppercase">Problem:</p>
-            <p className="text-lg leading-snug">{pattern.problem}</p>
+            <p className="text-lg">{pattern.problem}</p>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full">
             <p className="uppercase">Solution:</p>
             <p className="text-[1.35rem] leading-snug whitespace-pre-wrap">
               {pattern.solution}
@@ -79,7 +79,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </div>
       <div className="gridColSpanContent w-full flex items-center gap-x-4 py-8">
         <div className="grow border-b-2 border-b-accent" />
-        <p>pg. {pattern.page}</p>
+        <p className="font-serif">pg. {pattern.page}</p>
         <div className="grow border-b-2 border-b-accent" />
       </div>
     </div>
