@@ -4,6 +4,7 @@ import { PatternBaseWithReferencesDto } from "@/app/helpers/types";
 import { addReferenceCounts } from "@/app/helpers/referenceCounts";
 import Menu from "@/app/components/Menu";
 import PatternsGrid from "../components/PatternsGrid";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "A Pattern Language",
@@ -23,7 +24,9 @@ export default async function Grid() {
     <>
       <Menu />
       <div className="py-12 max-w-screen-xl mx-auto px-4">
-        <PatternsGrid patterns={patterns} />
+        <Suspense>
+          <PatternsGrid patterns={patterns} />
+        </Suspense>
       </div>
     </>
   );
