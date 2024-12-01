@@ -26,6 +26,7 @@ export interface PatternDto extends PatternBaseDto {
 
 export interface PatternBaseWithReferencesDto extends PatternBaseDto {
   earlierPatternReferences?: PatternBaseDto[];
+  laterPatternReferences?: PatternBaseDto[];
   references?: PatternBaseDto[];
 }
 

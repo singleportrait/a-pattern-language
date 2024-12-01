@@ -8,8 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 const Pattern = ({ pattern }: { pattern: PatternDto }) => {
   return (
     <div className="gridWrapper">
-      {/* <div className="fixed left-8 sm:left-12 bottom-8 sm:bottom-12 font-number text-[15rem] sm:text-[25rem] text-accent-bold leading-[0.85] z-10"> */}
-      <div className="fixed left-8 sm:left-12 bottom-8 sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10">
+      <div className="fixed left-8 sm:left-12 bottom-8 sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
         {pattern.number}
       </div>
       <div className="gridColSpanContent hidden md:block">

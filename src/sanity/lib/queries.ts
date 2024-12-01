@@ -53,6 +53,7 @@ export const allPatternsWithReferencesPatternsQuery = defineQuery(`
     image,
     diagram,
     "earlierPatternReferences": earlierPatterns${blockContentReferencesOnly},
+    "laterPatternReferences": laterPatterns${blockContentReferencesOnly},
   }
 `);
 
