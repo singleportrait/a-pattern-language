@@ -59,3 +59,47 @@ export const addReferenceCounts = (
     pattern.references = references[pattern.name] || [];
   });
 };
+
+export const generateLinksDataForD3 = (
+  patterns: PatternBaseWithReferencesDto[],
+  selectedNumber?: number
+) => {
+  const selectedPattern = selectedNumber
+    ? patterns.find((pattern) => pattern.number === selectedNumber)
+    : null;
+
+  // Filter patterns to only include those that are referenced by the selected pattern
+  const filteredPatterns =
+    selectedNumber && selectedPattern
+      ? patterns.filter(
+          (pattern) =>
+            selectedPattern.references?.find(
+              (reference) => reference._id === pattern._id
+            ) || pattern._id === selectedPattern._id
+        )
+      : patterns;
+
+  const nodes: { id: string; name: string; number: number; group: number }[] =
+    filteredPatterns.map((pattern) => {
+      return {
+        id: pattern.slug,
+        name: pattern.name,
+        number: pattern.number,
+        group: pattern.number < 95 ? 1 : pattern.number < 205 ? 2 : 3,
+      };
+    });
+
+  const links: { source: string; target: string; value: number }[] = [];
+  const patternsToLink = selectedPattern ? [selectedPattern] : patterns;
+  patternsToLink.map((pattern) => {
+    pattern.references?.map((reference) => {
+      links.push({
+        source: pattern.slug,
+        target: reference.slug,
+        value: 1,
+      });
+    });
+  });
+
+  return { nodes, links };
+};

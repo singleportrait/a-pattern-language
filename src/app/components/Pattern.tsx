@@ -78,7 +78,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </div>
       <div className="gridColSpanContent w-full flex items-center gap-x-4 py-8">
         <div className="grow border-b-2 border-b-accent" />
-        <p className="font-serif">pg. {pattern.page}</p>
+        <p className="font-number">pg. {pattern.page}</p>
         <div className="grow border-b-2 border-b-accent" />
       </div>
     </div>

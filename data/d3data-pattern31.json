@@ -1,0 +1,243 @@
+{
+  "nodes": [
+    {
+      "id": "magic-of-the-city",
+      "name": "Magic of the City",
+      "number": 10,
+      "group": 1
+    },
+    {
+      "id": "community-of-7000",
+      "name": "Community of 7,000",
+      "number": 12,
+      "group": 1
+    },
+    {
+      "id": "access-to-water",
+      "name": "Access to Water",
+      "number": 25,
+      "group": 1
+    },
+    {
+      "id": "eccentric-nucleus",
+      "name": "Eccentric Nucleus",
+      "number": 28,
+      "group": 1
+    },
+    {
+      "id": "density-rings",
+      "name": "Density Rings",
+      "number": 29,
+      "group": 1
+    },
+    {
+      "id": "activity-nodes",
+      "name": "Activity Nodes",
+      "number": 30,
+      "group": 1
+    },
+    {
+      "id": "promenade",
+      "name": "Promenade",
+      "number": 31,
+      "group": 1
+    },
+    {
+      "id": "shopping-street",
+      "name": "Shopping Street",
+      "number": 32,
+      "group": 1
+    },
+    {
+      "id": "night-life",
+      "name": "Night Life",
+      "number": 33,
+      "group": 1
+    },
+    {
+      "id": "university-as-a-marketplace",
+      "name": "University as a Marketplace",
+      "number": 43,
+      "group": 1
+    },
+    {
+      "id": "network-of-paths-and-cars",
+      "name": "Network of Paths and Cars",
+      "number": 52,
+      "group": 1
+    },
+    {
+      "id": "children-in-the-city",
+      "name": "Children in the City",
+      "number": 57,
+      "group": 1
+    },
+    {
+      "id": "carnival",
+      "name": "Carnival",
+      "number": 58,
+      "group": 1
+    },
+    {
+      "id": "small-public-squares",
+      "name": "Small Public Squares",
+      "number": 61,
+      "group": 1
+    },
+    {
+      "id": "dancing-in-the-street",
+      "name": "Dancing in the Street",
+      "number": 63,
+      "group": 1
+    },
+    {
+      "id": "pools-and-streams",
+      "name": "Pools and Streams",
+      "number": 64,
+      "group": 1
+    },
+    {
+      "id": "beer-hall",
+      "name": "Beer Hall",
+      "number": 90,
+      "group": 1
+    },
+    {
+      "id": "travelers-inn",
+      "name": "Traveler’s Inn",
+      "number": 91,
+      "group": 1
+    },
+    {
+      "id": "pedestrian-street",
+      "name": "Pedestrian Street",
+      "number": 100,
+      "group": 2
+    },
+    {
+      "id": "path-shape",
+      "name": "Path Shape",
+      "number": 121,
+      "group": 2
+    },
+    {
+      "id": "pedestrian-density",
+      "name": "Pedestrian Density",
+      "number": 123,
+      "group": 2
+    },
+    {
+      "id": "activity-pockets",
+      "name": "Activity Pockets",
+      "number": 124,
+      "group": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "promenade",
+      "target": "magic-of-the-city",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "community-of-7000",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "access-to-water",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "eccentric-nucleus",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "density-rings",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "activity-nodes",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "shopping-street",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "night-life",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "university-as-a-marketplace",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "network-of-paths-and-cars",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "children-in-the-city",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "carnival",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "small-public-squares",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "dancing-in-the-street",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "pools-and-streams",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "beer-hall",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "travelers-inn",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "pedestrian-street",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "path-shape",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "pedestrian-density",
+      "value": 1
+    },
+    {
+      "source": "promenade",
+      "target": "activity-pockets",
+      "value": 1
+    }
+  ]
+}

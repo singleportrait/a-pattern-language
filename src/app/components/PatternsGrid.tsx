@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import { urlFor } from "@/sanity/lib/image";
 import {
@@ -34,15 +34,14 @@ const PatternTitle = ({
     {confidenceDisplay(pattern.confidence)}
   </>
 );
+
 const PatternsGrid = ({
   patterns,
 }: {
   patterns: PatternBaseWithReferencesDto[];
 }) => {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const pathname = usePathname();
-  router.prefetch(`${pathname}?sort=referenceCount`);
 
   const sortType = searchParams.get("sort") || "number";
 
@@ -58,30 +57,27 @@ const PatternsGrid = ({
     return a.number - b.number;
   };
 
-  const updateSortType = (newSortType: "number" | "referenceCount") => {
-    router.replace(`${pathname}?sort=${newSortType}`, { scroll: false });
-  };
-
   return (
     <div>
       <TitleWithConfidence title="All Patterns" confidence="high" />
       {sortType === "number" && (
-        <button
+        <Link
           type="button"
-          onClick={() => updateSortType("referenceCount")}
-          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto block"
+          href={`${pathname}?sort=referenceCount`}
+          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto inline-block"
+          scroll={false}
         >
           Sort by reference count
-        </button>
+        </Link>
       )}
       {sortType === "referenceCount" && (
-        <button
-          type="button"
-          onClick={() => updateSortType("number")}
-          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto block"
+        <Link
+          href={`${pathname}?sort=number`}
+          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto inline-block"
+          scroll={false}
         >
           Sort by number
-        </button>
+        </Link>
       )}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-0.5 p-0.5 bg-gray-100">
         {patterns
