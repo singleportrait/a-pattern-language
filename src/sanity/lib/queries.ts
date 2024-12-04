@@ -1,13 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-const patternBaseFields = /* groq */ `
-  _id,
-  name,
-  number,
-  "slug": slug.current,
-  confidence
-`;
-
+/* ---------- SHARED -- */
 const blockContent = /* groq */ `
 {
   // if the type is block...
@@ -29,12 +22,6 @@ const blockContent = /* groq */ `
 }
 `;
 
-export const allPatternsSlugsQuery = defineQuery(`
-  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
-    ${patternBaseFields}
-  }
-`);
-
 // Return all references included in block content !
 const blockContentReferencesOnly = /* groq */ `
   [@._type == 'block'].children[@._type == 'patternReference'] {
@@ -45,6 +32,21 @@ const blockContentReferencesOnly = /* groq */ `
     "confidence": @->.confidence,
   }
 `;
+
+/* ---------- PATTERNS -- */
+const patternBaseFields = /* groq */ `
+  _id,
+  name,
+  number,
+  "slug": slug.current,
+  confidence
+`;
+
+export const allPatternsSlugsQuery = defineQuery(`
+  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+    ${patternBaseFields}
+  }
+`);
 
 // TODO: Add later pattern references
 export const allPatternsWithReferencesPatternsQuery = defineQuery(`
@@ -81,6 +83,28 @@ export const patternSiblingsQuery = defineQuery(`
   }
 `);
 
+/* ---------- PAGES -- */
+const pageBaseFields = /* groq */ `
+  _id,
+  title,
+  "slug": slug.current,
+  page
+`;
+
+export const allPagesSlugsQuery = defineQuery(`
+  *[_type == "page" && defined(slug.current)] {
+    ${pageBaseFields}
+  }
+`);
+
+export const pageSlugQuery = defineQuery(`
+  *[_type == "page" && slug.current == $pageSlug] {
+    ${pageBaseFields},
+    "content": content[]${blockContent},
+  }[0]
+`);
+
+/* ---------- SECTIONS -- */
 export const sectionsQuery = defineQuery(`
   *[_type == "section"] | order(order asc) {
     _id,

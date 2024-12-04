@@ -50,4 +50,19 @@ body {
   .gridRightCol {
     @apply md:col-span-3;
   }
+
+  .rich_text_formatting p,
+  .rich_text_formatting blockquote,
+  .rich_text_formatting ul,
+  .rich_text_formatting ol {
+    @apply mb-6;
+  }
+
+  .rich_text_formatting > :last-child {
+    @apply mb-0;
+  }
+
+  .rich_text_formatting blockquote {
+    @apply border-4 border-accent px-6 py-5 rounded-3xl text-lg;
+  }
 }

@@ -39,6 +39,14 @@ export interface PatternInlineReferenceBlockDto {
   slug: string;
 }
 
+export interface PageDto {
+  _id: string;
+  title: string;
+  slug: string;
+  content: PortableTextBlock;
+  page: string;
+}
+
 export interface SubSectionDto {
   _key: string;
   title?: string;

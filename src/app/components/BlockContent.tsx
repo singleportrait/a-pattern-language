@@ -1,5 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@portabletext/types";
+import cx from "classnames";
 import { portableTextComponents } from "@/app/helpers/portableTextComponents";
 
 const BlockContent = ({
@@ -10,7 +11,12 @@ const BlockContent = ({
   classNames?: string;
 }) => {
   return (
-    <div className={classNames}>
+    <div
+      className={cx({
+        rich_text_formatting: true,
+        [classNames]: !!classNames,
+      })}
+    >
       <PortableText value={content} components={portableTextComponents} />
     </div>
   );

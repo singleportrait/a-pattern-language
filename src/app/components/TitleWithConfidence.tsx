@@ -20,7 +20,7 @@ const TitleWithConfidence = ({
         </>
       )}
     </div>
-    <h1 className="font-serif text-5xl sm:text-8xl text-center leading-tighter pt-8 pb-4 sm:pb-8">
+    <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center leading-tighter pt-8 pb-4 sm:pb-8">
       {title}
     </h1>
   </>
