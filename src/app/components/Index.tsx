@@ -29,7 +29,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
   return (
     <div className="px-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
       <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-10 mx-auto gap-y-4 py-12">
-        <div className="md:col-span-8 md:col-start-4 xl:col-start-2 mb-12">
+        <div className="md:col-span-8 md:col-start-4 xl:col-start-2 mb-12 w-full">
           <TitleWithConfidence title="A Pattern Language" confidence="high" />
           <div className=" flex flex-col gap-y-6">
             <ul className="text-lg flex justify-center items-center flex-col sm:flex-row gap-1 sm:gap-4 text-center">
@@ -50,7 +50,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
         </div>
         {sections.map((section: SectionDto, i) => (
           <Fragment key={section._id}>
-            <div className="md:col-span-8 md:col-start-4 xl:col-start-2">
+            <div className="md:col-span-8 md:col-start-4 xl:col-start-2 w-full">
               <TitleWithConfidence
                 title={section.name}
                 confidence="high"
@@ -84,6 +84,9 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
             </div>
           </Fragment>
         ))}
+        <div className="md:col-span-8 md:col-start-4 xl:col-start-2 mb-12 w-full">
+          <TitleWithConfidence confidence="high" />
+        </div>
       </div>
       <div className="hidden sm:flex fixed left-0 top-8 bg-accent p-6 pb-20 sm:w-3/12 lg:w-2/12 min-w-36 max-w-64 h-screen flex-col gap-y-8 overflow-y-scroll">
         {sidebarSections.map((section) => (

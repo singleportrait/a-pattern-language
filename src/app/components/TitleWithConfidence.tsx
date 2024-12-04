@@ -7,7 +7,7 @@ const TitleWithConfidence = ({
   confidence,
   titleSize = "large",
 }: {
-  title: string;
+  title?: string;
   confidence: "low" | "medium" | "high";
   titleSize?: "large" | "small";
 }) => (
@@ -23,15 +23,17 @@ const TitleWithConfidence = ({
         </>
       )}
     </div>
-    <h1
-      className={classNames({
-        "font-serif text-center leading-tighter pt-8 pb-4 sm:pb-8": true,
-        "text-5xl sm:text-6xl md:text-7xl lg:text-8xl": titleSize === "large",
-        "text-4xl sm:text-5xl": titleSize === "small",
-      })}
-    >
-      {title}
-    </h1>
+    {title && (
+      <h1
+        className={classNames({
+          "font-serif text-center leading-tighter pt-8 pb-4 sm:pb-8": true,
+          "text-5xl sm:text-6xl md:text-7xl lg:text-8xl": titleSize === "large",
+          "text-4xl sm:text-5xl": titleSize === "small",
+        })}
+      >
+        {title}
+      </h1>
+    )}
   </>
 );
 
