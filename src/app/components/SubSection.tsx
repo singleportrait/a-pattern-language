@@ -44,11 +44,9 @@ const PatternTitle = ({
 
 const SubSection = ({
   subSection,
-  i,
   setSelectedSection,
 }: {
   subSection: SubSectionDto;
-  i: number;
   setSelectedSection: (key: string) => void;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -76,7 +74,6 @@ const SubSection = ({
         // setHighlighted(false);
       }
       if (!ref.current.textContent) return;
-      if (i !== 0) return;
 
       // console.log("------");
       // console.log("Ref height", ref.current.clientHeight);

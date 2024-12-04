@@ -13,9 +13,9 @@ const blockContent = /* groq */ `
       _type == 'patternReference' => {
         ...,
         // create a new key value pair named "patternName" with the value name value of the referenced pattern document
-        "name": @->.name,
-        "number": @->.number,
-        "slug": @->.slug.current,
+        "name": @->name,
+        "number": @->number,
+        "slug": @->slug.current,
       }
     }
   }
@@ -25,11 +25,11 @@ const blockContent = /* groq */ `
 // Return all references included in block content !
 const blockContentReferencesOnly = /* groq */ `
   [@._type == 'block'].children[@._type == 'patternReference'] {
-    "_id": @->._id,
-    "name": @->.name,
-    "number": @->.number,
-    "slug": @->.slug.current,
-    "confidence": @->.confidence,
+    "_id": @->_id,
+    "name": @->name,
+    "number": @->number,
+    "slug": @->slug.current,
+    "confidence": @->confidence,
   }
 `;
 
@@ -101,6 +101,13 @@ export const pageSlugQuery = defineQuery(`
   *[_type == "page" && slug.current == $pageSlug] {
     ${pageBaseFields},
     "content": content[]${blockContent},
+    "sections": sections[]{
+      "_id": @->_id,
+      "slug": @->slug.current,
+      "name": @->name,
+      "content": @->content[]${blockContent},
+      "image": @->image,
+    }
   }[0]
 `);
 
@@ -118,22 +125,22 @@ export const sectionsQuery = defineQuery(`
       description,
       "patternsOriginal": patterns[],
       "patterns": patterns[]{
-        "_id": @->._id,
-        "name": @->.name,
-        "number": @->.number,
-        "slug": @->.slug.current,
-        "confidence": @->.confidence,
-        "earlierPatternReferences": @->.earlierPatterns${blockContentReferencesOnly},
+        "_id": @->_id,
+        "name": @->name,
+        "number": @->number,
+        "slug": @->slug.current,
+        "confidence": @->confidence,
+        "earlierPatternReferences": @->earlierPatterns${blockContentReferencesOnly},
       },
       "items": items[]{
-        "_id": @->._id,
+        "_id": @->_id,
         "_type": @->_type,
-        "slug": @->.slug.current,
-        "name": @->.name,
-        @->._type == 'page' => {
-          "sections": @->.sections[]{
-            "_id": @->._id,
-            "name": @->.name,
+        "slug": @->slug.current,
+        "name": @->name,
+        @->_type == 'page' => {
+          "sections": @->sections[]{
+            "_id": @->_id,
+            "name": @->name,
             "slug": @->slug.current,
           },
         }

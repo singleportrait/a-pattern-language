@@ -53,7 +53,7 @@ export const subSection = defineType({
           subtitle: `${items.length} items`,
         };
       }
-      if (!patterns || !pattern1Number || !items) {
+      if ((!patterns || !pattern1Number) && !items) {
         return {
           title: combinedTitle,
           subtitle: "No patterns",

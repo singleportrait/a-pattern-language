@@ -39,12 +39,23 @@ export interface PatternInlineReferenceBlockDto {
   slug: string;
 }
 
-export interface PageDto {
+export interface PageBaseDto {
   _id: string;
   name: string;
   slug: string;
   content: PortableTextBlock;
   page: string;
+}
+
+export interface PageDto extends PageBaseDto {
+  content: PortableTextBlock;
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+    content: PortableTextBlock;
+    image: ImageReferenceDto;
+  }[];
 }
 
 export interface PageSectionDto {
@@ -64,7 +75,7 @@ export interface SubSectionItemPatternDto extends PatternBaseDto {
   }[];
 }
 
-export interface SubSectionItemPageDto extends PageDto {
+export interface SubSectionItemPageDto extends PageBaseDto {
   _type: string;
   sections: {
     _id: string;
