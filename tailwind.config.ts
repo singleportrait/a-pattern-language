@@ -15,9 +15,16 @@ export default {
         "accent-bold": "var(--accent-bold)",
       },
       fontFamily: {
+        sans: "var(--font-inter), Inter, sans-serif",
         serif: "Garamond ATF Subhead, var(--font-eb-garamond), Georgia, serif",
         number:
           "Garamond ATF Subhead, var(--font-cormorant-garamond), Georgia, serif",
+        "number-alt-cormorant":
+          "var(--font-cormorant-garamond), Garamond ATF Subhead, Georgia, serif",
+        // "number-alt":
+        //   "var(--font-alegreya), Garamond ATF Subhead, Georgia, serif",
+        // "number-alt-abhaya":
+        //   "var(--font-abhaya-libre), Garamond ATF Subhead, Georgia, serif",
       },
       width: {
         128: "32rem",

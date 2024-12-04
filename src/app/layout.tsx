@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Cormorant_Garamond } from "next/font/google";
+import { EB_Garamond, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -16,6 +16,13 @@ const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
   title: "A Pattern Language",
   description: "By Christopher Alexander",
@@ -28,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ebGaramond.variable} ${cormorantGaramond.variable}`}>
+      <body
+        className={`${ebGaramond.variable} ${cormorantGaramond.variable} ${inter.variable}`}
+      >
         {children}
       </body>
     </html>
