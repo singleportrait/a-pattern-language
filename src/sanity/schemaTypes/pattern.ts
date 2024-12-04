@@ -6,6 +6,7 @@ export const pattern = defineType({
   title: "Pattern",
   type: "document",
   fields: [
+    // User-input number as string so it's searchable in references
     defineField({
       name: "numberString",
       title: "Number",
@@ -79,6 +80,7 @@ export const pattern = defineType({
       name: "image",
       type: "image",
     },
+    // Automatically generated number as number
     defineField({
       name: "number",
       title: "Number for sorting (automatically generated)",

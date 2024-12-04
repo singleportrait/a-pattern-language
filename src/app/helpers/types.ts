@@ -41,6 +41,7 @@ export interface PatternInlineReferenceBlockDto {
 
 export interface SubSectionDto {
   _key: string;
+  title?: string;
   description?: string;
   patterns: PatternDto[];
 }

@@ -90,6 +90,7 @@ export const sectionsQuery = defineQuery(`
     image,
     "subSections": subSections[]{
       _key,
+      title,
       description,
       "patternsOriginal": patterns[],
       "patterns": patterns[]{

@@ -6,6 +6,11 @@ export const subSection = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Sub-section title",
+      type: "string",
+    }),
+    defineField({
       name: "description",
       title: "Sub-section description",
       type: "text",
@@ -19,14 +24,19 @@ export const subSection = defineType({
   ],
   preview: {
     select: {
+      title: "title",
       description: "description",
       patterns: "patterns",
       pattern1Number: "patterns.0.number",
     },
-    prepare({ description, patterns, pattern1Number }) {
+    prepare({ title, description, patterns, pattern1Number }) {
+      const combinedTitle =
+        !title && !description
+          ? "Untitled"
+          : `${title ? `${title}: ` : ""} ${description || ""}`;
       if (!patterns || !pattern1Number) {
         return {
-          title: description,
+          title: combinedTitle,
           subtitle: "No patterns",
         };
       }
@@ -39,7 +49,7 @@ export const subSection = defineType({
           ? pattern1Number
           : `${pattern1Number} – ${calculatedLastPattern}`;
       return {
-        title: description,
+        title: combinedTitle,
         subtitle: `${displayLabel} ${displayRange}`,
       };
     },

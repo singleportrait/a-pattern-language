@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         accent: "var(--accent)",
         "accent-bold": "var(--accent-bold)",
+        "accent-400": "var(--accent-400)",
       },
       fontFamily: {
         sans: "var(--font-inter), Inter, sans-serif",
