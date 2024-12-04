@@ -1,28 +1,41 @@
 "use client";
 
+import { Fragment } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import { SubSectionDto, PatternBaseDto } from "@/app/helpers/types";
+import {
+  SubSectionDto,
+  PatternBaseDto,
+  SubSectionItemPatternDto,
+  SubSectionItemPageDto,
+} from "@/app/helpers/types";
 import { useEffect, useRef } from "react";
 // import { confidenceDisplay } from "@/app/helpers/confidence";
 
 const PatternTitle = ({
-  pattern,
+  number,
+  name,
   noUnderline = false,
+  addPeriod = true,
 }: {
-  pattern: PatternBaseDto;
+  number: number | string;
+  name: string;
   noUnderline?: boolean;
+  addPeriod?: boolean;
 }) => (
   <>
-    <span className="inline-block w-12">{pattern.number}.</span>
+    <span className="inline-block w-12 uppercase">
+      {number}
+      {addPeriod ? "." : ""}
+    </span>
     <span
       className={classNames({
         "group-hover:underline underline-offset-2": true,
         underline: !noUnderline,
       })}
     >
-      {pattern.name}
+      {name}
     </span>
     {/* &nbsp; */}
     {/* {confidenceDisplay(pattern.confidence)} */}
@@ -109,17 +122,73 @@ const SubSection = ({
         <p className="text-lg">{subSection.description}</p>
       )}
       <div className="flex flex-col">
-        {subSection.patterns.map((pattern: PatternBaseDto) => (
-          <Link
-            key={pattern._id}
-            href={`/patterns/${pattern.slug}`}
-            className="group"
-          >
-            <h4 className="text-lg py-0.5 pl-12">
-              <PatternTitle pattern={pattern} noUnderline />
-            </h4>
-          </Link>
-        ))}
+        {subSection.patterns &&
+          subSection.patterns.length > 0 &&
+          subSection.patterns.map((pattern: PatternBaseDto) => (
+            <Link
+              key={pattern._id}
+              href={`/patterns/${pattern.slug}`}
+              className="group"
+            >
+              <h4 className="text-lg py-0.5 pl-12">
+                <PatternTitle
+                  number={pattern.number}
+                  name={pattern.name}
+                  noUnderline
+                />
+              </h4>
+            </Link>
+          ))}
+        {subSection.items &&
+          subSection.items.length > 0 &&
+          subSection.items.map(
+            (item: SubSectionItemPatternDto | SubSectionItemPageDto, i) => (
+              <Fragment key={item._id}>
+                {item._type === "page" ? (
+                  <>
+                    <Link href={`/${item.slug}`} className="group">
+                      <h4 className="text-lg py-0.5 pl-12">
+                        <PatternTitle
+                          number={String.fromCharCode(97 + i)}
+                          name={item.name}
+                          noUnderline
+                        />
+                      </h4>
+                    </Link>
+                    {item._type === "page" &&
+                      item?.sections &&
+                      item?.sections.length > 0 &&
+                      item.sections.map((section) => (
+                        <Link
+                          href={`/${item.slug}#${section.slug}`}
+                          className="group"
+                          key={section._id}
+                        >
+                          <h4 className="text-lg py-0.5 pl-12">
+                            <PatternTitle
+                              number="–"
+                              name={section.name}
+                              noUnderline
+                              addPeriod={false}
+                            />
+                          </h4>
+                        </Link>
+                      ))}
+                  </>
+                ) : (
+                  <Link href={`/patterns/${item.slug}`} className="group">
+                    <h4 className="text-lg py-0.5 pl-12">
+                      <PatternTitle
+                        number={String.fromCharCode(97 + i)}
+                        name={item.name}
+                        noUnderline
+                      />
+                    </h4>
+                  </Link>
+                )}
+              </Fragment>
+            )
+          )}
       </div>
     </div>
   );

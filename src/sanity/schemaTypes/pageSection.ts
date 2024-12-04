@@ -1,15 +1,14 @@
 import { defineField, defineType } from "sanity";
 
-export const page = defineType({
-  name: "page",
-  title: "Page",
+export const pageSection = defineType({
+  name: "pageSection",
+  title: "Page Section",
   type: "document",
   fields: [
     defineField({
       name: "name",
       title: "Title",
       type: "string",
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "slug",
@@ -24,15 +23,9 @@ export const page = defineType({
       type: "blockContent",
     }),
     defineField({
-      name: "page",
-      title: "Page(s) in book",
-      type: "string",
-    }),
-    defineField({
-      name: "sections",
-      title: "Section",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "pageSection" }] }],
+      title: "Image",
+      name: "image",
+      type: "image",
     }),
   ],
 });

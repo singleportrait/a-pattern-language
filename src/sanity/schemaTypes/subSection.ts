@@ -21,6 +21,18 @@ export const subSection = defineType({
       type: "array",
       of: [{ type: "reference", to: [{ type: "pattern" }] }],
     }),
+    defineField({
+      name: "items",
+      title:
+        "Items (for use in homepage intro section only; don't use at the same time as patterns)",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "pattern" }, { type: "page" }],
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
@@ -28,13 +40,20 @@ export const subSection = defineType({
       description: "description",
       patterns: "patterns",
       pattern1Number: "patterns.0.number",
+      items: "items",
     },
-    prepare({ title, description, patterns, pattern1Number }) {
+    prepare({ title, description, patterns, pattern1Number, items }) {
       const combinedTitle =
         !title && !description
           ? "Untitled"
           : `${title ? `${title}: ` : ""} ${description || ""}`;
-      if (!patterns || !pattern1Number) {
+      if (items) {
+        return {
+          title: combinedTitle,
+          subtitle: `${items.length} items`,
+        };
+      }
+      if (!patterns || !pattern1Number || !items) {
         return {
           title: combinedTitle,
           subtitle: "No patterns",

@@ -9,6 +9,7 @@ import SubSection from "@/app/components/SubSection";
 import { SectionDto, SubSectionDto } from "@/app/helpers/types";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+import BlockContent from "./BlockContent";
 
 const Index = ({ sections }: { sections: SectionDto[] }) => {
   const [selectedSection, setSelectedSection] = useState<string | undefined>(
@@ -18,11 +19,14 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
   return (
     <div className="px-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
       {sections.map((section: SectionDto, j) => (
-        <div key={section._id} className="gridWrapper py-12">
-          <div className="gridColSpanContent">
+        <div
+          key={section._id}
+          className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-10 mx-auto gap-y-4 py-12"
+        >
+          <div className="md:col-span-8 md:col-start-4 xl:col-start-2">
             <TitleWithConfidence title={section.name} confidence="high" />
           </div>
-          <div className="gridLeftCol">
+          <div className="md:col-span-3 md:col-start-4 xl:col-start-2">
             {section.image && (
               <div className="p-5 bg-accent">
                 <Image
@@ -35,9 +39,9 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               </div>
             )}
           </div>
-          <div className="gridRightCol md:col-start-3 xl:col-start-4 flex flex-col gap-y-1">
+          <div className="md:col-span-5 md:col-start-7 xl:col-start-5 flex flex-col gap-y-1">
             <div className="-mx-5 p-5 bg-accent text-lg font-sans">
-              <p>{section.description}</p>
+              <BlockContent content={section.description} />
             </div>
             {section?.subSections?.map((subSection: SubSectionDto, i) => (
               <SubSection
@@ -50,7 +54,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
           </div>
         </div>
       ))}
-      <div className="fixed left-0 top-8 bg-accent p-5 w-60 h-screen flex flex-col gap-y-8">
+      <div className="hidden sm:flex fixed left-0 top-8 bg-accent p-6 sm:w-3/12 lg:w-2/12 min-w-36 max-w-64 h-screen flex-col gap-y-8">
         {sections.map((section) => (
           <div key={section._id} className="flex flex-col gap-y-2">
             <div className="uppercase text-xs">{section.name}</div>
@@ -61,18 +65,21 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
                   key={subSection._key}
                   href={`#${subSection._key}`}
                   className={classNames({
-                    "flex gap-x-2 hover:underline text-sm": true,
+                    "flex sm:flex-col md:flex-row lg:flex-col xl:flex-row gap-x-2 hover:underline text-sm":
+                      true,
                     "font-bold": selectedSection === subSection._key,
                   })}
                   shallow
                 >
                   {/* First pattern to last pattern */}
-                  <div className="w-16 shrink-0">
-                    {subSection.patterns[0].number}–
-                    {Object.values(subSection.patterns).length -
-                      1 +
-                      subSection.patterns[0].number}
-                  </div>
+                  {subSection.patterns && subSection.patterns.length > 0 && (
+                    <div className="w-16 shrink-0">
+                      {subSection.patterns[0].number}–
+                      {Object.values(subSection.patterns).length -
+                        1 +
+                        subSection.patterns[0].number}
+                    </div>
+                  )}
                   <div>{subSection.title}</div>
                 </Link>
               ))}

@@ -49,9 +49,9 @@ export default async function PagePage(props: Props) {
     <>
       <Menu />
       <div className="px-8 py-12 min-h-screen">
-        <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-0 md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-10 mx-auto gap-y-4">
+        <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-10 mx-auto gap-y-4">
           <div className="md:col-span-8 md:col-start-4 xl:col-start-2">
-            <TitleWithConfidence title={page.title} confidence="high" />
+            <TitleWithConfidence title={page.name} confidence="high" />
           </div>
           <div className="md:col-span-6 md:col-start-5 xl:col-start-3">
             <BlockContent content={page.content} />

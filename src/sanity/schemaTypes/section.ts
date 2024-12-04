@@ -20,7 +20,7 @@ export const section = defineType({
     defineField({
       name: "description",
       title: "Description",
-      type: "text",
+      type: "blockContent",
       validation: (rule) => rule.required(),
     }),
     defineField({

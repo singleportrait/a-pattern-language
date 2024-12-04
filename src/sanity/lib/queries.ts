@@ -86,7 +86,7 @@ export const patternSiblingsQuery = defineQuery(`
 /* ---------- PAGES -- */
 const pageBaseFields = /* groq */ `
   _id,
-  title,
+  name,
   "slug": slug.current,
   page
 `;
@@ -110,7 +110,7 @@ export const sectionsQuery = defineQuery(`
     _id,
     name,
     order,
-    description,
+    "description": description[]${blockContent},
     image,
     "subSections": subSections[]{
       _key,
@@ -124,6 +124,19 @@ export const sectionsQuery = defineQuery(`
         "slug": @->.slug.current,
         "confidence": @->.confidence,
         "earlierPatternReferences": @->.earlierPatterns${blockContentReferencesOnly},
+      },
+      "items": items[]{
+        "_id": @->._id,
+        "_type": @->_type,
+        "slug": @->.slug.current,
+        "name": @->.name,
+        @->._type == 'page' => {
+          "sections": @->.sections[]{
+            "_id": @->._id,
+            "name": @->.name,
+            "slug": @->slug.current,
+          },
+        }
       }
     }
   }

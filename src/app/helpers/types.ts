@@ -41,23 +41,50 @@ export interface PatternInlineReferenceBlockDto {
 
 export interface PageDto {
   _id: string;
-  title: string;
+  name: string;
   slug: string;
   content: PortableTextBlock;
   page: string;
 }
 
+export interface PageSectionDto {
+  _id: string;
+  name: string;
+  slug: string;
+  content: PortableTextBlock;
+  image: ImageReferenceDto;
+}
+
+export interface SubSectionItemPatternDto extends PatternBaseDto {
+  _type: string;
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+  }[];
+}
+
+export interface SubSectionItemPageDto extends PageDto {
+  _type: string;
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+  }[];
+}
 export interface SubSectionDto {
   _key: string;
   title?: string;
   description?: string;
-  patterns: PatternDto[];
+  // TODO: Use PatternBaseDto? Remove earlierPatternReferences from these sub-sections? (not sure why they're here)
+  patterns?: PatternBaseDto[];
+  items?: (SubSectionItemPatternDto | SubSectionItemPageDto)[];
 }
 export interface SectionDto {
   _id: string;
   name: string;
   order: number;
-  description: string;
+  description: PortableTextBlock;
   image: ImageReferenceDto;
   subSections: SubSectionDto[];
 }

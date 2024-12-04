@@ -35,6 +35,11 @@ body {
   body {
     @apply font-sans;
   }
+
+  .eyebrow {
+    @apply text-base uppercase font-sans;
+  }
+
   .gridWrapper {
     @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-10 max-w-screen-2xl mx-auto gap-y-4;
   }
@@ -60,6 +65,10 @@ body {
 
   .rich_text_formatting > :last-child {
     @apply mb-0;
+  }
+
+  .rich_text_formatting h4 {
+    @apply eyebrow mb-2;
   }
 
   .rich_text_formatting blockquote {

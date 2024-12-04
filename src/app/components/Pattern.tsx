@@ -50,11 +50,11 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
         )}
         <div className="flex flex-col -mx-5 p-5 bg-accent gap-y-10 items-center">
           <div className="space-y-2 w-full">
-            <p className="uppercase">Problem:</p>
+            <p className="eyebrow">Problem:</p>
             <p className="text-lg">{pattern.problem}</p>
           </div>
           <div className="space-y-2 w-full">
-            <p className="uppercase">Solution:</p>
+            <p className="eyebrow">Solution:</p>
             <p className="text-[1.35rem] leading-snug whitespace-pre-wrap">
               {pattern.solution}
             </p>
@@ -71,7 +71,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
         </div>
         {pattern.laterPatterns && (
           <div className="space-y-2 text-lg leading-normal">
-            <p className="text-base uppercase">Usage:</p>
+            <p className="eyebrow">Usage:</p>
             <BlockContent content={pattern.laterPatterns} />
           </div>
         )}
