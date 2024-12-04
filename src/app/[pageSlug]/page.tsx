@@ -15,7 +15,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const { data }: { data: PageBaseDto } = await sanityFetch({
+  const { data } = await sanityFetch({
     query: allPagesSlugsQuery,
     perspective: "published",
     stega: false,
