@@ -99,6 +99,10 @@ body {
     @apply mb-6;
   }
 
+  .rich_text_formatting ul {
+    @apply list-disc pl-6;
+  }
+
   .rich_text_formatting > :last-child {
     @apply mb-0;
   }
