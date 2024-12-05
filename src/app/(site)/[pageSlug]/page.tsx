@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import classNames from "classnames";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -8,7 +10,6 @@ import Menu from "@/app/components/Menu";
 import { PageBaseDto, PageDto } from "@/app/helpers/types";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import BlockContent from "@/app/components/BlockContent";
-import { Fragment } from "react";
 
 type Props = {
   params: Promise<{ pageSlug: string }>;
@@ -63,10 +64,16 @@ export default async function PagePage(props: Props) {
             page.sections.length > 0 &&
             page.sections.map((section) => (
               <Fragment key={section._id}>
-                <div className="sidebar_grid_span_8 mt-12" id={section.slug}>
+                <div
+                  className={classNames({
+                    "sidebar_grid_span_8 w-full": true,
+                    "mt-12": section.name,
+                  })}
+                  id={section.slug}
+                >
                   <TitleWithConfidence
                     title={section.name}
-                    confidence="high"
+                    confidence={section.name ? "high" : "low"}
                     titleSize="small"
                   />
                 </div>
@@ -83,7 +90,7 @@ export default async function PagePage(props: Props) {
                         />
                       </div>
                     </div>
-                    <div className="sidebar_grid_right_column">
+                    <div className="sidebar_grid_right_column pt-4 lg:pt-0">
                       <BlockContent content={section.content} />
                     </div>
                   </>
