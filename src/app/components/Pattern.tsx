@@ -4,6 +4,7 @@ import { PatternDto } from "@/app/helpers/types";
 import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import { urlFor } from "@/sanity/lib/image";
+import PageFooter from "@/app/components/PageFooter";
 
 const Pattern = ({ pattern }: { pattern: PatternDto }) => {
   return (
@@ -80,11 +81,10 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
           </div>
         )}
       </div>
-      <div className="gridColSpanContent w-full flex items-center gap-x-4 py-8">
-        <div className="grow border-b-2 border-b-accent" />
-        <p className="font-number">pg. {pattern.page}</p>
-        <div className="grow border-b-2 border-b-accent" />
-      </div>
+      <PageFooter
+        label={`pg. ${pattern.page}`}
+        classNames="gridColSpanContent"
+      />
     </div>
   );
 };

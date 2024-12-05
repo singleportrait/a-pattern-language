@@ -10,6 +10,7 @@ import Menu from "@/app/components/Menu";
 import { PageBaseDto, PageDto } from "@/app/helpers/types";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import BlockContent from "@/app/components/BlockContent";
+import PageFooter from "@/app/components/PageFooter";
 
 type Props = {
   params: Promise<{ pageSlug: string }>;
@@ -102,6 +103,7 @@ export default async function PagePage(props: Props) {
                 )}
               </Fragment>
             ))}
+          <PageFooter label={page.page} classNames="sidebar_grid_span_8" />
         </div>
       </div>
       <div className="hidden sm:block fixed left-0 top-11 w-56 bg-accent h-screen overflow-hidden">
