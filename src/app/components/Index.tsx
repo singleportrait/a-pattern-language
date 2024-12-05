@@ -27,8 +27,8 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
   console.log("Sidebar sections", sidebarSections);
 
   return (
-    <div className="px-8 flex flex-col items-center justify-center min-h-screen gap-y-4">
-      <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-10 mx-auto gap-y-4 py-12">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-y-4">
+      <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-5 mx-auto gap-y-4 py-12">
         <div className="md:col-span-8 md:col-start-4 xl:col-start-2 mb-12 w-full">
           <TitleWithConfidence title="A Pattern Language" confidence="high" />
           <div className=" flex flex-col gap-y-6">
@@ -59,7 +59,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
             </div>
             <div className="md:col-span-3 md:col-start-4 xl:col-start-2">
               {section.image && (
-                <div className="p-5 bg-accent">
+                <div className="p-4 bg-accent">
                   <Image
                     src={urlFor(section.image).width(1000).url() || ""}
                     alt={`${section.name} image`}
@@ -71,7 +71,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               )}
             </div>
             <div className="md:col-span-5 md:col-start-7 xl:col-start-5 flex flex-col gap-y-1">
-              <div className="-mx-5 p-5 bg-accent text-lg font-sans">
+              <div className="-mx-5 sm:mx-0 p-5 bg-accent text-lg/snug">
                 <BlockContent content={section.description} />
               </div>
               {section?.subSections?.map((subSection: SubSectionDto) => (

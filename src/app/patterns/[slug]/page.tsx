@@ -60,9 +60,7 @@ export default async function PatternPage(props: Props) {
   return (
     <>
       <Menu nextPattern={nextPattern} previousPattern={previousPattern} />
-      <div className="px-8 py-12 min-h-screen">
-        <Pattern pattern={pattern} />
-      </div>
+      <Pattern pattern={pattern} />
     </>
   );
 }

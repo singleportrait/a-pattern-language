@@ -8,7 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 const Pattern = ({ pattern }: { pattern: PatternDto }) => {
   return (
     <div className="gridWrapper">
-      <div className="fixed left-8 sm:left-12 bottom-8 sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
+      <div className="fixed left-8 sm:left-12 top-12 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
         {pattern.number}
       </div>
       <div className="gridColSpanContent hidden md:block">
@@ -19,7 +19,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </div>
       {pattern.image && (
         <div className="gridLeftCol">
-          <div className="p-5 bg-accent">
+          <div className="p-4 bg-accent">
             <Image
               src={urlFor(pattern.image).width(1000).url() || ""}
               alt={`${pattern.number}. ${pattern.name} image`}
@@ -30,7 +30,7 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
           </div>
         </div>
       )}
-      <div className="block md:hidden">
+      <div className="w-full block md:hidden">
         <TitleWithConfidence
           title={pattern.name}
           confidence={pattern.confidence}
@@ -38,24 +38,25 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
       </div>
       <div
         className={classNames({
-          "gridRightCol flex flex-col gap-y-10": true,
+          "gridRightCol flex flex-col gap-y-8": true,
           "md:col-start-3 xl:col-start-4": pattern.image,
           "md:col-start-2 xl:col-start-3": !pattern.image,
         })}
       >
         {pattern.earlierPatterns && (
-          <div className="text-lg leading-normal">
-            <BlockContent content={pattern.earlierPatterns} />
-          </div>
+          <BlockContent
+            content={pattern.earlierPatterns}
+            classNames="sm:text-lg/normal"
+          />
         )}
-        <div className="flex flex-col -mx-5 p-5 bg-accent gap-y-10 items-center">
+        <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-highlight gap-y-10 items-center">
           <div className="space-y-2 w-full">
             <p className="eyebrow">Problem:</p>
-            <p className="text-lg">{pattern.problem}</p>
+            <p className="sm:text-lg">{pattern.problem}</p>
           </div>
           <div className="space-y-2 w-full">
             <p className="eyebrow">Solution:</p>
-            <p className="text-[1.35rem] leading-snug whitespace-pre-wrap">
+            <p className="text-xl sm:text-[1.375rem] leading-snug whitespace-pre-wrap">
               {pattern.solution}
             </p>
           </div>
@@ -70,9 +71,12 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
           )}
         </div>
         {pattern.laterPatterns && (
-          <div className="space-y-2 text-lg leading-normal">
+          <div className="space-y-2">
             <p className="eyebrow">Usage:</p>
-            <BlockContent content={pattern.laterPatterns} />
+            <BlockContent
+              content={pattern.laterPatterns}
+              classNames="sm:text-lg/normal"
+            />
           </div>
         )}
       </div>

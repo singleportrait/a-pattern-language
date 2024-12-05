@@ -24,7 +24,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .h1 {
@@ -45,11 +45,15 @@ body {
   }
 
   .eyebrow {
-    @apply text-base uppercase font-sans;
+    @apply text-sm uppercase font-sans;
+  }
+
+  .callout_box {
+    @apply border-4 border-accent px-5 py-4 rounded-3xl;
   }
 
   .gridWrapper {
-    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-10 max-w-screen-2xl mx-auto gap-y-4;
+    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-5 max-w-screen-2xl mx-auto gap-y-4;
   }
 
   .gridColSpanContent {
@@ -80,6 +84,6 @@ body {
   }
 
   .rich_text_formatting blockquote {
-    @apply border-4 border-accent px-6 py-5 rounded-3xl text-lg;
+    @apply callout_box text-lg/snug;
   }
 }

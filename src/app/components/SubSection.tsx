@@ -24,22 +24,22 @@ const PatternTitle = ({
   noUnderline?: boolean;
   addPeriod?: boolean;
 }) => (
-  <>
-    <span className="inline-block w-12 uppercase">
+  <h4 className="flex text-lg py-0.5 pl-8 sm:pl-12">
+    <p className="w-12 uppercase shrink-0">
       {number}
       {addPeriod ? "." : ""}
-    </span>
-    <span
+    </p>
+    <p
       className={classNames({
         "group-hover:underline underline-offset-2": true,
         underline: !noUnderline,
       })}
     >
       {name}
-    </span>
+    </p>
     {/* &nbsp; */}
     {/* {confidenceDisplay(pattern.confidence)} */}
-  </>
+  </h4>
 );
 
 const SubSection = ({
@@ -127,13 +127,11 @@ const SubSection = ({
               href={`/patterns/${pattern.slug}`}
               className="group"
             >
-              <h4 className="text-lg py-0.5 pl-12">
-                <PatternTitle
-                  number={pattern.number}
-                  name={pattern.name}
-                  noUnderline
-                />
-              </h4>
+              <PatternTitle
+                number={pattern.number}
+                name={pattern.name}
+                noUnderline
+              />
             </Link>
           ))}
         {subSection.items &&
@@ -144,13 +142,11 @@ const SubSection = ({
                 {item._type === "page" ? (
                   <>
                     <Link href={`/${item.slug}`} className="group">
-                      <h4 className="text-lg py-0.5 pl-12">
-                        <PatternTitle
-                          number={String.fromCharCode(97 + i)}
-                          name={item.name}
-                          noUnderline
-                        />
-                      </h4>
+                      <PatternTitle
+                        number={String.fromCharCode(97 + i)}
+                        name={item.name}
+                        noUnderline
+                      />
                     </Link>
                     {item._type === "page" &&
                       item?.sections &&
@@ -161,26 +157,22 @@ const SubSection = ({
                           className="group"
                           key={section._id}
                         >
-                          <h4 className="text-lg py-0.5 pl-12">
-                            <PatternTitle
-                              number="–"
-                              name={section.name}
-                              noUnderline
-                              addPeriod={false}
-                            />
-                          </h4>
+                          <PatternTitle
+                            number="–"
+                            name={section.name}
+                            noUnderline
+                            addPeriod={false}
+                          />
                         </Link>
                       ))}
                   </>
                 ) : (
                   <Link href={`/patterns/${item.slug}`} className="group">
-                    <h4 className="text-lg py-0.5 pl-12">
-                      <PatternTitle
-                        number={String.fromCharCode(97 + i)}
-                        name={item.name}
-                        noUnderline
-                      />
-                    </h4>
+                    <PatternTitle
+                      number={String.fromCharCode(97 + i)}
+                      name={item.name}
+                      noUnderline
+                    />
                   </Link>
                 )}
               </Fragment>

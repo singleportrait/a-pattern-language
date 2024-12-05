@@ -11,7 +11,7 @@ const Menu = ({
   isIndex?: boolean;
 }) => {
   return (
-    <menu className="fixed z-10 bg-accent w-full py-1 px-2 flex sm:grid sm:grid-cols-3 justify-between text-sm">
+    <menu className="fixed z-10 left-0 top-0 bg-accent w-full py-1 px-2 flex sm:grid sm:grid-cols-3 justify-between text-sm">
       {previousPattern ? (
         <Link href={`/patterns/${previousPattern.slug}`}>
           &larr; {previousPattern.number}{" "}

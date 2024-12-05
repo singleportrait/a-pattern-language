@@ -33,7 +33,7 @@ export default async function Grid() {
   return (
     <>
       <Menu />
-      <div className="py-12 max-w-screen-xl mx-auto px-4">
+      <div className="max-w-screen-xl mx-auto">
         {dataForD3 && (
           <a
             id="downloadAnchorElem"
