@@ -92,6 +92,14 @@ body {
     @apply lg:col-span-5 lg:col-start-4 xl:col-start-5;
   }
 
+  .reference_highlight {
+    @apply uppercase text-base bg-accent-highlight px-0.5 py-px rounded mx-px hover:bg-accent-highlight-hover transition-colors;
+  }
+
+  .rich_text_formatting.sm\:text-lg\/normal .reference_highlight {
+    @apply sm:py-0.5;
+  }
+
   .rich_text_formatting p,
   .rich_text_formatting blockquote,
   .rich_text_formatting ul,
