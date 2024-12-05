@@ -99,8 +99,29 @@ body {
     @apply mb-6;
   }
 
+  .rich_text_formatting ul,
+  .rich_text_formatting ol {
+    @apply pl-8;
+  }
+
   .rich_text_formatting ul {
-    @apply list-disc pl-6;
+    @apply space-y-0.5;
+  }
+
+  .rich_text_formatting ul li:before {
+    content: "•";
+    @apply inline-block w-5 -ml-5;
+  }
+
+  .rich_text_formatting ol {
+    @apply space-y-1.5;
+    counter-reset: item;
+  }
+
+  .rich_text_formatting ol li:before {
+    counter-increment: item;
+    content: counter(item) ".";
+    @apply inline-block w-6 -ml-6;
   }
 
   .rich_text_formatting > :last-child {

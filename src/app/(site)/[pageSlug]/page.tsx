@@ -67,7 +67,7 @@ export default async function PagePage(props: Props) {
                 <div
                   className={classNames({
                     "sidebar_grid_span_8 w-full": true,
-                    "mt-12": section.name,
+                    "pt-16": section.name,
                   })}
                   id={section.slug}
                 >

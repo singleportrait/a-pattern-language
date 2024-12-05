@@ -151,20 +151,22 @@ const SubSection = ({
                     {item._type === "page" &&
                       item?.sections &&
                       item?.sections.length > 0 &&
-                      item.sections.map((section) => (
-                        <Link
-                          href={`/${item.slug}#${section.slug}`}
-                          className="group"
-                          key={section._id}
-                        >
-                          <PatternTitle
-                            number="–"
-                            name={section.name}
-                            noUnderline
-                            addPeriod={false}
-                          />
-                        </Link>
-                      ))}
+                      item.sections
+                        .filter((section) => section.name)
+                        .map((section) => (
+                          <Link
+                            href={`/${item.slug}#${section.slug}`}
+                            className="group"
+                            key={section._id}
+                          >
+                            <PatternTitle
+                              number="–"
+                              name={section.name}
+                              noUnderline
+                              addPeriod={false}
+                            />
+                          </Link>
+                        ))}
                   </>
                 ) : (
                   <Link href={`/patterns/${item.slug}`} className="group">
