@@ -7,7 +7,7 @@ const BlockContent = ({
   content,
   classNames = "",
 }: {
-  content: PortableTextBlock;
+  content: PortableTextBlock[];
   classNames?: string;
 }) => {
   return (

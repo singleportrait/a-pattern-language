@@ -1,3 +1,4 @@
+import portableTextToPlainText from "@/app/helpers/portableTextToPlainText";
 import { defineField, defineType } from "sanity";
 
 export const pageSection = defineType({
@@ -14,7 +15,6 @@ export const pageSection = defineType({
       name: "slug",
       title: "Slug",
       type: "slug",
-      validation: (rule) => rule.required(),
       options: { source: "name" },
     }),
     defineField({
@@ -28,4 +28,18 @@ export const pageSection = defineType({
       type: "image",
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      description: "content",
+      media: "image",
+    },
+    prepare(selection) {
+      return {
+        title: selection.title || "No title",
+        subtitle: portableTextToPlainText(selection.description),
+        media: selection.media,
+      };
+    },
+  },
 });

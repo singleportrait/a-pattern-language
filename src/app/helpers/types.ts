@@ -20,8 +20,8 @@ export interface PatternDto extends PatternBaseDto {
   page: number;
   problem: string;
   solution: string;
-  earlierPatterns: PortableTextBlock;
-  laterPatterns: PortableTextBlock;
+  earlierPatterns: PortableTextBlock[];
+  laterPatterns: PortableTextBlock[];
 }
 
 export interface PatternBaseWithReferencesDto extends PatternBaseDto {
@@ -43,17 +43,17 @@ export interface PageBaseDto {
   _id: string;
   name: string;
   slug: string;
-  content: PortableTextBlock;
+  content: PortableTextBlock[];
   page: string;
 }
 
 export interface PageDto extends PageBaseDto {
-  content: PortableTextBlock;
+  content: PortableTextBlock[];
   sections: {
     _id: string;
     name: string;
     slug: string;
-    content: PortableTextBlock;
+    content: PortableTextBlock[];
     image: ImageReferenceDto;
   }[];
 }
@@ -62,7 +62,7 @@ export interface PageSectionDto {
   _id: string;
   name: string;
   slug: string;
-  content: PortableTextBlock;
+  content: PortableTextBlock[];
   image: ImageReferenceDto;
 }
 
@@ -95,7 +95,7 @@ export interface SectionDto {
   _id: string;
   name: string;
   order: number;
-  description: PortableTextBlock;
+  description: PortableTextBlock[];
   image: ImageReferenceDto;
   subSections: SubSectionDto[];
 }
