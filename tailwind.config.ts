@@ -29,15 +29,17 @@ export default {
         // "number-alt-abhaya":
         //   "var(--font-abhaya-libre), Garamond ATF Subhead, Georgia, serif",
       },
-      lineHeight: {
-        snug: "1.45",
-      },
-      width: {
-        128: "32rem",
-      },
       fontSize: {
         "10xl": "12rem",
         "12xl": "18rem",
+      },
+      lineHeight: {
+        snug: "1.45",
+      },
+      spacing: {
+        15: "3.75rem", // Index sidebar numbers
+        57: "14.25rem", // Header table of contents
+        128: "32rem",
       },
     },
   },

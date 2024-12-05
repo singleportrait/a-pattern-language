@@ -51,54 +51,53 @@ export default async function PagePage(props: Props) {
   return (
     <>
       <Menu />
-      <div className="flex flex-col items-center md:items-start sm:ml-40 md:ml-auto md:grid md:grid-cols-12 xl:grid-cols-9 xl:max-w-screen-lg md:gap-x-5 mx-auto gap-y-4">
-        <div className="md:col-span-8 md:col-start-4 xl:col-start-2">
-          <TitleWithConfidence title={page.name} confidence="high" />
-        </div>
-        <div className="md:col-span-6 md:col-start-5 xl:col-start-3">
-          <BlockContent content={page.content} />
-        </div>
-        {page.sections &&
-          page.sections.length > 0 &&
-          page.sections.map((section) => (
-            <Fragment key={section._id}>
-              <div
-                className="md:col-span-8 md:col-start-4 xl:col-start-2 mt-12"
-                id={section.slug}
-              >
-                <TitleWithConfidence
-                  title={section.name}
-                  confidence="high"
-                  titleSize="small"
-                />
-              </div>
-              {section.image && (
-                <>
-                  <div className="md:col-span-3 md:col-start-4 xl:col-start-2">
-                    <div className="p-4 bg-accent">
-                      <Image
-                        src={urlFor(section.image).width(1000).url() || ""}
-                        alt={`${section.name} image`}
-                        width={500}
-                        height={500}
-                        className="mix-blend-multiply"
-                      />
+      <div className="sidebar_grid_wrapper">
+        <div className="sidebar_grid">
+          <div className="sidebar_grid_span_8">
+            <TitleWithConfidence title={page.name} confidence="high" />
+          </div>
+          <div className="sidebar_grid_span_6">
+            <BlockContent content={page.content} />
+          </div>
+          {page.sections &&
+            page.sections.length > 0 &&
+            page.sections.map((section) => (
+              <Fragment key={section._id}>
+                <div className="sidebar_grid_span_8 mt-12" id={section.slug}>
+                  <TitleWithConfidence
+                    title={section.name}
+                    confidence="high"
+                    titleSize="small"
+                  />
+                </div>
+                {section.image && (
+                  <>
+                    <div className="sidebar_grid_left_column">
+                      <div className="p-4 bg-accent">
+                        <Image
+                          src={urlFor(section.image).width(1000).url() || ""}
+                          alt={`${section.name} image`}
+                          width={500}
+                          height={500}
+                          className="mix-blend-multiply"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="md:col-span-5 md:col-start-7 xl:col-start-5">
+                    <div className="sidebar_grid_right_column">
+                      <BlockContent content={section.content} />
+                    </div>
+                  </>
+                )}
+                {!section.image && (
+                  <div className="sidebar_grid_span_8">
                     <BlockContent content={section.content} />
                   </div>
-                </>
-              )}
-              {!section.image && (
-                <div className="md:col-span-8 md:col-start-4 xl:col-start-2">
-                  <BlockContent content={section.content} />
-                </div>
-              )}
-            </Fragment>
-          ))}
+                )}
+              </Fragment>
+            ))}
+        </div>
       </div>
-      <div className="hidden sm:block fixed w-2/12 min-w-36 bg-accent h-screen top-8 left-0 p-6">
+      <div className="hidden sm:block fixed left-0 top-11 w-56 bg-accent h-screen overflow-hidden">
         Sidebar
       </div>
     </>

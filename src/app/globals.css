@@ -68,6 +68,30 @@ body {
     @apply md:col-span-3;
   }
 
+  .sidebar_grid_wrapper {
+    @apply flex flex-col items-center justify-center min-h-screen gap-y-4 sm:ml-56;
+  }
+
+  .sidebar_grid {
+    @apply flex flex-col items-center lg:items-start lg:grid lg:grid-cols-8 xl:grid-cols-10 xl:max-w-screen-lg lg:gap-x-5 mx-auto gap-y-4;
+  }
+
+  .sidebar_grid_span_8 {
+    @apply lg:col-span-8 lg:col-start-1 xl:col-start-2;
+  }
+
+  .sidebar_grid_span_6 {
+    @apply lg:col-span-6 lg:col-start-2 xl:col-start-3;
+  }
+
+  .sidebar_grid_left_column {
+    @apply lg:col-span-3 lg:col-start-1 xl:col-start-2;
+  }
+
+  .sidebar_grid_right_column {
+    @apply lg:col-span-5 lg:col-start-4 xl:col-start-5;
+  }
+
   .rich_text_formatting p,
   .rich_text_formatting blockquote,
   .rich_text_formatting ul,

@@ -96,7 +96,7 @@ const SubSection = ({
       key={subSection._key}
       id={subSection._key}
       className={classNames({
-        "flex flex-col gap-y-2 -mx-5 p-5": true,
+        "flex flex-col gap-y-2 pt-16 -mb-4": true,
         // "bg-slate-100": highlighted,
         // "border-l-2": true,
         // "border-l-transparent": !highlighted,
