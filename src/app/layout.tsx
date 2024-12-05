@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={`${ebGaramond.variable} ${cormorantGaramond.variable} ${inter.variable}`}
       >
-        <div className="px-5 py-16 min-h-screen">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );

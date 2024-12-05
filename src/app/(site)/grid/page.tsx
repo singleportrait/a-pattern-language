@@ -6,7 +6,7 @@ import {
   generateLinksDataForD3,
 } from "@/app/helpers/referenceCounts";
 import Menu from "@/app/components/Menu";
-import PatternsGrid from "../components/PatternsGrid";
+import PatternsGrid from "../../components/PatternsGrid";
 import { Suspense } from "react";
 
 export const metadata = {
