@@ -1,46 +1,12 @@
 "use client";
 
-import { Fragment } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import {
-  SubSectionDto,
-  PatternBaseDto,
-  SubSectionItemPatternDto,
-  SubSectionItemPageDto,
-} from "@/app/helpers/types";
+import { SubSectionDto, PatternBaseDto } from "@/app/helpers/types";
 import { useEffect, useRef } from "react";
-// import { confidenceDisplay } from "@/app/helpers/confidence";
-
-const PatternTitle = ({
-  number,
-  name,
-  noUnderline = false,
-  addPeriod = true,
-}: {
-  number: number | string;
-  name: string;
-  noUnderline?: boolean;
-  addPeriod?: boolean;
-}) => (
-  <h4 className="flex text-lg py-0.5 pl-8 sm:pl-12">
-    <p className="w-12 uppercase shrink-0">
-      {number}
-      {addPeriod ? "." : ""}
-    </p>
-    <p
-      className={classNames({
-        "group-hover:underline underline-offset-2": true,
-        underline: !noUnderline,
-      })}
-    >
-      {name}
-    </p>
-    {/* &nbsp; */}
-    {/* {confidenceDisplay(pattern.confidence)} */}
-  </h4>
-);
+import PatternTitle from "@/app/components/PatternTitle";
+import SubSectionItems from "@/app/components/SubSectionItems";
 
 const SubSection = ({
   subSection,
@@ -134,52 +100,7 @@ const SubSection = ({
               />
             </Link>
           ))}
-        {subSection.items &&
-          subSection.items.length > 0 &&
-          subSection.items.map(
-            (item: SubSectionItemPatternDto | SubSectionItemPageDto, i) => (
-              <Fragment key={item._id}>
-                {item._type === "page" ? (
-                  <>
-                    <Link href={`/${item.slug}`} className="group">
-                      <PatternTitle
-                        number={String.fromCharCode(97 + i)}
-                        name={item.name}
-                        noUnderline
-                      />
-                    </Link>
-                    {item._type === "page" &&
-                      item?.sections &&
-                      item?.sections.length > 0 &&
-                      item.sections
-                        .filter((section) => section.name)
-                        .map((section) => (
-                          <Link
-                            href={`/${item.slug}#${section.slug}`}
-                            className="group"
-                            key={section._id}
-                          >
-                            <PatternTitle
-                              number="–"
-                              name={section.name}
-                              noUnderline
-                              addPeriod={false}
-                            />
-                          </Link>
-                        ))}
-                  </>
-                ) : (
-                  <Link href={`/patterns/${item.slug}`} className="group">
-                    <PatternTitle
-                      number={String.fromCharCode(97 + i)}
-                      name={item.name}
-                      noUnderline
-                    />
-                  </Link>
-                )}
-              </Fragment>
-            )
-          )}
+        <SubSectionItems items={subSection.items} />
       </div>
     </div>
   );

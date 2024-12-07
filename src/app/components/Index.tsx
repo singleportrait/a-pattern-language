@@ -8,7 +8,7 @@ import SubSection from "@/app/components/SubSection";
 import { SectionDto, SubSectionDto } from "@/app/helpers/types";
 import { urlFor } from "@/sanity/lib/image";
 import BlockContent from "./BlockContent";
-import IndexSidebar from "@/app/components/IndexSidebar";
+import SectionSidebar from "@/app/components/SectionSidebar";
 
 const Index = ({ sections }: { sections: SectionDto[] }) => {
   const [selectedSection, setSelectedSection] = useState<string | undefined>(
@@ -82,7 +82,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
           </div>
         </div>
       </div>
-      <IndexSidebar sections={sections} selectedSection={selectedSection} />
+      <SectionSidebar sections={sections} selectedSection={selectedSection} />
     </>
   );
 };

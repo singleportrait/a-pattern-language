@@ -29,6 +29,12 @@ export const page = defineType({
       type: "string",
     }),
     defineField({
+      name: "sidebarSection",
+      title: "Sidebar Menu Section (optional)",
+      type: "reference",
+      to: [{ type: "section" }],
+    }),
+    defineField({
       name: "sections",
       title: "Section",
       type: "array",

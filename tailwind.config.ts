@@ -37,7 +37,8 @@ export default {
         snug: "1.45",
       },
       spacing: {
-        15: "3.75rem", // Index sidebar numbers
+        9: "2.25rem", // Section sidebar right padding
+        17: "4.25rem", // Section sidebar numbers
         57: "14.25rem", // Header table of contents
         128: "32rem",
       },

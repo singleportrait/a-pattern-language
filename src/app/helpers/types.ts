@@ -56,6 +56,7 @@ export interface PageDto extends PageBaseDto {
     content: PortableTextBlock[];
     image: ImageReferenceDto;
   }[];
+  sidebarSection: SectionDto;
 }
 
 export interface PageSectionDto {

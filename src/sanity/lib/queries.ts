@@ -83,6 +83,48 @@ export const patternSiblingsQuery = defineQuery(`
   }
 `);
 
+/* ---------- SECTIONS -- */
+const sectionFields = /* groq */ `
+  _id,
+  name,
+  order,
+  "description": description[]${blockContent},
+  image,
+  "subSections": subSections[]{
+    _key,
+    title,
+    description,
+    "patternsOriginal": patterns[],
+    "patterns": patterns[]{
+      "_id": @->_id,
+      "name": @->name,
+      "number": @->number,
+      "slug": @->slug.current,
+      "confidence": @->confidence,
+      "earlierPatternReferences": @->earlierPatterns${blockContentReferencesOnly},
+    },
+    "items": items[]{
+      "_id": @->_id,
+      "_type": @->_type,
+      "slug": @->slug.current,
+      "name": @->name,
+      @->_type == 'page' => {
+        "sections": @->sections[]{
+          "_id": @->_id,
+          "name": @->name,
+          "slug": @->slug.current,
+        },
+      }
+    }
+  }
+`;
+
+export const sectionsQuery = defineQuery(`
+  *[_type == "section"] | order(order asc) {
+    ${sectionFields}
+  }
+`);
+
 /* ---------- PAGES -- */
 const pageBaseFields = /* groq */ `
   _id,
@@ -107,44 +149,9 @@ export const pageSlugQuery = defineQuery(`
       "name": @->name,
       "content": @->content[]${blockContent},
       "image": @->image,
-    }
+    },
+    "sidebarSection": sidebarSection->{
+      ${sectionFields}
+    },
   }[0]
-`);
-
-/* ---------- SECTIONS -- */
-export const sectionsQuery = defineQuery(`
-  *[_type == "section"] | order(order asc) {
-    _id,
-    name,
-    order,
-    "description": description[]${blockContent},
-    image,
-    "subSections": subSections[]{
-      _key,
-      title,
-      description,
-      "patternsOriginal": patterns[],
-      "patterns": patterns[]{
-        "_id": @->_id,
-        "name": @->name,
-        "number": @->number,
-        "slug": @->slug.current,
-        "confidence": @->confidence,
-        "earlierPatternReferences": @->earlierPatterns${blockContentReferencesOnly},
-      },
-      "items": items[]{
-        "_id": @->_id,
-        "_type": @->_type,
-        "slug": @->slug.current,
-        "name": @->name,
-        @->_type == 'page' => {
-          "sections": @->sections[]{
-            "_id": @->_id,
-            "name": @->name,
-            "slug": @->slug.current,
-          },
-        }
-      }
-    }
-  }
 `);
