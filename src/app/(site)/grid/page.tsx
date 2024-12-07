@@ -24,7 +24,7 @@ export default async function Grid() {
   console.log("Patterns", patterns);
 
   // const dataForD3 = generateDataForD3(patterns);
-  const dataForD3 = generateLinksDataForD3(patterns, 31);
+  const dataForD3 = generateLinksDataForD3(patterns, 31, true);
   console.log("Data pattern 31 for D3", dataForD3);
 
   const data =

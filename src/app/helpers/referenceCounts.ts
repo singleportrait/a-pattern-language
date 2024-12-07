@@ -62,7 +62,8 @@ export const addReferenceCounts = (
 
 export const generateLinksDataForD3 = (
   patterns: PatternBaseWithReferencesDto[],
-  selectedNumber?: number
+  selectedNumber?: number,
+  includeAllNodes?: boolean
 ) => {
   const selectedPattern = selectedNumber
     ? patterns.find((pattern) => pattern.number === selectedNumber)
@@ -70,7 +71,7 @@ export const generateLinksDataForD3 = (
 
   // Filter patterns to only include those that are referenced by the selected pattern
   const filteredPatterns =
-    selectedNumber && selectedPattern
+    selectedNumber && selectedPattern && !includeAllNodes
       ? patterns.filter(
           (pattern) =>
             selectedPattern.references?.find(
