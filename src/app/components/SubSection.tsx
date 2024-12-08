@@ -25,6 +25,7 @@ const SubSection = ({
       const innerHeight = window.innerHeight;
       // When scrollY is at 1/3 of the screen height, highlight the section
       const highlightThreshold = innerHeight / 3;
+      // const highlightThreshold = 0;
       const offsetTop = ref.current?.offsetTop || 0;
       const scrollY = window.scrollY;
       const elementHeight = ref.current.clientHeight;

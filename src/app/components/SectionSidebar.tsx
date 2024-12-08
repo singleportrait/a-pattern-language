@@ -3,15 +3,16 @@
 import { Fragment, useState } from "react";
 import Link from "next/link";
 import classNames from "classnames";
+import { Transition, TransitionChild } from "@headlessui/react";
 import { SectionDto } from "@/app/helpers/types";
 import SubSectionItems from "@/app/components/SubSectionItems";
-import { Dialog, DialogPanel } from "@headlessui/react";
 
 type SectionSidebarProps = {
   sections: SectionDto[];
   selectedSection: string | undefined;
   showType?: "patterns" | "items";
   linkSectionName?: boolean;
+  onClick?: () => void;
 };
 
 const SectionSidebarContents = ({
@@ -19,6 +20,7 @@ const SectionSidebarContents = ({
   selectedSection,
   showType = "patterns",
   linkSectionName = true,
+  onClick,
 }: SectionSidebarProps) => (
   <div className="flex flex-col gap-y-8 h-screen overflow-y-scroll w-60 pt-5 pl-5 pr-9 pb-20">
     {sections.map((section) => (
@@ -48,6 +50,7 @@ const SectionSidebarContents = ({
                     "font-bold": selectedSection === subSection._key,
                   })}
                   shallow
+                  onClick={onClick}
                 >
                   {/* First pattern to last pattern */}
                   <>
@@ -66,7 +69,11 @@ const SectionSidebarContents = ({
                 </Link>
               )}
               {showType === "items" && (
-                <SubSectionItems items={subSection.items} minimalTitles />
+                <SubSectionItems
+                  items={subSection.items}
+                  minimalTitles
+                  onClick={onClick}
+                />
               )}
             </Fragment>
           ))}
@@ -103,22 +110,35 @@ const SectionSidebar = (props: SectionSidebarProps) => {
         <button
           type="button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className={tableOfContentsClasses}
+          className={classNames(
+            tableOfContentsClasses,
+            "underline underline-offset-2"
+          )}
         >
           Table of Contents
         </button>
-        <Dialog open={isSidebarOpen} onClose={() => setIsSidebarOpen(false)}>
-          <DialogPanel
-            transition
-            className={classNames(
-              sidebarClasses,
-              "h-screen",
-              "transition duration-300 ease-out data-[closed]:-translate-x-full"
-            )}
-          >
-            <SectionSidebarContents {...props} />
-          </DialogPanel>
-        </Dialog>
+        <Transition show={isSidebarOpen}>
+          <TransitionChild>
+            <div
+              className="fixed inset-0 bg-black/50 transition duration-300 ease-out data-[closed]:opacity-0"
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
+          </TransitionChild>
+          <TransitionChild>
+            <div
+              className={classNames(
+                sidebarClasses,
+                "h-screen",
+                "transition duration-300 ease-out data-[closed]:-translate-x-full"
+              )}
+            >
+              <SectionSidebarContents
+                {...props}
+                onClick={() => setTimeout(() => setIsSidebarOpen(false), 800)}
+              />
+            </div>
+          </TransitionChild>
+        </Transition>
       </div>
     </>
   );

@@ -10,11 +10,13 @@ import { Fragment } from "react";
 type SubSectionItemsProps = {
   items: (SubSectionItemPageDto | SubSectionItemPatternDto)[] | undefined;
   minimalTitles?: boolean;
+  onClick?: () => void;
 };
 
 const SubSectionItems = ({
   items,
   minimalTitles = false,
+  onClick,
 }: SubSectionItemsProps) => {
   if (!items || items.length === 0) return null;
   return items.map(
@@ -40,6 +42,7 @@ const SubSectionItems = ({
                     href={`/${item.slug}#${section.slug}`}
                     className="flex group"
                     key={section._id}
+                    onClick={onClick}
                   >
                     <PatternTitle
                       number="–"
