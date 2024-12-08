@@ -1,12 +1,19 @@
+import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
-import { PatternDto } from "@/app/helpers/types";
+import { PatternBaseDto, PatternDto } from "@/app/helpers/types";
 import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import { urlFor } from "@/sanity/lib/image";
 import PageFooter from "@/app/components/PageFooter";
 
-const Pattern = ({ pattern }: { pattern: PatternDto }) => {
+type PatternProps = {
+  pattern: PatternDto;
+  nextPattern?: PatternBaseDto;
+  previousPattern?: PatternBaseDto;
+};
+
+const Pattern = ({ pattern, previousPattern, nextPattern }: PatternProps) => {
   return (
     <div className="gridWrapper">
       <div className="fixed left-8 sm:left-12 top-14 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
@@ -85,6 +92,24 @@ const Pattern = ({ pattern }: { pattern: PatternDto }) => {
         label={`pg. ${pattern.page}`}
         classNames="gridColSpanContent"
       />
+      <div className="flex w-full justify-between">
+        {previousPattern ? (
+          <Link href={`/patterns/${previousPattern.slug}`}>
+            &larr; {previousPattern.number}{" "}
+            <span className="hidden sm:inline">{previousPattern.name}</span>
+          </Link>
+        ) : (
+          <div />
+        )}
+        {nextPattern ? (
+          <Link href={`/patterns/${nextPattern.slug}`} className="text-right">
+            {nextPattern.number}{" "}
+            <span className="hidden sm:inline">{nextPattern.name}</span> &rarr;
+          </Link>
+        ) : (
+          <div />
+        )}
+      </div>
     </div>
   );
 };

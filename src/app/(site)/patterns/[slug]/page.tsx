@@ -59,8 +59,12 @@ export default async function PatternPage(props: Props) {
 
   return (
     <>
-      <Menu nextPattern={nextPattern} previousPattern={previousPattern} />
-      <Pattern pattern={pattern} />
+      <Menu />
+      <Pattern
+        pattern={pattern}
+        previousPattern={previousPattern}
+        nextPattern={nextPattern}
+      />
     </>
   );
 }
