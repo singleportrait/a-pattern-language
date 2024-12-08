@@ -64,7 +64,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
                 )}
               </div>
               <div className="sidebar_grid_right_column flex flex-col gap-y-1">
-                <div className="-mx-5 sm:mx-0 p-5 bg-accent text-lg/snug">
+                <div className="-mx-5 sm:mx-0 -mb-4 p-5 bg-accent text-lg/snug">
                   <BlockContent content={section.description} />
                 </div>
                 {section?.subSections?.map((subSection: SubSectionDto) => (
