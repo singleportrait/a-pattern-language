@@ -111,7 +111,6 @@ export default async function PagePage(props: Props) {
       </div>
       <SectionSidebar
         sections={[page.sidebarSection]}
-        selectedSection=""
         showType="items"
         linkSectionName={false}
       />

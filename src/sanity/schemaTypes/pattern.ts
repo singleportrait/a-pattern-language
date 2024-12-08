@@ -80,6 +80,19 @@ export const pattern = defineType({
       name: "image",
       type: "image",
     },
+    defineField({
+      name: "isPatternGuide",
+      title: "Is pattern guide",
+      type: "boolean",
+      description:
+        "This will hide the big number, customize the page footer, and show the problem body description",
+    }),
+    defineField({
+      name: "sidebarSection",
+      title: "Sidebar Menu Section (optional)",
+      type: "reference",
+      to: [{ type: "section" }],
+    }),
     // Automatically generated number as number
     defineField({
       name: "number",

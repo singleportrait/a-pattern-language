@@ -42,79 +42,6 @@ const blockContentReferencesOnly = /* groq */ `
   }
 `;
 
-/* ---------- PATTERNS -- */
-export interface PatternBaseDto {
-  _id: string;
-  name: string;
-  number: number;
-  slug: string;
-  confidence: "low" | "medium" | "high";
-  image?: ImageReferenceDto;
-  diagram?: ImageReferenceDto;
-}
-
-const patternBaseFields = /* groq */ `
-  _id,
-  name,
-  number,
-  "slug": slug.current,
-  confidence
-`;
-
-export const allPatternsQuery = defineQuery(`
-  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
-    ${patternBaseFields}
-  }
-`);
-
-export interface PatternBaseWithReferencesDto extends PatternBaseDto {
-  earlierPatternReferences?: PatternBaseDto[];
-  laterPatternReferences?: PatternBaseDto[];
-  references?: PatternBaseDto[];
-}
-
-export const allPatternsWithReferencesQuery = defineQuery(`
-  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
-    ${patternBaseFields},
-    image,
-    diagram,
-    "earlierPatternReferences": earlierPatterns${blockContentReferencesOnly},
-    "laterPatternReferences": laterPatterns${blockContentReferencesOnly},
-  }
-`);
-
-export interface PatternDto extends PatternBaseDto {
-  page: number;
-  problem: string;
-  solution: string;
-  earlierPatterns: PortableTextBlock[];
-  laterPatterns: PortableTextBlock[];
-}
-
-export const patternBySlugQuery = defineQuery(`
-  *[_type == "pattern" && slug.current == $slug] {
-    ${patternBaseFields},
-    page,
-    problem,
-    solution,
-    "earlierPatterns": earlierPatterns[]${blockContent},
-    "laterPatterns": laterPatterns[]${blockContent},
-    image,
-    diagram,
-  }[0]
-`);
-
-export const patternSiblingsByNumberQuery = defineQuery(`
-  {
-    "previousPattern": *[_type == "pattern" && number == $number - 1] {
-      ${patternBaseFields},
-    }[0],
-    "nextPattern": *[_type == "pattern" && number == $number + 1] {
-      ${patternBaseFields},
-    }[0]
-  }
-`);
-
 /* ---------- SECTIONS -- */
 export interface PageSectionDto {
   _id: string;
@@ -196,6 +123,85 @@ const sectionFields = /* groq */ `
 export const sectionsQuery = defineQuery(`
   *[_type == "section"] | order(order asc) {
     ${sectionFields}
+  }
+`);
+
+/* ---------- PATTERNS -- */
+export interface PatternBaseDto {
+  _id: string;
+  name: string;
+  number: number;
+  slug: string;
+  confidence: "low" | "medium" | "high";
+  image?: ImageReferenceDto;
+  diagram?: ImageReferenceDto;
+}
+
+const patternBaseFields = /* groq */ `
+  _id,
+  name,
+  number,
+  "slug": slug.current,
+  confidence
+`;
+
+export const allPatternsQuery = defineQuery(`
+  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+    ${patternBaseFields}
+  }
+`);
+
+export interface PatternBaseWithReferencesDto extends PatternBaseDto {
+  earlierPatternReferences?: PatternBaseDto[];
+  laterPatternReferences?: PatternBaseDto[];
+  references?: PatternBaseDto[];
+}
+
+export const allPatternsWithReferencesQuery = defineQuery(`
+  *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+    ${patternBaseFields},
+    image,
+    diagram,
+    "earlierPatternReferences": earlierPatterns${blockContentReferencesOnly},
+    "laterPatternReferences": laterPatterns${blockContentReferencesOnly},
+  }
+`);
+
+export interface PatternDto extends PatternBaseDto {
+  page: number;
+  problem: string;
+  solution: string;
+  earlierPatterns: PortableTextBlock[];
+  laterPatterns: PortableTextBlock[];
+  isPatternGuide?: boolean;
+  sidebarSection?: SectionDto;
+}
+
+export const patternBySlugQuery = defineQuery(`
+  *[_type == "pattern" && slug.current == $slug] {
+    ${patternBaseFields},
+    page,
+    problem,
+    solution,
+    "earlierPatterns": earlierPatterns[]${blockContent},
+    "laterPatterns": laterPatterns[]${blockContent},
+    image,
+    diagram,
+    isPatternGuide,
+    "sidebarSection": sidebarSection->{
+      ${sectionFields}
+    },
+  }[0]
+`);
+
+export const patternSiblingsByNumberQuery = defineQuery(`
+  {
+    "previousPattern": *[_type == "pattern" && number == $number - 1] {
+      ${patternBaseFields},
+    }[0],
+    "nextPattern": *[_type == "pattern" && number == $number + 1] {
+      ${patternBaseFields},
+    }[0]
   }
 `);
 

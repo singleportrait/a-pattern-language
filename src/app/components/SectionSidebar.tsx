@@ -9,7 +9,7 @@ import Sidebar from "@/app/components/Sidebar";
 
 type SectionSidebarProps = {
   sections: SectionDto[];
-  selectedSection: string | undefined;
+  selectedSection?: string;
   showType?: "patterns" | "items";
   linkSectionName?: boolean;
   onClick?: () => void;
