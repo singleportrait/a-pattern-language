@@ -19,7 +19,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
     <>
       <div className="sidebar_grid_wrapper">
         <div className="sidebar_grid">
-          <div className="sidebar_grid_span_8 mb-12 w-full">
+          <div className="sidebar_grid_span_8 w-full">
             <TitleWithConfidence title="A Pattern Language" confidence="high" />
             <div className=" flex flex-col gap-y-6">
               <ul className="text-lg flex justify-center items-center flex-col sm:flex-row gap-1 sm:gap-4 text-center">

@@ -6,6 +6,7 @@ import {
 } from "@/app/helpers/types";
 import PatternTitle from "@/app/components/PatternTitle";
 import { Fragment } from "react";
+import classNames from "classnames";
 
 type SubSectionItemsProps = {
   items: (SubSectionItemPageDto | SubSectionItemPatternDto)[] | undefined;
@@ -19,12 +20,17 @@ const SubSectionItems = ({
   onClick,
 }: SubSectionItemsProps) => {
   if (!items || items.length === 0) return null;
+
+  const linkClasses = classNames({
+    "flex group": true,
+    "py-1": minimalTitles,
+  });
   return items.map(
     (item: SubSectionItemPatternDto | SubSectionItemPageDto, i) => (
       <Fragment key={item._id}>
         {item._type === "page" ? (
           <>
-            <Link href={`/${item.slug}`} className="flex group">
+            <Link href={`/${item.slug}`} className={linkClasses}>
               <PatternTitle
                 number={String.fromCharCode(97 + i)}
                 name={item.name}
@@ -40,7 +46,7 @@ const SubSectionItems = ({
                 .map((section) => (
                   <Link
                     href={`/${item.slug}#${section.slug}`}
-                    className="flex group"
+                    className={linkClasses}
                     key={section._id}
                     onClick={onClick}
                   >
@@ -55,7 +61,7 @@ const SubSectionItems = ({
                 ))}
           </>
         ) : (
-          <Link href={`/patterns/${item.slug}`} className="flex group">
+          <Link href={`/patterns/${item.slug}`} className={linkClasses}>
             <PatternTitle
               number={String.fromCharCode(97 + i)}
               name={item.name}

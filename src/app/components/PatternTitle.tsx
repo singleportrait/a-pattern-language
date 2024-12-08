@@ -19,7 +19,7 @@ const PatternTitle = ({
 }: PatternTitleProps) =>
   minimal ? (
     <>
-      <div className="w-6 shrink-0">
+      <div className="w-8 shrink-0">
         {number}
         {addPeriod ? "." : ""}
       </div>

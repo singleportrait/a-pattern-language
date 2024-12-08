@@ -23,11 +23,11 @@ const SectionSidebarContents = ({
   onClick,
 }: SectionSidebarProps) =>
   sections.map((section) => (
-    <div key={section._id} className="flex flex-col gap-y-2 text-sm">
+    <div key={section._id} className="flex flex-col text-sm">
       {linkSectionName && (
         <Link
           href={`#${section.name}`}
-          className="uppercase text-xs hover:underline"
+          className="uppercase text-xs hover:underline py-1"
         >
           {section.name}
         </Link>
@@ -43,7 +43,7 @@ const SectionSidebarContents = ({
                 key={subSection._key}
                 href={`#${subSection._key}`}
                 className={classNames({
-                  "flex group": true,
+                  "flex group py-1": true,
                   "font-bold": selectedSection === subSection._key,
                 })}
                 shallow
