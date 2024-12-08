@@ -92,23 +92,26 @@ const Pattern = ({ pattern, previousPattern, nextPattern }: PatternProps) => {
         label={`pg. ${pattern.page}`}
         classNames="gridColSpanContent"
       />
-      <div className="flex w-full justify-between">
-        {previousPattern ? (
-          <Link href={`/patterns/${previousPattern.slug}`}>
-            &larr; {previousPattern.number}{" "}
-            <span className="hidden sm:inline">{previousPattern.name}</span>
-          </Link>
-        ) : (
-          <div />
-        )}
-        {nextPattern ? (
-          <Link href={`/patterns/${nextPattern.slug}`} className="text-right">
-            {nextPattern.number}{" "}
-            <span className="hidden sm:inline">{nextPattern.name}</span> &rarr;
-          </Link>
-        ) : (
-          <div />
-        )}
+      <div className="gridColSpanContent w-full">
+        <div className="flex w-full justify-between">
+          {previousPattern ? (
+            <Link href={`/patterns/${previousPattern.slug}`}>
+              &larr; {previousPattern.number}{" "}
+              <span className="hidden sm:inline">{previousPattern.name}</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {nextPattern ? (
+            <Link href={`/patterns/${nextPattern.slug}`} className="text-right">
+              {nextPattern.number}{" "}
+              <span className="hidden sm:inline">{nextPattern.name}</span>{" "}
+              &rarr;
+            </Link>
+          ) : (
+            <div />
+          )}
+        </div>
       </div>
     </div>
   );
