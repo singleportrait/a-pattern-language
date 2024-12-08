@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Link from "next/link";
 import Sidebar from "@/app/components/Sidebar";
 import { SectionDto, SubSectionDto } from "@/app/helpers/types";
