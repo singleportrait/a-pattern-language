@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import {
   allPatternsQuery,
   patternBySlugQuery,
-  patternSiblingsByNumberQuery,
-  type PatternBaseDto,
   type PatternDto,
   sectionsQuery,
   type SectionDto,
@@ -50,28 +48,15 @@ export default async function PatternPage(props: Props) {
 
   if (!pattern?._id) return notFound();
 
-  const {
-    data: { previousPattern, nextPattern },
-  }: {
-    data: { previousPattern: PatternBaseDto; nextPattern: PatternBaseDto };
-  } = await sanityFetch({
-    query: patternSiblingsByNumberQuery,
-    params: { number: pattern.number },
-  });
-
   const { data: sections }: { data: SectionDto[] } = await sanityFetch({
     query: sectionsQuery,
   });
 
-  console.log("Pattern", pattern);
+  // console.log("Pattern", pattern);
 
   return (
     <>
-      <Pattern
-        pattern={pattern}
-        previousPattern={previousPattern}
-        nextPattern={nextPattern}
-      />
+      <Pattern pattern={pattern} />
       {pattern?.sidebarSection ? (
         <SectionSidebar sections={[pattern.sidebarSection]} showType="items" />
       ) : (

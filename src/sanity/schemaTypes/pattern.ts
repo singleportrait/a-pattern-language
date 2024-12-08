@@ -64,6 +64,8 @@ export const pattern = defineType({
       title: "Solution",
       type: "text",
       validation: (rule) => rule.required(),
+      description:
+        "To insert the inline confidence indicator (like on the pattern guide page) use the following phrase: ::confidence_indicator::",
     }),
     defineField({
       name: "laterPatterns",

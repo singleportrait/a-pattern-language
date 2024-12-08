@@ -175,6 +175,8 @@ export interface PatternDto extends PatternBaseDto {
   laterPatterns: PortableTextBlock[];
   isPatternGuide?: boolean;
   sidebarSection?: SectionDto;
+  previousPattern?: PatternBaseDto;
+  nextPattern?: PatternBaseDto;
 }
 
 export const patternBySlugQuery = defineQuery(`
@@ -191,18 +193,13 @@ export const patternBySlugQuery = defineQuery(`
     "sidebarSection": sidebarSection->{
       ${sectionFields}
     },
-  }[0]
-`);
-
-export const patternSiblingsByNumberQuery = defineQuery(`
-  {
-    "previousPattern": *[_type == "pattern" && number == $number - 1] {
+    "previousPattern": *[_type == "pattern" && ^.number > 0 && number == ^.number - 1] {
       ${patternBaseFields},
     }[0],
-    "nextPattern": *[_type == "pattern" && number == $number + 1] {
+    "nextPattern": *[_type == "pattern" && ^.number > 0 && number == ^.number + 1] {
       ${patternBaseFields},
-    }[0]
-  }
+    }[0],
+  }[0]
 `);
 
 /* ---------- PAGES -- */

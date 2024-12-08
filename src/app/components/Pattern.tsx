@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
-import type { PatternBaseDto, PatternDto } from "@/sanity/lib/definitions";
+import type { PatternDto } from "@/sanity/lib/definitions";
 import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import { urlFor } from "@/sanity/lib/image";
@@ -9,11 +9,15 @@ import PageFooter from "@/app/components/PageFooter";
 
 type PatternProps = {
   pattern: PatternDto;
-  nextPattern?: PatternBaseDto;
-  previousPattern?: PatternBaseDto;
 };
 
-const Pattern = ({ pattern, previousPattern, nextPattern }: PatternProps) => {
+const Pattern = ({ pattern }: PatternProps) => {
+  const { previousPattern, nextPattern } = pattern;
+
+  const pageFooterLabel = pattern.isPatternGuide
+    ? `pg. # in the book`
+    : `pg. ${pattern.page}`;
+
   return (
     <div className="sidebar_grid_wrapper">
       <div className="sidebar_grid">
@@ -90,34 +94,35 @@ const Pattern = ({ pattern, previousPattern, nextPattern }: PatternProps) => {
             </div>
           )}
         </div>
-        <PageFooter
-          label={`pg. ${pattern.page}`}
-          classNames="sidebar_grid_span_8"
-        />
-        <div className="sidebar_grid_span_8 w-full">
-          <div className="flex w-full justify-between">
-            {previousPattern ? (
-              <Link href={`/patterns/${previousPattern.slug}`}>
-                &larr; {previousPattern.number}{" "}
-                <span className="hidden sm:inline">{previousPattern.name}</span>
-              </Link>
-            ) : (
-              <div />
-            )}
-            {nextPattern ? (
-              <Link
-                href={`/patterns/${nextPattern.slug}`}
-                className="text-right"
-              >
-                {nextPattern.number}{" "}
-                <span className="hidden sm:inline">{nextPattern.name}</span>{" "}
-                &rarr;
-              </Link>
-            ) : (
-              <div />
-            )}
+        <PageFooter label={pageFooterLabel} classNames="sidebar_grid_span_8" />
+        {(previousPattern || nextPattern) && (
+          <div className="sidebar_grid_span_8 w-full">
+            <div className="flex w-full justify-between">
+              {previousPattern ? (
+                <Link href={`/patterns/${previousPattern.slug}`}>
+                  &larr; {previousPattern.number}{" "}
+                  <span className="hidden sm:inline">
+                    {previousPattern.name}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {nextPattern ? (
+                <Link
+                  href={`/patterns/${nextPattern.slug}`}
+                  className="text-right"
+                >
+                  {nextPattern.number}{" "}
+                  <span className="hidden sm:inline">{nextPattern.name}</span>{" "}
+                  &rarr;
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
