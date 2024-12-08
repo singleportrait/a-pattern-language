@@ -5,8 +5,7 @@ import {
   addReferenceCounts,
   generateLinksDataForD3,
 } from "@/app/helpers/referenceCounts";
-import Menu from "@/app/components/Menu";
-import PatternsGrid from "../../components/PatternsGrid";
+import PatternsGrid from "@/app/components/PatternsGrid";
 import { Suspense } from "react";
 
 export const metadata = {
@@ -32,7 +31,6 @@ export default async function Grid() {
 
   return (
     <>
-      <Menu />
       <div className="max-w-screen-xl mx-auto">
         {dataForD3 && (
           <a

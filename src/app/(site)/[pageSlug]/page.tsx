@@ -6,7 +6,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import { allPagesSlugsQuery, pageSlugQuery } from "@/sanity/lib/queries";
-import Menu from "@/app/components/Menu";
 import { PageBaseDto, PageDto } from "@/app/helpers/types";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import BlockContent from "@/app/components/BlockContent";
@@ -53,7 +52,6 @@ export default async function PagePage(props: Props) {
 
   return (
     <>
-      <Menu />
       <div className="sidebar_grid_wrapper">
         <div className="sidebar_grid">
           <div className="sidebar_grid_span_8">

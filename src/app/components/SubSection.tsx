@@ -74,8 +74,8 @@ const SubSection = ({
       {subSection.title && (
         <h3
           className={classNames({
-            "text-xs": true,
-            "text-neutral-700 uppercase": true,
+            "text-xs uppercase": true,
+            "text-neutral-700": true,
             // "font-bold": highlighted,
           })}
         >

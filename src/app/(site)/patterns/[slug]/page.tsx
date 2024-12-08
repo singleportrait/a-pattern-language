@@ -8,7 +8,6 @@ import {
 } from "@/sanity/lib/queries";
 import Pattern from "@/app/components/Pattern";
 import { PatternBaseDto, PatternDto } from "@/app/helpers/types";
-import Menu from "@/app/components/Menu";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -58,13 +57,10 @@ export default async function PatternPage(props: Props) {
   console.log("Pattern", pattern);
 
   return (
-    <>
-      <Menu />
-      <Pattern
-        pattern={pattern}
-        previousPattern={previousPattern}
-        nextPattern={nextPattern}
-      />
-    </>
+    <Pattern
+      pattern={pattern}
+      previousPattern={previousPattern}
+      nextPattern={nextPattern}
+    />
   );
 }
