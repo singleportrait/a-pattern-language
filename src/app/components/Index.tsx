@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import SubSection from "@/app/components/SubSection";
-import { SectionDto, SubSectionDto } from "@/app/helpers/types";
+import type { SectionDto, SubSectionDto } from "@/sanity/lib/definitions";
 import { urlFor } from "@/sanity/lib/image";
 import BlockContent from "./BlockContent";
 import SectionSidebar from "@/app/components/SectionSidebar";

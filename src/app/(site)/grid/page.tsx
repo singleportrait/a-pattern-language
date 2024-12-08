@@ -1,6 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { allPatternsWithReferencesPatternsQuery } from "@/sanity/lib/queries";
-import { PatternBaseWithReferencesDto } from "@/app/helpers/types";
+import {
+  allPatternsWithReferencesQuery,
+  type PatternBaseWithReferencesDto,
+} from "@/sanity/lib/definitions";
 import {
   addReferenceCounts,
   generateLinksDataForD3,
@@ -15,7 +17,7 @@ export const metadata = {
 export default async function Grid() {
   const { data: patterns }: { data: PatternBaseWithReferencesDto[] } =
     await sanityFetch({
-      query: allPatternsWithReferencesPatternsQuery,
+      query: allPatternsWithReferencesQuery,
     });
 
   // TODO: Do this as pre-formatting somewhere

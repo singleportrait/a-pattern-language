@@ -1,6 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { sectionsQuery } from "@/sanity/lib/queries";
-import { SectionDto } from "@/app/helpers/types";
+import { sectionsQuery, type SectionDto } from "@/sanity/lib/definitions";
 import Index from "@/app/components/Index";
 
 export const metadata = {

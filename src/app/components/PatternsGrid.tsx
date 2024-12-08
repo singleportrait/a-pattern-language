@@ -6,10 +6,10 @@ import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
 
 import { urlFor } from "@/sanity/lib/image";
-import {
+import type {
   PatternBaseWithReferencesDto,
   PatternBaseDto,
-} from "@/app/helpers/types";
+} from "@/sanity/lib/definitions";
 import { confidenceDisplay } from "@/app/helpers/confidence";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 

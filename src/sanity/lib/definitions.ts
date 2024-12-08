@@ -1,6 +1,15 @@
+import { PortableTextBlock } from "@portabletext/types";
 import { defineQuery } from "next-sanity";
 
 /* ---------- SHARED -- */
+interface ImageReferenceDto {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+}
+
 const blockContent = /* groq */ `
 {
   // if the type is block...
@@ -34,6 +43,16 @@ const blockContentReferencesOnly = /* groq */ `
 `;
 
 /* ---------- PATTERNS -- */
+export interface PatternBaseDto {
+  _id: string;
+  name: string;
+  number: number;
+  slug: string;
+  confidence: "low" | "medium" | "high";
+  image?: ImageReferenceDto;
+  diagram?: ImageReferenceDto;
+}
+
 const patternBaseFields = /* groq */ `
   _id,
   name,
@@ -42,14 +61,19 @@ const patternBaseFields = /* groq */ `
   confidence
 `;
 
-export const allPatternsSlugsQuery = defineQuery(`
+export const allPatternsQuery = defineQuery(`
   *[_type == "pattern" && defined(slug.current)] | order(number asc) {
     ${patternBaseFields}
   }
 `);
 
-// TODO: Add later pattern references
-export const allPatternsWithReferencesPatternsQuery = defineQuery(`
+export interface PatternBaseWithReferencesDto extends PatternBaseDto {
+  earlierPatternReferences?: PatternBaseDto[];
+  laterPatternReferences?: PatternBaseDto[];
+  references?: PatternBaseDto[];
+}
+
+export const allPatternsWithReferencesQuery = defineQuery(`
   *[_type == "pattern" && defined(slug.current)] | order(number asc) {
     ${patternBaseFields},
     image,
@@ -59,7 +83,15 @@ export const allPatternsWithReferencesPatternsQuery = defineQuery(`
   }
 `);
 
-export const patternSlugQuery = defineQuery(`
+export interface PatternDto extends PatternBaseDto {
+  page: number;
+  problem: string;
+  solution: string;
+  earlierPatterns: PortableTextBlock[];
+  laterPatterns: PortableTextBlock[];
+}
+
+export const patternBySlugQuery = defineQuery(`
   *[_type == "pattern" && slug.current == $slug] {
     ${patternBaseFields},
     page,
@@ -72,7 +104,7 @@ export const patternSlugQuery = defineQuery(`
   }[0]
 `);
 
-export const patternSiblingsQuery = defineQuery(`
+export const patternSiblingsByNumberQuery = defineQuery(`
   {
     "previousPattern": *[_type == "pattern" && number == $number - 1] {
       ${patternBaseFields},
@@ -84,6 +116,48 @@ export const patternSiblingsQuery = defineQuery(`
 `);
 
 /* ---------- SECTIONS -- */
+export interface PageSectionDto {
+  _id: string;
+  name: string;
+  slug: string;
+  content: PortableTextBlock[];
+  image: ImageReferenceDto;
+}
+
+export interface SubSectionItemPatternDto extends PatternBaseDto {
+  _type: string;
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+  }[];
+}
+
+export interface SubSectionItemPageDto extends PageBaseDto {
+  _type: string;
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+  }[];
+}
+export interface SubSectionDto {
+  _key: string;
+  title?: string;
+  description?: string;
+  // TODO: Use PatternBaseDto? Remove earlierPatternReferences from these sub-sections? (not sure why they're here)
+  patterns?: PatternBaseDto[];
+  items?: (SubSectionItemPatternDto | SubSectionItemPageDto)[];
+}
+export interface SectionDto {
+  _id: string;
+  name: string;
+  order: number;
+  description: PortableTextBlock[];
+  image: ImageReferenceDto;
+  subSections: SubSectionDto[];
+}
+
 const sectionFields = /* groq */ `
   _id,
   name,
@@ -126,6 +200,14 @@ export const sectionsQuery = defineQuery(`
 `);
 
 /* ---------- PAGES -- */
+export interface PageBaseDto {
+  _id: string;
+  name: string;
+  slug: string;
+  content: PortableTextBlock[];
+  page: string;
+}
+
 const pageBaseFields = /* groq */ `
   _id,
   name,
@@ -133,13 +215,25 @@ const pageBaseFields = /* groq */ `
   page
 `;
 
-export const allPagesSlugsQuery = defineQuery(`
+export const allPagesQuery = defineQuery(`
   *[_type == "page" && defined(slug.current)] {
     ${pageBaseFields}
   }
 `);
 
-export const pageSlugQuery = defineQuery(`
+export interface PageDto extends PageBaseDto {
+  content: PortableTextBlock[];
+  sections: {
+    _id: string;
+    name: string;
+    slug: string;
+    content: PortableTextBlock[];
+    image: ImageReferenceDto;
+  }[];
+  sidebarSection: SectionDto;
+}
+
+export const pageBySlugQuery = defineQuery(`
   *[_type == "page" && slug.current == $pageSlug] {
     ${pageBaseFields},
     "content": content[]${blockContent},

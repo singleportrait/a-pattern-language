@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
-import { PatternBaseDto, PatternDto } from "@/app/helpers/types";
+import type { PatternBaseDto, PatternDto } from "@/sanity/lib/definitions";
 import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import { urlFor } from "@/sanity/lib/image";

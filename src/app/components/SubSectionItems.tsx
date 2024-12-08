@@ -1,12 +1,12 @@
 import Link from "next/link";
-
-import {
-  SubSectionItemPageDto,
-  SubSectionItemPatternDto,
-} from "@/app/helpers/types";
-import PatternTitle from "@/app/components/PatternTitle";
 import { Fragment } from "react";
 import classNames from "classnames";
+
+import type {
+  SubSectionItemPageDto,
+  SubSectionItemPatternDto,
+} from "@/sanity/lib/definitions";
+import PatternTitle from "@/app/components/PatternTitle";
 
 type SubSectionItemsProps = {
   items: (SubSectionItemPageDto | SubSectionItemPatternDto)[] | undefined;

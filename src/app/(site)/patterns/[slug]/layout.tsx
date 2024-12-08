@@ -1,7 +1,6 @@
 import PatternsSidebar from "@/app/components/PatternsSidebar";
 import { sanityFetch } from "@/sanity/lib/live";
-import { SectionDto } from "@/app/helpers/types";
-import { sectionsQuery } from "@/sanity/lib/queries";
+import { sectionsQuery, type SectionDto } from "@/sanity/lib/definitions";
 
 type Props = {
   children: React.ReactNode;

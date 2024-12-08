@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import classNames from "classnames";
-
-import { SubSectionDto, PatternBaseDto } from "@/app/helpers/types";
 import { useEffect, useRef } from "react";
+
+import type { SubSectionDto, PatternBaseDto } from "@/sanity/lib/definitions";
 import PatternTitle from "@/app/components/PatternTitle";
 import SubSectionItems from "@/app/components/SubSectionItems";
 

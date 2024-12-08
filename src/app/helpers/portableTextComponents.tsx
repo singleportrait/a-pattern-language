@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { PatternInlineReferenceBlockDto } from "./types";
+
+interface PatternInlineReferenceBlockDto {
+  _type: "patternReference";
+  _ref: string;
+  _key: string;
+  name: string;
+  number: number;
+  slug: string;
+}
 
 export const portableTextComponents = {
   types: {

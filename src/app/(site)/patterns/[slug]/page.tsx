@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import {
-  allPatternsSlugsQuery,
-  patternSlugQuery,
-  patternSiblingsQuery,
-} from "@/sanity/lib/queries";
+  allPatternsQuery,
+  patternBySlugQuery,
+  patternSiblingsByNumberQuery,
+  type PatternBaseDto,
+  type PatternDto,
+} from "@/sanity/lib/definitions";
 import Pattern from "@/app/components/Pattern";
-import { PatternBaseDto, PatternDto } from "@/app/helpers/types";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,7 +16,7 @@ type Props = {
 
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
-    query: allPatternsSlugsQuery,
+    query: allPatternsQuery,
     perspective: "published",
     stega: false,
   });
@@ -25,7 +26,7 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const { data: pattern } = await sanityFetch({
-    query: patternSlugQuery,
+    query: patternBySlugQuery,
     params,
     stega: false,
   });
@@ -39,7 +40,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function PatternPage(props: Props) {
   const params = await props.params;
   const { data: pattern }: { data: PatternDto } = await sanityFetch({
-    query: patternSlugQuery,
+    query: patternBySlugQuery,
     params,
   });
 
@@ -50,7 +51,7 @@ export default async function PatternPage(props: Props) {
   }: {
     data: { previousPattern: PatternBaseDto; nextPattern: PatternBaseDto };
   } = await sanityFetch({
-    query: patternSiblingsQuery,
+    query: patternSiblingsByNumberQuery,
     params: { number: pattern.number },
   });
 

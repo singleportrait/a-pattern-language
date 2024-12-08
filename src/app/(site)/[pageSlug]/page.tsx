@@ -5,8 +5,12 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
-import { allPagesSlugsQuery, pageSlugQuery } from "@/sanity/lib/queries";
-import { PageBaseDto, PageDto } from "@/app/helpers/types";
+import {
+  allPagesQuery,
+  pageBySlugQuery,
+  type PageBaseDto,
+  type PageDto,
+} from "@/sanity/lib/definitions";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import BlockContent from "@/app/components/BlockContent";
 import PageFooter from "@/app/components/PageFooter";
@@ -18,7 +22,7 @@ type Props = {
 
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
-    query: allPagesSlugsQuery,
+    query: allPagesQuery,
     perspective: "published",
     stega: false,
   });
@@ -28,7 +32,7 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const { data: page }: { data: PageBaseDto } = await sanityFetch({
-    query: pageSlugQuery,
+    query: pageBySlugQuery,
     params,
     stega: false,
   });
@@ -42,7 +46,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function PagePage(props: Props) {
   const params = await props.params;
   const { data: page }: { data: PageDto } = await sanityFetch({
-    query: pageSlugQuery,
+    query: pageBySlugQuery,
     params,
   });
 

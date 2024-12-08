@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import classNames from "classnames";
-import { SectionDto } from "@/app/helpers/types";
+import type { SectionDto } from "@/sanity/lib/definitions";
 import SubSectionItems from "@/app/components/SubSectionItems";
 import Sidebar from "@/app/components/Sidebar";
 
