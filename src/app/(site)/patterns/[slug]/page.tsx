@@ -54,7 +54,7 @@ export default async function PatternPage(props: Props) {
     params: { number: pattern.number },
   });
 
-  console.log("Pattern", pattern);
+  // console.log("Pattern", pattern);
 
   return (
     <Pattern

@@ -77,7 +77,7 @@ body {
   }
 
   .sidebar_grid {
-    @apply flex flex-col items-center lg:items-start lg:grid lg:grid-cols-8 xl:grid-cols-10 xl:max-w-screen-lg lg:gap-x-5 mx-auto gap-y-4;
+    @apply flex flex-col items-center lg:items-start lg:grid lg:grid-cols-8 xl:grid-cols-10 xl:max-w-screen-xl lg:gap-x-5 mx-auto gap-y-4;
   }
 
   .sidebar_grid_span_8 {
