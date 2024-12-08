@@ -30,6 +30,7 @@ export default {
         //   "var(--font-abhaya-libre), Garamond ATF Subhead, Georgia, serif",
       },
       fontSize: {
+        "2xs": "0.5rem",
         "10xl": "12rem",
         "12xl": "18rem",
       },
@@ -39,6 +40,7 @@ export default {
       spacing: {
         9: "2.25rem", // Section sidebar right padding
         17: "4.25rem", // Section sidebar numbers
+        26: "6.5rem", // TitleWithConfidence width with label
         57: "14.25rem", // Header table of contents
         68: "17rem", // Number next to sidebar
         128: "32rem",

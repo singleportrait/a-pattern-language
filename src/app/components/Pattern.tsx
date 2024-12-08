@@ -24,6 +24,7 @@ const Pattern = ({ pattern, previousPattern, nextPattern }: PatternProps) => {
           <TitleWithConfidence
             title={pattern.name}
             confidence={pattern.confidence}
+            displayLabel
           />
         </div>
         {pattern.image && (
