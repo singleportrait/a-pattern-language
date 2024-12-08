@@ -14,7 +14,7 @@ export const pattern = defineType({
       options: {
         search: { weight: 20 },
       },
-      validation: (rule) => rule.required().regex(/^\d+$/),
+      validation: (rule) => rule.regex(/^\d+$/),
     }),
     defineField({
       name: "name",

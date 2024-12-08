@@ -6,6 +6,7 @@ import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import { urlFor } from "@/sanity/lib/image";
 import PageFooter from "@/app/components/PageFooter";
+import Solution from "@/app/components/Solution";
 
 type PatternProps = {
   pattern: PatternDto;
@@ -64,15 +65,26 @@ const Pattern = ({ pattern }: PatternProps) => {
             />
           )}
           <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-highlight gap-y-10 items-center">
-            <div className="space-y-2 w-full">
+            <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Problem:</p>
               <p className="sm:text-lg">{pattern.problem}</p>
             </div>
-            <div className="space-y-2 w-full">
+            {pattern.isPatternGuide && (
+              <div className="flex flex-col gap-y-2 w-full text-accent-text">
+                <p className="eyebrow">
+                  Problem Body—Not Included on the site! Go read the book!
+                </p>
+                <p className="sm:text-lg">
+                  After the headline comes the body of the problem. This is the
+                  longest section. It describes the empirical background of the
+                  pattern, the evidence for its validity, the range of different
+                  ways the pattern can be manifested in a building, and so on.
+                </p>
+              </div>
+            )}
+            <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Solution:</p>
-              <p className="text-xl sm:text-[1.375rem] leading-snug whitespace-pre-wrap">
-                {pattern.solution}
-              </p>
+              <Solution solution={pattern.solution} />
             </div>
             {pattern.diagram && (
               <Image

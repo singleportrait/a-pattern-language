@@ -1,4 +1,4 @@
-import { confidenceDisplay } from "@/app/helpers/confidence";
+import ConfidenceDisplay from "@/app/components/ConfidenceDisplay";
 import classNames from "classnames";
 
 type TitleWithConfidenceProps = {
@@ -8,7 +8,6 @@ type TitleWithConfidenceProps = {
   displayLabel?: boolean;
 };
 
-// TODO: Add hover state (and disable it on the index page)
 const TitleWithConfidence = ({
   title,
   confidence,
@@ -20,14 +19,10 @@ const TitleWithConfidence = ({
       <div className="grow border-b-2 border-b-accent" />
       {(confidence === "medium" || confidence === "high") && (
         <>
-          <div className="bg-accent w-26 py-1 flex flex-col items-center rounded-xl">
-            <div className="font-serif text-8xl text-center leading-[0.1] pt-[2.3rem]">
-              {confidenceDisplay(confidence)}
-            </div>
-            {displayLabel && (
-              <div className="text-2xs uppercase">{confidence} Confidence</div>
-            )}
-          </div>
+          <ConfidenceDisplay
+            confidence={confidence}
+            displayLabel={displayLabel}
+          />
           <div className="grow border-b-2 border-b-accent" />
         </>
       )}

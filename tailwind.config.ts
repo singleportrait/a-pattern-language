@@ -16,6 +16,7 @@ export default {
         "accent-400": "var(--accent-400)",
         "accent-highlight": "var(--accent-highlight)",
         "accent-highlight-hover": "var(--accent-highlight-hover)",
+        "accent-text": "var(--accent-text)",
       },
       fontFamily: {
         sans: "var(--font-inter), Inter, sans-serif",
