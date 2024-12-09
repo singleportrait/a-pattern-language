@@ -34,7 +34,7 @@ const SubSection = ({
         scrollY < offsetTop + elementHeight &&
         offsetTop > scrollY
       ) {
-        console.log("Highlighting", ref.current.textContent);
+        // console.log("Highlighting", ref.current.textContent);
         // setHighlighted(true);
         setSelectedSection(subSection._key);
       } else {

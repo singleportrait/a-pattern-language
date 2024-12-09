@@ -27,7 +27,7 @@ const PatternTitle = ({
     </>
   ) : (
     <h4 className="flex text-lg py-0.5 pl-8 sm:pl-12">
-      <p className="w-12 uppercase shrink-0">
+      <p className="w-12 shrink-0">
         {number}
         {addPeriod ? "." : ""}
       </p>
