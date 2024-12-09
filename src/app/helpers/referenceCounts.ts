@@ -1,4 +1,7 @@
-import { PatternBaseDto, PatternBaseWithReferencesDto } from "./types";
+import type {
+  PatternBaseDto,
+  PatternBaseWithReferencesDto,
+} from "@/sanity/lib/definitions";
 
 const formattedPatternData = (pattern: PatternBaseWithReferencesDto) => {
   return {
