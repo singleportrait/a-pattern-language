@@ -21,14 +21,6 @@ const Sidebar = ({ title, renderContent }: SidebarProps) => {
   return (
     <>
       <div className="hidden sm:block">
-        <div
-          className={classNames(
-            tableOfContentsClasses,
-            "w-57 bg-accent border-r-4 border-r-white"
-          )}
-        >
-          {title}
-        </div>
         <div className={classNames(sidebarWrapperClasses, "h-screen")}>
           <div className={sidebarClasses}>{renderContent()}</div>
         </div>
