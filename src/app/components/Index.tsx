@@ -1,14 +1,13 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import Image from "next/image";
 
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import SubSection from "@/app/components/SubSection";
 import type { SectionDto, SubSectionDto } from "@/sanity/lib/definitions";
-import { urlFor } from "@/sanity/lib/image";
 import BlockContent from "./BlockContent";
 import SectionSidebar from "@/app/components/SectionSidebar";
+import ImageWithMultiply from "@/app/components/ImageWithMultiply";
 
 const Index = ({ sections }: { sections: SectionDto[] }) => {
   const [selectedSection, setSelectedSection] = useState<string | undefined>(
@@ -53,12 +52,9 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               <div className="sidebar_grid_left_column">
                 {section.image && (
                   <div className="p-4 bg-accent">
-                    <Image
-                      src={urlFor(section.image).width(1000).url() || ""}
+                    <ImageWithMultiply
+                      image={section.image}
                       alt={`${section.name} image`}
-                      width={500}
-                      height={500}
-                      className="mix-blend-multiply"
                     />
                   </div>
                 )}

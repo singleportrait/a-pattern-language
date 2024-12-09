@@ -1,12 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import classNames from "classnames";
 import type { PatternDto } from "@/sanity/lib/definitions";
 import BlockContent from "@/app/components/BlockContent";
 import TitleWithConfidence from "@/app/components/TitleWithConfidence";
-import { urlFor } from "@/sanity/lib/image";
 import PageFooter from "@/app/components/PageFooter";
 import Solution from "@/app/components/Solution";
+import ImageWithMultiply from "@/app/components/ImageWithMultiply";
 
 type PatternProps = {
   pattern: PatternDto;
@@ -20,7 +19,7 @@ const Pattern = ({ pattern }: PatternProps) => {
     : `pg. ${pattern.page}`;
 
   return (
-    <div className="sidebar_grid_wrapper">
+    <div className="sidebar_grid_wrapper pt-2">
       <div className="sidebar_grid">
         <div className="fixed pointer-events-none left-8 sm:left-68 top-14 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
           {pattern.number}
@@ -35,12 +34,9 @@ const Pattern = ({ pattern }: PatternProps) => {
         {pattern.image && (
           <div className="sidebar_grid_left_column">
             <div className="p-4 bg-accent">
-              <Image
-                src={urlFor(pattern.image).width(1000).url() || ""}
+              <ImageWithMultiply
+                image={pattern.image}
                 alt={`${pattern.number}. ${pattern.name} image`}
-                width={500}
-                height={500}
-                className="mix-blend-multiply"
               />
             </div>
           </div>
@@ -87,12 +83,9 @@ const Pattern = ({ pattern }: PatternProps) => {
               <Solution solution={pattern.solution} />
             </div>
             {pattern.diagram && (
-              <Image
-                src={urlFor(pattern.diagram).width(800).url() || ""}
+              <ImageWithMultiply
+                image={pattern.diagram}
                 alt={`${pattern.number}. ${pattern.name} diagram`}
-                width={400}
-                height={400}
-                className="mix-blend-multiply"
               />
             )}
           </div>

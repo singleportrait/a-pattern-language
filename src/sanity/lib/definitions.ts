@@ -2,13 +2,21 @@ import { PortableTextBlock } from "@portabletext/types";
 import { defineQuery } from "next-sanity";
 
 /* ---------- SHARED -- */
-interface ImageReferenceDto {
+export interface ImageReferenceDto {
   _type: "image";
   asset: {
     _ref: string;
     _type: "reference";
   };
+  ratio?: number;
 }
+
+const imageWithRatioFields = /* groq */ `
+  {
+    ...,
+    "ratio": asset->metadata.dimensions.aspectRatio,
+  }
+`;
 
 const blockContent = /* groq */ `
 {
@@ -90,7 +98,7 @@ const sectionFields = /* groq */ `
   name,
   order,
   "description": description[]${blockContent},
-  image,
+  image${imageWithRatioFields},
   "subSections": subSections[]{
     _key,
     title,
@@ -187,8 +195,8 @@ export const patternBySlugQuery = defineQuery(`
     solution,
     "earlierPatterns": earlierPatterns[]${blockContent},
     "laterPatterns": laterPatterns[]${blockContent},
-    image,
-    diagram,
+    image${imageWithRatioFields},
+    diagram${imageWithRatioFields},
     isPatternGuide,
     "sidebarSection": sidebarSection->{
       ${sectionFields}
@@ -245,7 +253,7 @@ export const pageBySlugQuery = defineQuery(`
       "slug": @->slug.current,
       "name": @->name,
       "content": @->content[]${blockContent},
-      "image": @->image,
+      "image": @->image${imageWithRatioFields},
     },
     "sidebarSection": sidebarSection->{
       ${sectionFields}

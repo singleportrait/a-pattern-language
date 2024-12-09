@@ -1,8 +1,6 @@
 import { Fragment } from "react";
 import classNames from "classnames";
 import type { Metadata } from "next";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation";
 import {
@@ -15,6 +13,7 @@ import TitleWithConfidence from "@/app/components/TitleWithConfidence";
 import BlockContent from "@/app/components/BlockContent";
 import PageFooter from "@/app/components/PageFooter";
 import SectionSidebar from "@/app/components/SectionSidebar";
+import ImageWithMultiply from "@/app/components/ImageWithMultiply";
 
 type Props = {
   params: Promise<{ pageSlug: string }>;
@@ -85,12 +84,9 @@ export default async function PagePage(props: Props) {
                   <>
                     <div className="sidebar_grid_left_column">
                       <div className="p-4 bg-accent">
-                        <Image
-                          src={urlFor(section.image).width(1000).url() || ""}
+                        <ImageWithMultiply
+                          image={section.image}
                           alt={`${section.name} image`}
-                          width={500}
-                          height={500}
-                          className="mix-blend-multiply"
                         />
                       </div>
                     </div>
