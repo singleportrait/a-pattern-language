@@ -20,15 +20,10 @@ export default {
       },
       fontFamily: {
         sans: "var(--font-inter), Inter, sans-serif",
-        serif: "Garamond ATF Subhead, var(--font-eb-garamond), Georgia, serif",
+        serif:
+          "var(--font-garamond-atf-subhead), Garamond ATF Subhead, var(--font-eb-garamond), Georgia, serif",
         number:
-          "Garamond ATF Subhead, var(--font-cormorant-garamond), Georgia, serif",
-        "number-alt-cormorant":
-          "var(--font-cormorant-garamond), Garamond ATF Subhead, Georgia, serif",
-        // "number-alt":
-        //   "var(--font-alegreya), Garamond ATF Subhead, Georgia, serif",
-        // "number-alt-abhaya":
-        //   "var(--font-abhaya-libre), Garamond ATF Subhead, Georgia, serif",
+          "var(--font-garamond-atf-subhead), Garamond ATF Subhead, var(--font-cormorant-garamond), Georgia, serif",
       },
       fontSize: {
         "2xs": "0.5rem",

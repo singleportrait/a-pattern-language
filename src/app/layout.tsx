@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -23,6 +24,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const garamondAtf = localFont({
+  src: "fonts/garamond-atf-subhead-regular.woff2",
+  variable: "--font-garamond-atf-subhead",
+});
+
 export const metadata: Metadata = {
   title: "A Pattern Language",
   description: "By Christopher Alexander",
@@ -36,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ebGaramond.variable} ${cormorantGaramond.variable} ${inter.variable}`}
+        className={`${ebGaramond.variable} ${cormorantGaramond.variable} ${inter.variable} ${garamondAtf.variable}`}
       >
         <div>{children}</div>
       </body>
