@@ -29,21 +29,34 @@ const PatternsSidebarContents = ({ sections }: PatternsSidebarProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-y-4" ref={container}>
-      {sections
-        .filter(
-          (section) =>
-            section.subSections[0].patterns &&
-            section.subSections[0].patterns.length > 0
-        )
-        .map((section: SectionDto) => (
-          <div key={section._id} className="flex flex-col gap-y-4">
-            {section.name}
+    <div className="flex flex-col gap-y-8" ref={container}>
+      {sections.map((section: SectionDto) => (
+        <div key={section._id} className="flex flex-col gap-y-1">
+          {/* If section has sub-sections with items and one of them is a page, render the section name as a link to the first page */}
+          {section?.subSections?.some((subSection) =>
+            subSection.items?.some((item) => item._type === "page")
+          ) ? (
+            <Link
+              href={`/${section.subSections.find((subSection) => subSection.items?.some((item) => item._type === "page"))?.items?.find((item) => item._type === "page")?.slug}`}
+              className="uppercase text-xs hover:underline py-1"
+            >
+              {section.name}
+            </Link>
+          ) : (
+            <Link
+              href={`/#${section.name}`}
+              className="uppercase text-xs hover:underline py-1"
+            >
+              {section.name}
+            </Link>
+          )}
 
-            {section?.subSections?.map((subSection: SubSectionDto) => (
+          {section?.subSections
+            ?.filter((subSection) => subSection.title)
+            .map((subSection: SubSectionDto) => (
               <div
                 key={subSection._key}
-                className="flex flex-col text-sm"
+                className="flex flex-col text-sm pb-4"
                 ref={
                   subSection.patterns?.find((p) => pathname.includes(p.slug))
                     ? currentSection
@@ -86,8 +99,8 @@ const PatternsSidebarContents = ({ sections }: PatternsSidebarProps) => {
                 ))}
               </div>
             ))}
-          </div>
-        ))}
+        </div>
+      ))}
     </div>
   );
 };

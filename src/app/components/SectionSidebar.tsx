@@ -32,10 +32,14 @@ const SectionSidebarContents = ({
           {section.name}
         </Link>
       )}
-      {!linkSectionName && <p className="uppercase text-xs">{section.name}</p>}
-      {/* TODO: Don't print empty subSection without title on index page, but print on pages */}
+      {!linkSectionName && (
+        <p className="uppercase text-xs py-1">{section.name}</p>
+      )}
+      {/* Don't print empty subSection without title on index page, but print on pages */}
       {section?.subSections
-        // ?.filter((subSection) => subSection.title)
+        .filter((subSection) =>
+          showType === "patterns" ? subSection.title : true
+        )
         .map((subSection) => (
           <Fragment key={subSection._key}>
             {showType === "patterns" && (

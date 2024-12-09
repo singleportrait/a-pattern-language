@@ -34,7 +34,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   });
 
   return {
-    title: `${pattern.number ? `${pattern.number}. ` : ""}${pattern?.name}`,
+    title: `${pattern?.number ? `${pattern.number}. ` : ""}${pattern?.name}`,
     description: pattern?.problem,
   } satisfies Metadata;
 }
@@ -53,6 +53,7 @@ export default async function PatternPage(props: Props) {
   });
 
   // console.log("Pattern", pattern);
+  // console.log("Sections", sections);
 
   return (
     <>

@@ -55,10 +55,14 @@ export default async function PagePage(props: Props) {
 
   return (
     <>
-      <div className="sidebar_grid_wrapper">
+      <div className="sidebar_grid_wrapper pt-2">
         <div className="sidebar_grid">
           <div className="sidebar_grid_span_8">
-            <TitleWithConfidence title={page.name} confidence="high" />
+            <TitleWithConfidence
+              title={page.name}
+              confidence="high"
+              displayLabel
+            />
           </div>
           <div className="sidebar_grid_span_6">
             <BlockContent content={page.content} />
