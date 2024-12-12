@@ -13,6 +13,10 @@ export const blockContent = defineType({
           type: "reference",
           to: [{ type: "pattern" }],
         },
+        {
+          name: "blockContentImages",
+          type: "blockContentImages",
+        },
       ],
     },
   ],

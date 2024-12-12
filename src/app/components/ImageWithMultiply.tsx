@@ -2,17 +2,20 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 
 import { ImageReferenceDto } from "@/sanity/lib/definitions";
+import classNames from "classnames";
 
 type ImageWithMultiplyProps = {
   image: ImageReferenceDto;
   alt: string;
   maxWidth?: number;
+  className?: string;
 };
 
 const ImageWithMultiply = ({
   image,
   alt,
   maxWidth = 500,
+  className,
 }: ImageWithMultiplyProps) => {
   return (
     <Image
@@ -24,7 +27,10 @@ const ImageWithMultiply = ({
       alt={alt}
       width={maxWidth}
       height={image.ratio ? maxWidth / image.ratio : maxWidth}
-      className="mix-blend-multiply bg-accent-highlight"
+      className={classNames(
+        "mix-blend-multiply bg-accent-highlight",
+        className
+      )}
     />
   );
 };

@@ -39,6 +39,7 @@ export default {
         26: "6.5rem", // TitleWithConfidence width with label
         57: "14.25rem", // Header table of contents
         68: "17rem", // Number next to sidebar
+        88: "22rem", // Inline block content images
         128: "32rem",
       },
     },

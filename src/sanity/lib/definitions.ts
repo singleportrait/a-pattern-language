@@ -33,7 +33,7 @@ const blockContent = /* groq */ `
         "name": @->name,
         "number": @->number,
         "slug": @->slug.current,
-      }
+      },
     }
   }
 }
