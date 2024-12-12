@@ -210,6 +210,23 @@ export const patternBySlugQuery = defineQuery(`
   }[0]
 `);
 
+export interface PatternWithTextContentDto extends PatternDto {
+  problem: string;
+  solution: string;
+  earlierPatterns: PortableTextBlock[];
+  laterPatterns: PortableTextBlock[];
+}
+
+export const allPatternsWithTextContentQuery = defineQuery(`
+    *[_type == "pattern" && defined(slug.current)] | order(number asc) {
+    ${patternBaseFields},
+    problem,
+    solution,
+    "earlierPatterns": earlierPatterns[]${blockContent},
+    "laterPatterns": laterPatterns[]${blockContent},
+  }
+`);
+
 /* ---------- PAGES -- */
 export interface PageBaseDto {
   _id: string;
