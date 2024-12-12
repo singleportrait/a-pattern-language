@@ -4,6 +4,7 @@ import {
   PatternWithTextContentDto,
 } from "@/sanity/lib/definitions";
 import BlockContent from "@/app/components/BlockContent";
+import Link from "next/link";
 
 export const metadata = {
   title: "A Pattern Language",
@@ -19,18 +20,25 @@ export default async function AllContent() {
     <div className="max-w-screen-xl mx-auto px-4 flex flex-col gap-y-8">
       {patterns.map((pattern) => (
         <div key={pattern.number} className="flex flex-col gap-y-4">
-          <h2 className="text-2xl font-bold">{pattern.name}</h2>
+          <Link
+            href={`/patterns/${pattern.slug}`}
+            className="hover:underline hover:underline-offset-2"
+          >
+            <h2 className="text-2xl font-bold">
+              {pattern.number}. {pattern.name}
+            </h2>
+          </Link>
           <div>
             <small>Earlier patterns</small>
             <BlockContent content={pattern.earlierPatterns} />
           </div>
           <div>
             <small>Problem</small>
-            <p>{pattern.problem}</p>
+            <p className="whitespace-pre-wrap">{pattern.problem}</p>
           </div>
           <div>
             <small>Solution</small>
-            <p>{pattern.solution}</p>
+            <p className="whitespace-pre-wrap">{pattern.solution}</p>
           </div>
           <div>
             <small>Later patterns</small>

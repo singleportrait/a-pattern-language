@@ -63,14 +63,16 @@ const Pattern = ({ pattern }: PatternProps) => {
           <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-highlight gap-y-10 items-center">
             <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Problem:</p>
-              <p className="sm:text-lg">{pattern.problem}</p>
+              <p className="sm:text-lg/normal whitespace-pre-wrap">
+                {pattern.problem}
+              </p>
             </div>
             {pattern.isPatternGuide && (
               <div className="flex flex-col gap-y-2 w-full text-accent-text">
                 <p className="eyebrow">
                   Problem Body—Not Included on the site! Go read the book!
                 </p>
-                <p className="sm:text-lg">
+                <p className="sm:text-lg/normal">
                   After the headline comes the body of the problem. This is the
                   longest section. It describes the empirical background of the
                   pattern, the evidence for its validity, the range of different
