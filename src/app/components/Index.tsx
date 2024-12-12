@@ -51,7 +51,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               </div>
               <div className="sidebar_grid_left_column">
                 {section.image && (
-                  <div className="p-4 bg-accent">
+                  <div className="p-4 bg-accent-200">
                     <ImageWithMultiply
                       image={section.image}
                       alt={`${section.name} image`}
@@ -60,7 +60,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
                 )}
               </div>
               <div className="sidebar_grid_right_column flex flex-col gap-y-1">
-                <div className="-mx-5 sm:mx-0 -mb-4 p-5 bg-accent text-lg/snug">
+                <div className="-mx-5 sm:mx-0 -mb-4 p-5 bg-accent-200 text-lg/snug">
                   <BlockContent content={section.description} />
                 </div>
                 {section?.subSections?.map((subSection: SubSectionDto) => (

@@ -87,7 +87,7 @@ export default async function PagePage(props: Props) {
                 {section.image && (
                   <>
                     <div className="sidebar_grid_left_column">
-                      <div className="p-4 bg-accent">
+                      <div className="p-4 bg-accent-200">
                         <ImageWithMultiply
                           image={section.image}
                           alt={`${section.name} image`}

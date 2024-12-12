@@ -10,7 +10,7 @@ const ConfidenceDisplay = ({
   displayLabel = false,
 }: ConfidenceDisplayProps) => {
   return (
-    <div className="bg-accent w-26 py-1 flex flex-col items-center rounded-xl">
+    <div className="bg-accent-200 w-26 py-1 flex flex-col items-center rounded-xl">
       <div className="font-serif text-8xl text-center leading-[0.1] pt-[2.3rem]">
         {confidenceDisplay(confidence)}
       </div>

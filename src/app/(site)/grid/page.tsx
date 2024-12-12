@@ -39,7 +39,7 @@ export default async function Grid() {
             id="downloadAnchorElem"
             href={`data:${data}`}
             download="data.json"
-            className="bg-accent text-black p-2 rounded-md mb-4 mx-auto inline-block"
+            className="bg-accent-200 text-black p-2 rounded-md mb-4 mx-auto inline-block"
           >
             Download JSON
           </a>

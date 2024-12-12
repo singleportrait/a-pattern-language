@@ -21,7 +21,7 @@ const Pattern = ({ pattern }: PatternProps) => {
   return (
     <div className="sidebar_grid_wrapper pt-2">
       <div className="sidebar_grid">
-        <div className="fixed pointer-events-none left-2 sm:left-68 top-10 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-bold leading-[0.75] z-10 mix-blend-multiply">
+        <div className="fixed pointer-events-none left-2 sm:left-68 top-10 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-400 leading-[0.75] z-10 mix-blend-multiply">
           {pattern.number}
         </div>
         <div className="sidebar_grid_span_8 hidden md:block">
@@ -33,7 +33,7 @@ const Pattern = ({ pattern }: PatternProps) => {
         </div>
         {pattern.image && (
           <div className="sidebar_grid_left_column">
-            <div className="p-4 bg-accent">
+            <div className="p-4 bg-accent-200">
               <ImageWithMultiply
                 image={pattern.image}
                 alt={`${pattern.number}. ${pattern.name} image`}
@@ -60,7 +60,7 @@ const Pattern = ({ pattern }: PatternProps) => {
               classNames="sm:text-lg/normal"
             />
           )}
-          <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-highlight gap-y-10 items-center">
+          <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-100 gap-y-10 items-center">
             <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Problem:</p>
               <p className="sm:text-lg/normal whitespace-pre-wrap">
@@ -68,7 +68,7 @@ const Pattern = ({ pattern }: PatternProps) => {
               </p>
             </div>
             {pattern.isPatternGuide && (
-              <div className="flex flex-col gap-y-2 w-full text-accent-text">
+              <div className="flex flex-col gap-y-2 w-full text-accent-500">
                 <p className="eyebrow">
                   Problem Body—Not Included on the site! Go read the book!
                 </p>

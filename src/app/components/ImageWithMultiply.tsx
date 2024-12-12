@@ -27,10 +27,7 @@ const ImageWithMultiply = ({
       alt={alt}
       width={maxWidth}
       height={image.ratio ? maxWidth / image.ratio : maxWidth}
-      className={classNames(
-        "mix-blend-multiply bg-accent-highlight",
-        className
-      )}
+      className={classNames("mix-blend-multiply bg-accent-100", className)}
     />
   );
 };

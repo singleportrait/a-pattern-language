@@ -46,7 +46,7 @@ export const portableTextComponents = {
               key={image._key}
               className="flex flex-col items-center gap-y-2"
             >
-              <span className="p-4 bg-accent">
+              <span className="p-4 bg-accent-200">
                 <ImageWithMultiply
                   image={image.image}
                   alt={image.alt}

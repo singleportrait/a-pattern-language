@@ -64,7 +64,7 @@ const PatternsGrid = ({
         <Link
           type="button"
           href={`${pathname}?sort=referenceCount`}
-          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto inline-block"
+          className="bg-accent-200 text-black p-2 rounded-md mb-4 mx-auto inline-block"
           scroll={false}
         >
           Sort by reference count
@@ -73,7 +73,7 @@ const PatternsGrid = ({
       {sortType === "referenceCount" && (
         <Link
           href={`${pathname}?sort=number`}
-          className="bg-accent text-black p-2 rounded-md mb-4 mx-auto inline-block"
+          className="bg-accent-200 text-black p-2 rounded-md mb-4 mx-auto inline-block"
           scroll={false}
         >
           Sort by number

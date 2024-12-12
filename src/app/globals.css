@@ -5,20 +5,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* --accent: #ded3ff; */
-  /* --accent: #e8e3f6; */
-  --accent: #fff9cf;
-  --accent-bold: #ffe52f;
-  --accent-highlight: #fffbeb; /* amber-50 */
-  --accent-highlight-hover: #fde68a /* amber-200 */;
-  --accent-400: #a8a698;
+  --accent-100: #fffbeb;
+  --accent-200: #fff9cf;
+  --accent-300: #fde68a;
+  --accent-400: #ffe52f;
 
   /* Green */
-  --accent: #d5f3d3;
-  --accent-bold: #61bd67;
-  --accent-text: #18a021;
-  --accent-highlight: #eefaed;
-  --accent-highlight-hover: #bbe6b8;
+  --accent-100: #eefaed;
+  --accent-200: #d5f3d3;
+  --accent-300: #bbe6b8;
+  --accent-400: #61bd67;
+  --accent-500: #18a021;
 }
 
 body {
@@ -54,7 +51,7 @@ body {
   }
 
   .callout_box {
-    @apply border-4 border-accent px-5 py-4 rounded-3xl;
+    @apply border-4 border-accent-200 px-5 py-4 rounded-3xl;
   }
 
   .gridWrapper {
@@ -98,7 +95,7 @@ body {
   }
 
   .reference_highlight {
-    @apply uppercase text-base bg-accent-highlight px-0.5 py-px rounded mx-px hover:bg-accent-highlight-hover transition-colors;
+    @apply uppercase text-base bg-accent-100 px-0.5 py-px rounded mx-px hover:bg-accent-300 transition-colors;
   }
 
   .rich_text_formatting.sm\:text-lg\/normal .reference_highlight {
