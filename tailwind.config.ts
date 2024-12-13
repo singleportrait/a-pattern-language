@@ -11,11 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "accent-100": "var(--accent-100)",
-        "accent-200": "var(--accent-200)",
-        "accent-300": "var(--accent-300)",
-        "accent-400": "var(--accent-400)",
-        "accent-500": "var(--accent-500)",
+        accent: {
+          100: "var(--accent-100)",
+          200: "var(--accent-200)",
+          300: "var(--accent-300)",
+          400: "var(--accent-400)",
+          500: "var(--accent-500)",
+          600: "var(--accent-600)",
+        },
       },
       fontFamily: {
         sans: "var(--font-inter), Inter, sans-serif",

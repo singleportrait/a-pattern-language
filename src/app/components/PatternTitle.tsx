@@ -27,18 +27,18 @@ const PatternTitle = ({
     </>
   ) : (
     <h4 className="flex text-lg py-0.5 pl-8 sm:pl-12">
-      <p className="w-12 shrink-0">
+      <div className="w-12 shrink-0">
         {number}
         {addPeriod ? "." : ""}
-      </p>
-      <p
+      </div>
+      <div
         className={classNames({
           "group-hover:underline underline-offset-2": true,
           underline: !noUnderline,
         })}
       >
         {name}
-      </p>
+      </div>
       {/* &nbsp; */}
       {/* {confidenceDisplay(pattern.confidence)} */}
     </h4>

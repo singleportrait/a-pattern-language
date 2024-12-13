@@ -33,8 +33,12 @@ export const portableTextComponents = {
       value: PatternInlineReferenceBlockDto;
     }) => {
       return (
-        <Link href={`/patterns/${value.slug}`} className="reference_highlight">
-          {value.name} <span className="text-stone-500">{value.number}</span>
+        <Link
+          href={`/patterns/${value.slug}`}
+          className={`reference_highlight after:content-[attr(data-number)] after:text-accent-600`}
+          data-number={` ${value.number}`}
+        >
+          {value.name}
         </Link>
       );
     },
