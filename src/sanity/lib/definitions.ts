@@ -34,6 +34,13 @@ const blockContent = /* groq */ `
         "number": @->number,
         "slug": @->slug.current,
       },
+      _type == 'blockContentImages' => {
+        ...,
+        images[]{
+          ...,
+          image${imageWithRatioFields},
+        }
+      }
     }
   }
 }
