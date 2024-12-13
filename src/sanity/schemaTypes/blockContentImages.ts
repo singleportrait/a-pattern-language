@@ -1,31 +1,28 @@
-import { defineField, defineType } from "sanity";
+import { defineField, defineType } from 'sanity';
 
 export const blockContentImages = defineType({
-  name: "blockContentImages",
-  title: "Images row",
-  type: "object",
+  name: 'blockContentImages',
+  title: 'Images row',
+  type: 'object',
   fields: [
     defineField({
-      name: "images",
-      title: "Images",
-      type: "array",
+      name: 'images',
+      title: 'Images',
+      type: 'array',
       of: [
         {
-          type: "blockContentImage",
+          type: 'blockContentImage',
         },
       ],
     }),
   ],
   preview: {
     select: {
-      images: "images",
+      images: 'images',
     },
     prepare({ images }) {
       return {
-        title:
-          images && images.length > 0
-            ? `${images.length} image(s)`
-            : "No images",
+        title: images && images.length > 0 ? `${images.length} image(s)` : 'No images',
       };
     },
   },

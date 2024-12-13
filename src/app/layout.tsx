@@ -1,37 +1,37 @@
-import type { Metadata } from "next";
-import { EB_Garamond, Cormorant_Garamond, Inter } from "next/font/google";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { EB_Garamond, Cormorant_Garamond, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
+import './globals.css';
 
 const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-eb-garamond",
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-eb-garamond',
 });
 
 const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500"],
-  style: ["italic"],
-  variable: "--font-cormorant-garamond",
+  subsets: ['latin'],
+  weight: ['500'],
+  style: ['italic'],
+  variable: '--font-cormorant-garamond',
 });
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-inter',
 });
 
 const garamondAtf = localFont({
-  src: "fonts/garamond-atf-subhead-regular.woff2",
-  variable: "--font-garamond-atf-subhead",
+  src: 'fonts/garamond-atf-subhead-regular.woff2',
+  variable: '--font-garamond-atf-subhead',
 });
 
 export const metadata: Metadata = {
-  title: "A Pattern Language",
-  description: "By Christopher Alexander",
+  title: 'A Pattern Language',
+  description: 'By Christopher Alexander',
 };
 
 export default function RootLayout({

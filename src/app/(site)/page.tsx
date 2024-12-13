@@ -1,9 +1,9 @@
-import { sanityFetch } from "@/sanity/lib/live";
-import { sectionsQuery, type SectionDto } from "@/sanity/lib/definitions";
-import Index from "@/app/components/Index";
+import { sanityFetch } from '@/sanity/lib/live';
+import { sectionsQuery, type SectionDto } from '@/sanity/lib/definitions';
+import Index from '@/app/components/Index';
 
 export const metadata = {
-  title: "A Pattern Language",
+  title: 'A Pattern Language',
 };
 
 export default async function Home() {

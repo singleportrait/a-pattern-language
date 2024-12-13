@@ -1,11 +1,11 @@
-import { PortableText } from "@portabletext/react";
-import { PortableTextBlock } from "@portabletext/types";
-import cx from "classnames";
-import { portableTextComponents } from "@/app/helpers/portableTextComponents";
+import { PortableText } from '@portabletext/react';
+import { PortableTextBlock } from '@portabletext/types';
+import cx from 'classnames';
+import { portableTextComponents } from '@/app/helpers/portableTextComponents';
 
 const BlockContent = ({
   content,
-  classNames = "",
+  classNames = '',
 }: {
   content: PortableTextBlock[];
   classNames?: string;

@@ -1,9 +1,9 @@
-import ImageWithMultiply from "@/app/components/ImageWithMultiply";
-import { ImageReferenceDto } from "@/sanity/lib/definitions";
-import Link from "next/link";
+import ImageWithMultiply from '@/app/components/ImageWithMultiply';
+import { ImageReferenceDto } from '@/sanity/lib/definitions';
+import Link from 'next/link';
 
 type PatternInlineReferenceBlockDto = {
-  _type: "patternReference";
+  _type: 'patternReference';
   _ref: string;
   _key: string;
   name: string;
@@ -20,18 +20,14 @@ type BlockContentImageDto = {
 };
 
 type BlockContentImagesDto = {
-  _type: "blockContentImages";
+  _type: 'blockContentImages';
   _key: string;
   images: BlockContentImageDto[];
 };
 
 export const portableTextComponents = {
   types: {
-    patternReference: ({
-      value,
-    }: {
-      value: PatternInlineReferenceBlockDto;
-    }) => {
+    patternReference: ({ value }: { value: PatternInlineReferenceBlockDto }) => {
       return (
         <Link
           href={`/patterns/${value.slug}`}
@@ -45,11 +41,8 @@ export const portableTextComponents = {
     blockContentImages: ({ value }: { value: BlockContentImagesDto }) => {
       return (
         <span className="flex gap-x-5 justify-center">
-          {value.images.map((image) => (
-            <span
-              key={image._key}
-              className="flex flex-col items-center gap-y-2"
-            >
+          {value.images.map(image => (
+            <span key={image._key} className="flex flex-col items-center gap-y-2">
               <span className="p-4 bg-accent-200">
                 <ImageWithMultiply
                   image={image.image}

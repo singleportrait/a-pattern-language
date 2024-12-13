@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
-import { notFound } from "next/navigation";
+import type { Metadata } from 'next';
+import { sanityFetch } from '@/sanity/lib/live';
+import { notFound } from 'next/navigation';
 import {
   allPatternsQuery,
   patternBySlugQuery,
   type PatternDto,
   sectionsQuery,
   type SectionDto,
-} from "@/sanity/lib/definitions";
-import Pattern from "@/app/components/Pattern";
-import PatternsSidebar from "@/app/components/PatternsSidebar";
-import SectionSidebar from "@/app/components/SectionSidebar";
+} from '@/sanity/lib/definitions';
+import Pattern from '@/app/components/Pattern';
+import PatternsSidebar from '@/app/components/PatternsSidebar';
+import SectionSidebar from '@/app/components/SectionSidebar';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,7 +19,7 @@ type Props = {
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
     query: allPatternsQuery,
-    perspective: "published",
+    perspective: 'published',
     stega: false,
   });
   return data;
@@ -34,7 +34,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   });
 
   return {
-    title: `${pattern?.number ? `${pattern.number}. ` : ""}${pattern?.name}`,
+    title: `${pattern?.number ? `${pattern.number}. ` : ''}${pattern?.name}`,
     description: pattern?.problem,
   } satisfies Metadata;
 }

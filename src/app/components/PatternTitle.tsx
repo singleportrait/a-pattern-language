@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
 // import { confidenceDisplay } from "@/app/helpers/confidence";
 
@@ -21,7 +21,7 @@ const PatternTitle = ({
     <>
       <div className="w-8 shrink-0">
         {number}
-        {addPeriod ? "." : ""}
+        {addPeriod ? '.' : ''}
       </div>
       <div className="group-hover:underline">{name}</div>
     </>
@@ -29,11 +29,11 @@ const PatternTitle = ({
     <h4 className="flex text-lg py-0.5 pl-8 sm:pl-12">
       <div className="w-12 shrink-0">
         {number}
-        {addPeriod ? "." : ""}
+        {addPeriod ? '.' : ''}
       </div>
       <div
         className={classNames({
-          "group-hover:underline underline-offset-2": true,
+          'group-hover:underline underline-offset-2': true,
           underline: !noUnderline,
         })}
       >

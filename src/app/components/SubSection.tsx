@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import classNames from "classnames";
-import { useEffect, useRef } from "react";
+import Link from 'next/link';
+import classNames from 'classnames';
+import { useEffect, useRef } from 'react';
 
-import type { SubSectionDto, PatternBaseDto } from "@/sanity/lib/definitions";
-import PatternTitle from "@/app/components/PatternTitle";
-import SubSectionItems from "@/app/components/SubSectionItems";
+import type { SubSectionDto, PatternBaseDto } from '@/sanity/lib/definitions';
+import PatternTitle from '@/app/components/PatternTitle';
+import SubSectionItems from '@/app/components/SubSectionItems';
 
 const SubSection = ({
   subSection,
@@ -51,10 +51,10 @@ const SubSection = ({
       // console.log("Ref offsetTop", ref.current.offsetTop);
     };
 
-    window.addEventListener("scroll", highlightOnScroll);
+    window.addEventListener('scroll', highlightOnScroll);
 
     return () => {
-      window.removeEventListener("scroll", highlightOnScroll);
+      window.removeEventListener('scroll', highlightOnScroll);
     };
   }, [subSection]);
 
@@ -63,7 +63,7 @@ const SubSection = ({
       key={subSection._key}
       id={subSection._key}
       className={classNames({
-        "flex flex-col gap-y-2 pt-16 -mb-4": true,
+        'flex flex-col gap-y-2 pt-16 -mb-4': true,
         // "bg-slate-100": highlighted,
         // "border-l-2": true,
         // "border-l-transparent": !highlighted,
@@ -74,31 +74,21 @@ const SubSection = ({
       {subSection.title && (
         <h3
           className={classNames({
-            "text-xs uppercase": true,
-            "text-neutral-700": true,
+            'text-xs uppercase': true,
+            'text-neutral-700': true,
             // "font-bold": highlighted,
           })}
         >
           {subSection.title}
         </h3>
       )}
-      {subSection.description && (
-        <p className="text-lg">{subSection.description}</p>
-      )}
+      {subSection.description && <p className="text-lg">{subSection.description}</p>}
       <div className="flex flex-col">
         {subSection.patterns &&
           subSection.patterns.length > 0 &&
           subSection.patterns.map((pattern: PatternBaseDto) => (
-            <Link
-              key={pattern._id}
-              href={`/patterns/${pattern.slug}`}
-              className="group"
-            >
-              <PatternTitle
-                number={pattern.number}
-                name={pattern.name}
-                noUnderline
-              />
+            <Link key={pattern._id} href={`/patterns/${pattern.slug}`} className="group">
+              <PatternTitle number={pattern.number} name={pattern.name} noUnderline />
             </Link>
           ))}
         <SubSectionItems items={subSection.items} />

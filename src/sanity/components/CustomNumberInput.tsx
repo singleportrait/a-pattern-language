@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from 'react';
 
-import { Stack } from "@sanity/ui";
-import { NumberInputProps, useFormValue, set, unset } from "sanity";
+import { Stack } from '@sanity/ui';
+import { NumberInputProps, useFormValue, set, unset } from 'sanity';
 
 const CustomNumberInput = (props: NumberInputProps) => {
-  const numberString = useFormValue(["numberString"]);
+  const numberString = useFormValue(['numberString']);
 
   const handleChange = useCallback(() => {
     // console.log("----");
@@ -12,18 +12,18 @@ const CustomNumberInput = (props: NumberInputProps) => {
     // console.log("Number string", numberString);
     if (props.value?.toString() === numberString) return;
 
-    if (!numberString || typeof numberString !== "string") {
+    if (!numberString || typeof numberString !== 'string') {
       // console.log("Unsetting");
       props.onChange(unset());
     }
 
-    if (numberString && typeof numberString === "string") {
+    if (numberString && typeof numberString === 'string') {
       try {
         const numberNum = parseInt(numberString, 10);
         // console.log("Number is a number now; setting", numberNum);
         props.onChange(set(numberNum));
       } catch {
-        console.log("Error turning that string into a number");
+        console.log('Error turning that string into a number');
       }
     }
   }, [numberString, props]);

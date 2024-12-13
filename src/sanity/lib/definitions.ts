@@ -1,12 +1,12 @@
-import { PortableTextBlock } from "@portabletext/types";
-import { defineQuery } from "next-sanity";
+import { PortableTextBlock } from '@portabletext/types';
+import { defineQuery } from 'next-sanity';
 
 /* ---------- SHARED -- */
 export interface ImageReferenceDto {
-  _type: "image";
+  _type: 'image';
   asset: {
     _ref: string;
-    _type: "reference";
+    _type: 'reference';
   };
   ratio?: number;
 }
@@ -147,7 +147,7 @@ export interface PatternBaseDto {
   name: string;
   number: number;
   slug: string;
-  confidence: "low" | "medium" | "high";
+  confidence: 'low' | 'medium' | 'high';
   image?: ImageReferenceDto;
   diagram?: ImageReferenceDto;
 }

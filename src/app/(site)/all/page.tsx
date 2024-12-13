@@ -1,24 +1,23 @@
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from '@/sanity/lib/live';
 import {
   allPatternsWithTextContentQuery,
   PatternWithTextContentDto,
-} from "@/sanity/lib/definitions";
-import BlockContent from "@/app/components/BlockContent";
-import Link from "next/link";
+} from '@/sanity/lib/definitions';
+import BlockContent from '@/app/components/BlockContent';
+import Link from 'next/link';
 
 export const metadata = {
-  title: "A Pattern Language",
+  title: 'A Pattern Language',
 };
 
 export default async function AllContent() {
-  const { data: patterns }: { data: PatternWithTextContentDto[] } =
-    await sanityFetch({
-      query: allPatternsWithTextContentQuery,
-    });
+  const { data: patterns }: { data: PatternWithTextContentDto[] } = await sanityFetch({
+    query: allPatternsWithTextContentQuery,
+  });
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 flex flex-col gap-y-8">
-      {patterns.map((pattern) => (
+      {patterns.map(pattern => (
         <div key={pattern.number} className="flex flex-col gap-y-4">
           <Link
             href={`/patterns/${pattern.slug}`}

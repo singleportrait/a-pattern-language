@@ -28,7 +28,10 @@ const Pattern = ({ pattern }: PatternProps) => {
         {pattern.image && (
           <div className="sidebar_grid_left_column">
             <div className="p-4 bg-accent-200">
-              <ImageWithMultiply image={pattern.image} alt={`${pattern.number}. ${pattern.name} image`} />
+              <ImageWithMultiply
+                image={pattern.image}
+                alt={`${pattern.number}. ${pattern.name} image`}
+              />
             </div>
           </div>
         )}
@@ -42,7 +45,9 @@ const Pattern = ({ pattern }: PatternProps) => {
             'lg:col-span-6 lg:col-start-2 xl:col-start-3': !pattern.image,
           })}
         >
-          {pattern.earlierPatterns && <BlockContent content={pattern.earlierPatterns} classNames="sm:text-lg/normal" />}
+          {pattern.earlierPatterns && (
+            <BlockContent content={pattern.earlierPatterns} classNames="sm:text-lg/normal" />
+          )}
           <div className="flex flex-col -mx-5 sm:mx-0 p-5 bg-accent-100 gap-y-10 items-center">
             <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Problem:</p>
@@ -52,9 +57,10 @@ const Pattern = ({ pattern }: PatternProps) => {
               <div className="flex flex-col gap-y-2 w-full text-accent-500">
                 <p className="eyebrow">Problem Body—Not Included on the site! Go read the book!</p>
                 <p className="sm:text-lg/normal">
-                  After the headline comes the body of the problem. This is the longest section. It describes the
-                  empirical background of the pattern, the evidence for its validity, the range of different ways the
-                  pattern can be manifested in a building, and so on.
+                  After the headline comes the body of the problem. This is the longest section. It
+                  describes the empirical background of the pattern, the evidence for its validity,
+                  the range of different ways the pattern can be manifested in a building, and so
+                  on.
                 </p>
               </div>
             )}
@@ -63,7 +69,10 @@ const Pattern = ({ pattern }: PatternProps) => {
               <Solution solution={pattern.solution} />
             </div>
             {pattern.diagram && (
-              <ImageWithMultiply image={pattern.diagram} alt={`${pattern.number}. ${pattern.name} diagram`} />
+              <ImageWithMultiply
+                image={pattern.diagram}
+                alt={`${pattern.number}. ${pattern.name} diagram`}
+              />
             )}
           </div>
           {pattern.laterPatterns && (
@@ -79,14 +88,16 @@ const Pattern = ({ pattern }: PatternProps) => {
             <div className="flex w-full justify-between">
               {previousPattern ? (
                 <Link href={`/patterns/${previousPattern.slug}`}>
-                  &larr; {previousPattern.number} <span className="hidden sm:inline">{previousPattern.name}</span>
+                  &larr; {previousPattern.number}{' '}
+                  <span className="hidden sm:inline">{previousPattern.name}</span>
                 </Link>
               ) : (
                 <div />
               )}
               {nextPattern ? (
                 <Link href={`/patterns/${nextPattern.slug}`} className="text-right">
-                  {nextPattern.number} <span className="hidden sm:inline">{nextPattern.name}</span> &rarr;
+                  {nextPattern.number} <span className="hidden sm:inline">{nextPattern.name}</span>{' '}
+                  &rarr;
                 </Link>
               ) : (
                 <div />

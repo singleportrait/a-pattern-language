@@ -1,35 +1,30 @@
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from '@/sanity/lib/live';
 import {
   allPatternsWithReferencesQuery,
   type PatternBaseWithReferencesDto,
-} from "@/sanity/lib/definitions";
-import {
-  addReferenceCounts,
-  generateLinksDataForD3,
-} from "@/app/helpers/referenceCounts";
-import PatternsGrid from "@/app/components/PatternsGrid";
-import { Suspense } from "react";
+} from '@/sanity/lib/definitions';
+import { addReferenceCounts, generateLinksDataForD3 } from '@/app/helpers/referenceCounts';
+import PatternsGrid from '@/app/components/PatternsGrid';
+import { Suspense } from 'react';
 
 export const metadata = {
-  title: "Grid – A Pattern Language",
+  title: 'Grid – A Pattern Language',
 };
 
 export default async function Grid() {
-  const { data: patterns }: { data: PatternBaseWithReferencesDto[] } =
-    await sanityFetch({
-      query: allPatternsWithReferencesQuery,
-    });
+  const { data: patterns }: { data: PatternBaseWithReferencesDto[] } = await sanityFetch({
+    query: allPatternsWithReferencesQuery,
+  });
 
   // TODO: Do this as pre-formatting somewhere
   addReferenceCounts(patterns);
-  console.log("Patterns", patterns);
+  console.log('Patterns', patterns);
 
   // const dataForD3 = generateDataForD3(patterns);
   const dataForD3 = generateLinksDataForD3(patterns, 31, true);
-  console.log("Data pattern 31 for D3", dataForD3);
+  console.log('Data pattern 31 for D3', dataForD3);
 
-  const data =
-    "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataForD3));
+  const data = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(dataForD3));
 
   return (
     <>

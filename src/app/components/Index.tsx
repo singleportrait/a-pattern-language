@@ -1,18 +1,16 @@
-"use client";
+'use client';
 
-import { Fragment, useState } from "react";
+import { Fragment, useState } from 'react';
 
-import TitleWithConfidence from "@/app/components/TitleWithConfidence";
-import SubSection from "@/app/components/SubSection";
-import type { SectionDto, SubSectionDto } from "@/sanity/lib/definitions";
-import BlockContent from "./BlockContent";
-import SectionSidebar from "@/app/components/SectionSidebar";
-import ImageWithMultiply from "@/app/components/ImageWithMultiply";
+import TitleWithConfidence from '@/app/components/TitleWithConfidence';
+import SubSection from '@/app/components/SubSection';
+import type { SectionDto, SubSectionDto } from '@/sanity/lib/definitions';
+import BlockContent from './BlockContent';
+import SectionSidebar from '@/app/components/SectionSidebar';
+import ImageWithMultiply from '@/app/components/ImageWithMultiply';
 
 const Index = ({ sections }: { sections: SectionDto[] }) => {
-  const [selectedSection, setSelectedSection] = useState<string | undefined>(
-    undefined
-  );
+  const [selectedSection, setSelectedSection] = useState<string | undefined>(undefined);
 
   return (
     <>
@@ -39,23 +37,17 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
           </div>
           {sections.map((section: SectionDto, i) => (
             <Fragment key={section._id}>
-              <div
-                className="sidebar_grid_span_8 w-full pt-16"
-                id={section.name}
-              >
+              <div className="sidebar_grid_span_8 w-full pt-16" id={section.name}>
                 <TitleWithConfidence
                   title={section.name}
                   confidence="high"
-                  titleSize={i === 0 ? "small" : "large"}
+                  titleSize={i === 0 ? 'small' : 'large'}
                 />
               </div>
               <div className="sidebar_grid_left_column">
                 {section.image && (
                   <div className="p-4 bg-accent-200">
-                    <ImageWithMultiply
-                      image={section.image}
-                      alt={`${section.name} image`}
-                    />
+                    <ImageWithMultiply image={section.image} alt={`${section.name} image`} />
                   </div>
                 )}
               </div>

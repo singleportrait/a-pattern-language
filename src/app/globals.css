@@ -120,7 +120,7 @@ body {
   }
 
   .rich_text_formatting ul li:before {
-    content: "•";
+    content: '•';
     @apply inline-block w-5 -ml-5;
   }
 
@@ -131,7 +131,7 @@ body {
 
   .rich_text_formatting ol li:before {
     counter-increment: item;
-    content: counter(item) ".";
+    content: counter(item) '.';
     @apply inline-block w-6 -ml-6;
   }
 

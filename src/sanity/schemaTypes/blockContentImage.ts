@@ -1,35 +1,35 @@
-import { defineField, defineType } from "sanity";
+import { defineField, defineType } from 'sanity';
 
 export const blockContentImage = defineType({
-  name: "blockContentImage",
-  title: "Block Content Image",
-  type: "object",
+  name: 'blockContentImage',
+  title: 'Block Content Image',
+  type: 'object',
   fields: [
     defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: 'image',
+      title: 'Image',
+      type: 'image',
     }),
     defineField({
-      name: "alt",
-      title: "Alt",
-      type: "string",
+      name: 'alt',
+      title: 'Alt',
+      type: 'string',
     }),
     defineField({
-      name: "caption",
-      title: "Caption",
-      type: "string",
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
     }),
     defineField({
-      name: "captionUrl",
-      title: "Caption URL",
-      type: "url",
+      name: 'captionUrl',
+      title: 'Caption URL',
+      type: 'url',
     }),
   ],
   preview: {
     select: {
-      title: "alt",
-      media: "image",
+      title: 'alt',
+      media: 'image',
     },
   },
 });
