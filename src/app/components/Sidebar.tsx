@@ -18,12 +18,7 @@ const Sidebar = ({ title, renderContent }: SidebarProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
-      <div className="hidden sm:block">
-        <div className={classNames(sidebarWrapperClasses, 'h-screen')}>
-          <div className={sidebarClasses}>{renderContent()}</div>
-        </div>
-      </div>
-      <div className="block sm:hidden">
+      <div>
         <button
           type="button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -47,7 +42,7 @@ const Sidebar = ({ title, renderContent }: SidebarProps) => {
               )}
             >
               <div className={sidebarClasses}>
-                {renderContent(() => setTimeout(() => setIsSidebarOpen(false), 800))}
+                {renderContent(() => setTimeout(() => setIsSidebarOpen(false), 400))}
               </div>
             </div>
           </TransitionChild>

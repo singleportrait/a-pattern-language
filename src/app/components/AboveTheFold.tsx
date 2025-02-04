@@ -13,10 +13,10 @@ const AboveTheFold = () => {
     <div className="w-full">
       <div className="h-above_the_fold bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden">
         <div className="w-full">
-          <div className="sidebar_grid w-full">
+          <div className="content_grid w-full">
             <PageBorder
               label="a guide to the seminal architecture book"
-              classNames="sidebar_grid_span_8 !py-6"
+              classNames="content_grid_span_8 !py-6"
               borderColor="border-b-black"
             />
           </div>
@@ -70,10 +70,10 @@ const AboveTheFold = () => {
             />
           </div>
 
-          <div className="sidebar_grid w-full">
+          <div className="content_grid w-full">
             <PageBorder
               label="published in 1977"
-              classNames="sidebar_grid_span_8 !py-6"
+              classNames="content_grid_span_8 !py-6"
               borderColor="border-b-black"
             />
           </div>

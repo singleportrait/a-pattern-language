@@ -71,28 +71,28 @@ body {
     @apply md:col-span-3;
   }
 
-  .sidebar_grid_wrapper {
-    @apply flex flex-col items-center justify-center min-h-screen gap-y-4 sm:ml-56;
+  .content_grid_wrapper {
+    @apply flex flex-col items-center justify-center min-h-screen gap-y-4;
   }
 
-  .sidebar_grid {
-    @apply flex flex-col items-center lg:items-start lg:grid lg:grid-cols-8 xl:grid-cols-10 xl:max-w-screen-xl lg:gap-x-5 mx-auto gap-y-4;
+  .content_grid {
+    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-8 lg:grid-cols-10 lg:max-w-screen-xl md:gap-x-5 mx-auto gap-y-4;
   }
 
-  .sidebar_grid_span_8 {
-    @apply lg:col-span-8 lg:col-start-1 xl:col-start-2;
+  .content_grid_span_8 {
+    @apply md:col-span-8 md:col-start-1 lg:col-start-2;
   }
 
-  .sidebar_grid_span_6 {
-    @apply lg:col-span-6 lg:col-start-2 xl:col-start-3;
+  .content_grid_span_6 {
+    @apply md:col-span-6 md:col-start-2 lg:col-start-3;
   }
 
-  .sidebar_grid_left_column {
-    @apply lg:col-span-3 lg:col-start-1 xl:col-start-2;
+  .content_grid_left_column {
+    @apply md:col-span-3 md:col-start-1 lg:col-start-2;
   }
 
-  .sidebar_grid_right_column {
-    @apply lg:col-span-5 lg:col-start-4 xl:col-start-5;
+  .content_grid_right_column {
+    @apply md:col-span-5 md:col-start-4 lg:col-start-5;
   }
 
   .reference_highlight {

@@ -17,16 +17,16 @@ const Pattern = ({ pattern }: PatternProps) => {
   const pageFooterLabel = pattern.isPatternGuide ? `pg. # in the book` : `pg. ${pattern.page}`;
 
   return (
-    <div className="sidebar_grid_wrapper pt-2">
-      <div className="sidebar_grid">
-        <div className="fixed pointer-events-none left-2 sm:left-68 top-10 sm:top-auto sm:bottom-12 font-number text-10xl sm:text-12xl text-accent-400 leading-[0.75] z-10 mix-blend-multiply">
+    <div className="content_grid_wrapper pt-2">
+      <div className="content_grid">
+        <div className="fixed pointer-events-none left-2 sm:left-8 top-10 md:top-auto md:bottom-12 font-number text-10xl md:text-12xl text-accent-400 leading-[0.75] z-10 mix-blend-multiply">
           {pattern.number}
         </div>
-        <div className="sidebar_grid_span_8 hidden md:block">
+        <div className="content_grid_span_8 hidden md:block">
           <TitleWithConfidence title={pattern.name} confidence={pattern.confidence} displayLabel />
         </div>
         {pattern.image && (
-          <div className="sidebar_grid_left_column">
+          <div className="content_grid_left_column">
             <div className="p-4 bg-accent-200">
               <ImageWithMultiply
                 image={pattern.image}
@@ -41,8 +41,8 @@ const Pattern = ({ pattern }: PatternProps) => {
         <div
           className={classNames({
             'flex flex-col gap-y-8': true,
-            'lg:col-span-5 lg:col-start-4 xl:col-start-5': pattern.image,
-            'lg:col-span-6 lg:col-start-2 xl:col-start-3': !pattern.image,
+            'md:col-span-5 md:col-start-4 lg:col-start-5': pattern.image,
+            'md:col-span-6 md:col-start-2 lg:col-start-3': !pattern.image,
           })}
         >
           {pattern.earlierPatterns && (
@@ -82,9 +82,9 @@ const Pattern = ({ pattern }: PatternProps) => {
             </div>
           )}
         </div>
-        <PageBorder label={pageFooterLabel} classNames="sidebar_grid_span_8" />
+        <PageBorder label={pageFooterLabel} classNames="content_grid_span_8" />
         {(previousPattern || nextPattern) && (
-          <div className="sidebar_grid_span_8 w-full">
+          <div className="content_grid_span_8 w-full">
             <div className="flex w-full justify-between">
               {previousPattern ? (
                 <Link href={`/patterns/${previousPattern.slug}`}>

@@ -55,12 +55,12 @@ export default async function PagePage(props: Props) {
 
   return (
     <>
-      <div className="sidebar_grid_wrapper pt-2">
-        <div className="sidebar_grid">
-          <div className="sidebar_grid_span_8">
+      <div className="content_grid_wrapper pt-2">
+        <div className="content_grid">
+          <div className="content_grid_span_8">
             <TitleWithConfidence title={page.name} confidence="high" displayLabel />
           </div>
-          <div className="sidebar_grid_span_6">
+          <div className="content_grid_span_6">
             <BlockContent content={page.content} />
           </div>
           {page.sections &&
@@ -69,7 +69,7 @@ export default async function PagePage(props: Props) {
               <Fragment key={section._id}>
                 <div
                   className={classNames({
-                    'sidebar_grid_span_8 w-full': true,
+                    'content_grid_span_8 w-full': true,
                     'pt-16': section.name,
                   })}
                   id={section.slug}
@@ -82,24 +82,24 @@ export default async function PagePage(props: Props) {
                 </div>
                 {section.image && (
                   <>
-                    <div className="sidebar_grid_left_column">
+                    <div className="content_grid_left_column">
                       <div className="p-4 bg-accent-200">
                         <ImageWithMultiply image={section.image} alt={`${section.name} image`} />
                       </div>
                     </div>
-                    <div className="sidebar_grid_right_column pt-4 lg:pt-0">
+                    <div className="content_grid_right_column pt-4 lg:pt-0">
                       <BlockContent content={section.content} />
                     </div>
                   </>
                 )}
                 {!section.image && (
-                  <div className="sidebar_grid_span_8">
+                  <div className="content_grid_span_8">
                     <BlockContent content={section.content} />
                   </div>
                 )}
               </Fragment>
             ))}
-          <PageBorder label={page.page} classNames="sidebar_grid_span_8" />
+          <PageBorder label={page.page} classNames="content_grid_span_8" />
         </div>
       </div>
       <SectionSidebar sections={[page.sidebarSection]} showType="items" linkSectionName={false} />
