@@ -11,12 +11,12 @@
   --accent-400: #ffe52f;
 
   /* Green */
-  --accent-100: #eefaed;
-  --accent-200: #d5f3d3;
-  --accent-300: #bbe6b8;
-  --accent-400: #61bd67;
-  --accent-500: #18a021;
-  --accent-600: #7f8e7e;
+  --accent-100: 238 250 237; /* #eefaed */
+  --accent-200: 213 243 211; /* #d5f3d3 */
+  --accent-300: 187 230 184; /* #bbe6b8 */
+  --accent-400: 97 189 103; /* #61bd67 */
+  --accent-500: 24 160 33; /* #18a021 */
+  --accent-600: 127 142 126; /* #7f8e7e */
 }
 
 body {

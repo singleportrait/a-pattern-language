@@ -11,7 +11,7 @@ import {
 } from '@/sanity/lib/definitions';
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
 import BlockContent from '@/app/components/BlockContent';
-import PageFooter from '@/app/components/PageFooter';
+import PageBorder from '@/app/components/PageFooter';
 import SectionSidebar from '@/app/components/SectionSidebar';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
 
@@ -99,7 +99,7 @@ export default async function PagePage(props: Props) {
                 )}
               </Fragment>
             ))}
-          <PageFooter label={page.page} classNames="sidebar_grid_span_8" />
+          <PageBorder label={page.page} classNames="sidebar_grid_span_8" />
         </div>
       </div>
       <SectionSidebar sections={[page.sidebarSection]} showType="items" linkSectionName={false} />

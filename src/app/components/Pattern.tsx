@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { PatternDto } from '@/sanity/lib/definitions';
 import BlockContent from '@/app/components/BlockContent';
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
-import PageFooter from '@/app/components/PageFooter';
+import PageBorder from '@/app/components/PageFooter';
 import Solution from '@/app/components/Solution';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
 
@@ -82,7 +82,7 @@ const Pattern = ({ pattern }: PatternProps) => {
             </div>
           )}
         </div>
-        <PageFooter label={pageFooterLabel} classNames="sidebar_grid_span_8" />
+        <PageBorder label={pageFooterLabel} classNames="sidebar_grid_span_8" />
         {(previousPattern || nextPattern) && (
           <div className="sidebar_grid_span_8 w-full">
             <div className="flex w-full justify-between">

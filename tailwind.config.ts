@@ -12,12 +12,12 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         accent: {
-          100: 'var(--accent-100)',
-          200: 'var(--accent-200)',
-          300: 'var(--accent-300)',
-          400: 'var(--accent-400)',
-          500: 'var(--accent-500)',
-          600: 'var(--accent-600)',
+          100: 'rgb(var(--accent-100))',
+          200: 'rgb(var(--accent-200))',
+          300: 'rgb(var(--accent-300))',
+          400: 'rgb(var(--accent-400))',
+          500: 'rgb(var(--accent-500))',
+          600: 'rgb(var(--accent-600))',
         },
       },
       fontFamily: {
@@ -43,6 +43,7 @@ export default {
         68: '17rem', // Number next to sidebar
         88: '22rem', // Inline block content images
         128: '32rem',
+        above_the_fold: 'calc(100dvh - 2.5rem)',
       },
     },
   },
