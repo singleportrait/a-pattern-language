@@ -16,11 +16,11 @@ const TitleWithConfidence = ({
 }: TitleWithConfidenceProps) => (
   <>
     <div className="w-full flex items-center gap-x-4 h-12">
-      <div className="grow border-b-2 border-b-accent" />
+      <div className="grow border-b-2 border-b-accent-200" />
       {(confidence === 'medium' || confidence === 'high') && (
         <>
           <ConfidenceDisplay confidence={confidence} displayLabel={displayLabel} />
-          <div className="grow border-b-2 border-b-accent" />
+          <div className="grow border-b-2 border-b-accent-200" />
         </>
       )}
     </div>
