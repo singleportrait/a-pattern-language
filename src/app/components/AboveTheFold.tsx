@@ -16,7 +16,7 @@ const AboveTheFold = () => {
           <div className="content_grid w-full">
             <PageBorder
               label="a guide to the seminal architecture book"
-              classNames="content_grid_span_8 !py-6"
+              classNames="content_grid_span_8 !py-5"
               borderColor="border-b-black"
             />
           </div>
@@ -25,23 +25,25 @@ const AboveTheFold = () => {
             <Image
               src={diagram21}
               alt="Diagram for pattern 21"
-              className="hidden md:block max-h-[8.5vh] lg:max-h-[9.5vh] w-auto mix-blend-multiply"
+              className="hidden md:block h-[8.5vh] sm:h-[8.5vh] lg:h-[9.5vh] w-auto mix-blend-multiply"
             />
             <Image
               src={diagram6}
               alt="Diagram for pattern 6"
-              className="mix-blend-multiply max-h-32 sm:max-h-[18vh] lg:max-h-[20vh] w-auto -ml-12 md:ml-0"
+              className="mix-blend-multiply h-28 sm:h-[18vh] lg:h-[20vh] w-auto -ml-12 md:ml-0"
+              width={243}
+              height={154}
             />
           </div>
         </div>
 
         <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-8 md:pb-4">
-          <h1 className="font-serif text-[90px] sm:text-[120px] md:text-[130px] lg:text-[130px] xl:text-[140px] leading-[80%] text-center">
+          <h1 className="font-serif text-[72px] xs:text-[90px] sm:text-[120px] md:text-[130px] lg:text-[130px] xl:text-[140px] leading-[80%] text-center">
             A Pattern <br className="xl:hidden" />
             Language
           </h1>
 
-          <div className="relative xl:-left-32">
+          <div className="relative xl:-left-32 text-sm xs:text-base">
             <ul className="flex flex-col sm:flex-row sm:gap-6 uppercase">
               <li>Christopher Alexander</li>
               <li>Sara Ishikawa</li>
@@ -61,19 +63,19 @@ const AboveTheFold = () => {
             <Image
               src={diagram137}
               alt="Diagram for pattern 137"
-              className="hidden md:block relative left-[15%] max-h-[19vh] xl:max-h-[25vh] w-auto mix-blend-multiply"
+              className="hidden md:block relative left-[15%] h-[19vh] xl:h-[25vh] w-auto mix-blend-multiply"
             />
             <Image
               src={diagram21}
               alt="Diagram for pattern 21"
-              className="md:hidden mix-blend-multiply max-h-[9vh] w-auto -mr-6"
+              className="md:hidden mix-blend-multiply h-[8.5vh] md:h-[9vh] w-auto -mr-6"
             />
           </div>
 
           <div className="content_grid w-full">
             <PageBorder
               label="published in 1977"
-              classNames="content_grid_span_8 !py-6"
+              classNames="content_grid_span_8 !py-5"
               borderColor="border-b-black"
             />
           </div>

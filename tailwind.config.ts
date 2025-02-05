@@ -35,6 +35,9 @@ export default {
       lineHeight: {
         snug: '1.45',
       },
+      screens: {
+        xs: '450px',
+      },
       spacing: {
         9: '2.25rem', // Section sidebar right padding
         17: '4.25rem', // Section sidebar numbers
@@ -43,7 +46,7 @@ export default {
         68: '17rem', // Number next to sidebar
         88: '22rem', // Inline block content images
         128: '32rem',
-        above_the_fold: 'calc(100dvh - 2.5rem)',
+        above_the_fold: 'calc(100svh - 2.5rem)',
       },
     },
   },
