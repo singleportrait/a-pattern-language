@@ -25,12 +25,12 @@ const AboveTheFold = () => {
             <Image
               src={diagram21}
               alt="Diagram for pattern 21"
-              className="hidden md:block h-[8.5vh] sm:h-[8.5vh] lg:h-[9.5vh] w-auto mix-blend-multiply"
+              className="hidden md:block h-[8.5svh] sm:h-[8.5svh] lg:h-[9.5svh] w-auto mix-blend-multiply"
             />
             <Image
               src={diagram6}
               alt="Diagram for pattern 6"
-              className="mix-blend-multiply h-28 sm:h-[18vh] lg:h-[20vh] w-auto -ml-12 md:ml-0"
+              className="mix-blend-multiply h-28 sm:h-[18svh] lg:h-[20svh] w-auto -ml-12 md:ml-0"
               width={243}
               height={154}
             />
@@ -63,12 +63,12 @@ const AboveTheFold = () => {
             <Image
               src={diagram137}
               alt="Diagram for pattern 137"
-              className="hidden md:block relative left-[15%] h-[19vh] xl:h-[25vh] w-auto mix-blend-multiply"
+              className="hidden md:block relative left-[15%] h-[19svh] xl:h-[25svh] w-auto mix-blend-multiply"
             />
             <Image
               src={diagram21}
               alt="Diagram for pattern 21"
-              className="md:hidden mix-blend-multiply h-[8.5vh] md:h-[9vh] w-auto -mr-6"
+              className="md:hidden mix-blend-multiply h-[8.5svh] md:h-[9svh] w-auto -mr-6"
             />
           </div>
 
