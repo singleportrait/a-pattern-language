@@ -47,6 +47,7 @@ export default {
         88: '22rem', // Inline block content images
         128: '32rem',
         above_the_fold: 'calc(100svh - 2.5rem)',
+        sidebar_overlay: 'calc(100lvh - 2.5rem)',
       },
     },
   },
