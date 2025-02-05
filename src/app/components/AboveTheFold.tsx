@@ -7,13 +7,22 @@ import PageBorder from '@/app/components/PageFooter';
 import diagram6 from '@public/above-the-fold/diagram_6.png';
 import diagram21 from '@public/above-the-fold/diagram_21.png';
 import diagram137 from '@public/above-the-fold/diagram_137.png';
+import { useEffect, useState } from 'react';
 
 const AboveTheFold = () => {
+  const [manualHeight, setManualHeight] = useState('calc(100svh - 2.5rem)');
+  useEffect(() => {
+    const heightPx =
+      typeof window !== undefined
+        ? `calc(${window?.visualViewport?.height} = 2.5rem)`
+        : 'calc(100svh - 2.5rem)';
+    setManualHeight(heightPx);
+  }, []);
   return (
     <div className="w-full">
       <div
         className="h-above_the_fold bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden"
-        style={{ height: `calc(${window?.visualViewport?.height}px - 2.5rem)` }}
+        style={{ height: manualHeight }}
       >
         <div className="w-full">
           <div className="content_grid w-full">
