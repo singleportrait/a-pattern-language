@@ -11,7 +11,7 @@ import diagram137 from '@public/above-the-fold/diagram_137.png';
 const AboveTheFold = () => {
   return (
     <div className="w-full">
-      <div className="h-above_the_fold bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden">
+      <div className="h-svh bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden">
         <div className="w-full">
           <div className="content_grid w-full">
             <PageBorder
@@ -37,7 +37,7 @@ const AboveTheFold = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-6 md:pb-4">
+        <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-4">
           <h1 className="font-serif text-[72px] xs:text-[90px] sm:text-[120px] md:text-[130px] lg:text-[130px] xl:text-[140px] leading-[80%] text-center">
             A Pattern <br className="xl:hidden" />
             Language
@@ -58,7 +58,7 @@ const AboveTheFold = () => {
           </div>
         </div>
 
-        <div className="w-full space-y-2">
+        <div className="w-full">
           <div className="flex justify-end md:justify-center items-center">
             <Image
               src={diagram137}
