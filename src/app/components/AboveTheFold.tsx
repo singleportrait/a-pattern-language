@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import PageBorder from '@/app/components/PageFooter';
@@ -7,21 +8,25 @@ import PageBorder from '@/app/components/PageFooter';
 import diagram6 from '@public/above-the-fold/diagram_6.png';
 import diagram21 from '@public/above-the-fold/diagram_21.png';
 import diagram137 from '@public/above-the-fold/diagram_137.png';
-import { useEffect, useState } from 'react';
 
 const AboveTheFold = () => {
+  // This is only an issue on iOS Chromium that I've seen so far (Chrome and Brave)
+  // They don't respect svh when scrolling down, even though can-i-use says they do
   const [manualHeight, setManualHeight] = useState('calc(100svh - 2.5rem)');
   useEffect(() => {
-    const heightPx =
-      typeof window !== undefined
-        ? `calc(${window?.visualViewport?.height} = 2.5rem)`
-        : 'calc(100svh - 2.5rem)';
-    setManualHeight(heightPx);
+    if (
+      typeof window !== undefined &&
+      window?.visualViewport?.height &&
+      navigator?.userAgent?.match('CriOS')
+    ) {
+      setManualHeight(`calc(${window?.visualViewport?.height}px - 2.5rem)`);
+    }
   }, []);
+
   return (
     <div className="w-full">
       <div
-        className="h-above_the_fold bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden"
+        className="h-above_the_fold bg-accent-200 px-5 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden"
         style={{ height: manualHeight }}
       >
         <div className="w-full">
@@ -43,8 +48,6 @@ const AboveTheFold = () => {
               src={diagram6}
               alt="Diagram for pattern 6"
               className="mix-blend-multiply h-28 sm:h-40 lg:h-[20svh] w-auto -ml-12 md:ml-0"
-              width={243}
-              height={154}
             />
           </div>
         </div>

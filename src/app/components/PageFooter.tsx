@@ -14,7 +14,7 @@ const PageBorder = ({
   return (
     <div
       className={cx({
-        'w-full flex items-center gap-x-4 py-8': true,
+        'w-full flex items-center gap-x-3.5 py-8': true,
         [classNames]: !!classNames,
       })}
     >
