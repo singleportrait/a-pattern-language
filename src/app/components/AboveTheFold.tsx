@@ -11,7 +11,10 @@ import diagram137 from '@public/above-the-fold/diagram_137.png';
 const AboveTheFold = () => {
   return (
     <div className="w-full">
-      <div className="h-svh bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden">
+      <div
+        className="h-above_the_fold bg-accent-200 px-3 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden"
+        style={{ height: `calc(${window?.visualViewport?.height}px - 2.5rem)` }}
+      >
         <div className="w-full">
           <div className="content_grid w-full">
             <PageBorder
