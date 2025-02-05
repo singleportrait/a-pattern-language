@@ -30,14 +30,14 @@ const AboveTheFold = () => {
             <Image
               src={diagram6}
               alt="Diagram for pattern 6"
-              className="mix-blend-multiply h-28 sm:h-[18svh] lg:h-[20svh] w-auto -ml-12 md:ml-0"
+              className="mix-blend-multiply h-28 sm:h-40 lg:h-[20svh] w-auto -ml-12 md:ml-0"
               width={243}
               height={154}
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-8 md:pb-4">
+        <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-6 md:pb-4">
           <h1 className="font-serif text-[72px] xs:text-[90px] sm:text-[120px] md:text-[130px] lg:text-[130px] xl:text-[140px] leading-[80%] text-center">
             A Pattern <br className="xl:hidden" />
             Language
@@ -68,7 +68,7 @@ const AboveTheFold = () => {
             <Image
               src={diagram21}
               alt="Diagram for pattern 21"
-              className="md:hidden mix-blend-multiply h-[8.5svh] md:h-[9svh] w-auto -mr-6"
+              className="md:hidden mix-blend-multiply h-14 sm:h-20 md:h-[9svh] w-auto -mr-6"
             />
           </div>
 
