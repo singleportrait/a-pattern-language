@@ -29,7 +29,7 @@ const Sidebar = ({ title, renderContent }: SidebarProps) => {
         <Transition show={isSidebarOpen}>
           <TransitionChild>
             <div
-              className="fixed z-10 top-10 left-0 right-0 bottom-0 h-sidebar_overlay bg-accent-400/70 transition duration-300 ease-out data-[closed]:opacity-0"
+              className="fixed z-10 top-10 left-0 right-0 bottom-0 h-screen bg-accent-400/70 transition duration-300 ease-out data-[closed]:opacity-0"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             />
           </TransitionChild>
