@@ -52,9 +52,6 @@ export default async function PatternPage(props: Props) {
     query: sectionsQuery,
   });
 
-  // console.log("Pattern", pattern);
-  // console.log("Sections", sections);
-
   return (
     <>
       <Pattern pattern={pattern} />

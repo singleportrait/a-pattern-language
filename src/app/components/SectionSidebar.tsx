@@ -68,9 +68,6 @@ const SectionSidebarContents = ({
     </div>
   ));
 const SectionSidebar = (props: SectionSidebarProps) => {
-  // console.log("Sidebar sections", sections);
-  // console.log("Subsections", sections[0].subSections);
-
   return (
     <Sidebar
       title="Table of Contents"

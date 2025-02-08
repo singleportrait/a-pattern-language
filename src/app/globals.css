@@ -5,10 +5,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --accent-100: #fffbeb;
-  --accent-200: #fff9cf;
-  --accent-300: #fde68a;
-  --accent-400: #ffe52f;
 
   /* Green */
   --accent-100: 238 250 237; /* #eefaed */

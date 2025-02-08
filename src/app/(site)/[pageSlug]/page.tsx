@@ -51,8 +51,6 @@ export default async function PagePage(props: Props) {
 
   if (!page?._id) return notFound();
 
-  // console.log("Page", page);
-
   return (
     <>
       <div className="content_grid_wrapper pt-2">

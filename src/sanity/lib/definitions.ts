@@ -87,7 +87,6 @@ export interface SubSectionDto {
   _key: string;
   title?: string;
   description?: string;
-  // TODO: Use PatternBaseDto? Remove earlierPatternReferences from these sub-sections? (not sure why they're here)
   patterns?: PatternBaseDto[];
   items?: (SubSectionItemPatternDto | SubSectionItemPageDto)[];
 }
@@ -110,14 +109,12 @@ const sectionFields = /* groq */ `
     _key,
     title,
     description,
-    "patternsOriginal": patterns[],
     "patterns": patterns[]{
       "_id": @->_id,
       "name": @->name,
       "number": @->number,
       "slug": @->slug.current,
       "confidence": @->confidence,
-      "earlierPatternReferences": @->earlierPatterns${blockContentReferencesOnly},
     },
     "items": items[]{
       "_id": @->_id,

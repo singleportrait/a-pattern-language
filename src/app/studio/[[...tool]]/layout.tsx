@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'A Pattern Language',
-  description: 'By Christopher Alexander',
+  title: 'Admin | A Pattern Language Index',
 };
 
 export default function RootLayout({

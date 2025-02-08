@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 
-// import { confidenceDisplay } from "@/app/helpers/confidence";
-
 type PatternTitleProps = {
   number: number | string;
   name: string;
@@ -39,8 +37,6 @@ const PatternTitle = ({
       >
         {name}
       </div>
-      {/* &nbsp; */}
-      {/* {confidenceDisplay(pattern.confidence)} */}
     </h4>
   );
 

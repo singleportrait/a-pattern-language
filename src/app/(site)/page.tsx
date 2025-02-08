@@ -11,9 +11,6 @@ export default async function Home() {
     query: sectionsQuery,
   });
 
-  // TODO: Add reference counts onto section patterns and/or merge with all patterns
-  // console.log("Sections", sections);
-
   return (
     <>
       <Index sections={sections} />

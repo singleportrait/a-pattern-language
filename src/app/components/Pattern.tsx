@@ -19,7 +19,7 @@ const Pattern = ({ pattern }: PatternProps) => {
   return (
     <div className="content_grid_wrapper pt-2">
       <div className="content_grid">
-        <div className="fixed pointer-events-none left-2 sm:left-8 top-10 md:top-auto md:bottom-12 font-number text-10xl md:text-12xl text-accent-400 leading-[0.75] z-10 mix-blend-multiply">
+        <div className="fixed pointer-events-none left-2 sm:left-8 top-10 md:top-auto md:bottom-12 font-serif text-10xl md:text-12xl text-accent-400 leading-[0.75] z-10 mix-blend-multiply">
           {pattern.number}
         </div>
         <div className="content_grid_span_8 hidden md:block">
@@ -36,7 +36,7 @@ const Pattern = ({ pattern }: PatternProps) => {
           </div>
         )}
         <div className="w-full block md:hidden">
-          <TitleWithConfidence title={pattern.name} confidence={pattern.confidence} />
+          <TitleWithConfidence title={pattern.name} confidence={pattern.confidence} displayLabel />
         </div>
         <div
           className={classNames({

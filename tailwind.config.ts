@@ -22,14 +22,11 @@ export default {
       },
       fontFamily: {
         sans: 'var(--font-inter), Inter, sans-serif',
-        serif:
-          'var(--font-garamond-atf-subhead), Garamond ATF Subhead, var(--font-eb-garamond), Georgia, serif',
-        number:
-          'var(--font-garamond-atf-subhead), Garamond ATF Subhead, var(--font-cormorant-garamond), Georgia, serif',
+        serif: 'var(--font-garamond-atf-subhead), var(--font-eb-garamond), Georgia, serif',
       },
       fontSize: {
         '2xs': '0.5rem',
-        '10xl': '12rem',
+        '10xl': '10rem',
         '12xl': '18rem',
       },
       lineHeight: {
