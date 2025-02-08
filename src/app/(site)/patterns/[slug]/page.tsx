@@ -11,6 +11,8 @@ import {
 import Pattern from '@/app/components/Pattern';
 import PatternsSidebar from '@/app/components/PatternsSidebar';
 import SectionSidebar from '@/app/components/SectionSidebar';
+import portableTextToPlainText from '@/app/helpers/portableTextToPlainText';
+import { urlFor } from '@/sanity/lib/image';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -27,15 +29,24 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
-  const { data: pattern } = await sanityFetch({
+  const { data: pattern }: { data: PatternDto } = await sanityFetch({
     query: patternBySlugQuery,
     params,
     stega: false,
   });
 
+  const image = pattern?.image || pattern?.diagram;
+
+  const imagesArray = image ? [{ url: urlFor(image).width(800).url() }] : [];
+
   return {
     title: `${pattern?.number ? `${pattern.number}. ` : ''}${pattern?.name}`,
-    description: pattern?.problem,
+    description: pattern.isPatternGuide
+      ? portableTextToPlainText(pattern.earlierPatterns)
+      : pattern?.problem,
+    openGraph: {
+      images: imagesArray,
+    },
   } satisfies Metadata;
 }
 

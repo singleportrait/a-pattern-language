@@ -23,7 +23,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'A Pattern Language Index',
+  title: {
+    template: '%s | A Pattern Language Index',
+    default: 'A Pattern Language Index',
+  },
   description: 'A guide to the seminal architecture book by Christopher Alexander.',
 };
 

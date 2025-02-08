@@ -15,6 +15,7 @@ import BlockContent from '@/app/components/BlockContent';
 import PageBorder from '@/app/components/PageFooter';
 import SectionSidebar from '@/app/components/SectionSidebar';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
+import portableTextToPlainText from '@/app/helpers/portableTextToPlainText';
 
 type Props = {
   params: Promise<{ pageSlug: string }>;
@@ -39,7 +40,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   return {
     title: page?.name,
-    // description: page?.content, // TODO: Turn block content into text
+    description: portableTextToPlainText(page?.content),
   } satisfies Metadata;
 }
 
