@@ -41,7 +41,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   return {
     title: `${pattern?.number ? `${pattern.number}. ` : ''}${pattern?.name}`,
-    description: pattern.isPatternGuide
+    description: pattern?.isPatternGuide
       ? portableTextToPlainText(pattern.earlierPatterns)
       : pattern?.problem,
     openGraph: {

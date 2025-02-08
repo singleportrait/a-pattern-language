@@ -7,9 +7,5 @@ export default async function Home() {
     query: sectionsQuery,
   });
 
-  return (
-    <>
-      <Index sections={sections} />
-    </>
-  );
+  return <Index sections={sections} />;
 }
