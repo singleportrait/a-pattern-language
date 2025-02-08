@@ -6,7 +6,11 @@ import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import { urlFor } from '@/sanity/lib/image';
-import type { PatternBaseWithReferencesDto, PatternBaseDto } from '@/sanity/lib/definitions';
+import {
+  type PatternBaseWithReferencesDto,
+  type PatternBaseDto,
+  Confidence,
+} from '@/sanity/lib/definitions';
 import { confidenceDisplay } from '@/app/helpers/confidence';
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
 
@@ -49,7 +53,7 @@ const PatternsGrid = ({ patterns }: { patterns: PatternBaseWithReferencesDto[] }
 
   return (
     <div>
-      <TitleWithConfidence title="All Patterns" confidence="high" />
+      <TitleWithConfidence title="All Patterns" confidence={Confidence.High} />
       {sortType === 'number' && (
         <Link
           type="button"

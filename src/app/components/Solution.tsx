@@ -1,11 +1,12 @@
 import ConfidenceDisplay from '@/app/components/ConfidenceDisplay';
+import { Confidence } from '@/sanity/lib/definitions';
 
 const ConfidenceGuide = () => {
   return (
     <div className="flex justify-center items-stretch gap-x-2 sm:gap-x-4 w-full -mb-8">
       <div className="self-center hidden sm:block grow border-b-2 border-b-accent" />
-      <ConfidenceDisplay confidence="high" displayLabel />
-      <ConfidenceDisplay confidence="medium" displayLabel />
+      <ConfidenceDisplay confidence={Confidence.High} displayLabel />
+      <ConfidenceDisplay confidence={Confidence.Medium} displayLabel />
       <div className="w-26 flex flex-col justify-end">
         <div className="text-2xs uppercase text-center">
           Low Confidence <br />
