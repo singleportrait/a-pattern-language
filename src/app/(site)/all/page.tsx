@@ -16,7 +16,7 @@ export default async function AllContent() {
   });
 
   return (
-    <div className="max-w-screen-xl mx-auto px-4 flex flex-col gap-y-8">
+    <div className="max-w-(--breakpoint-xl) mx-auto px-4 flex flex-col gap-y-8">
       {patterns.map(pattern => (
         <div key={pattern.number} className="flex flex-col gap-y-4">
           <Link

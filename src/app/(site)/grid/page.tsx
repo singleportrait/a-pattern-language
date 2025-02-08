@@ -28,7 +28,7 @@ export default async function Grid() {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-(--breakpoint-xl) mx-auto">
         {dataForD3 && (
           <a
             id="downloadAnchorElem"

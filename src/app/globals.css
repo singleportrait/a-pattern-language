@@ -1,37 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
-  /* Green */
-  --accent-100: 238 250 237; /* #eefaed */
-  --accent-200: 213 243 211; /* #d5f3d3 */
-  --accent-300: 187 230 184; /* #bbe6b8 */
-  --accent-400: 97 189 103; /* #61bd67 */
-  --accent-500: 24 160 33; /* #18a021 */
-  --accent-600: 127 142 126; /* #7f8e7e */
+  --color-accent-100: rgb(var(--accent-100));
+  --color-accent-200: rgb(var(--accent-200));
+  --color-accent-300: rgb(var(--accent-300));
+  --color-accent-400: rgb(var(--accent-400));
+  --color-accent-500: rgb(var(--accent-500));
+  --color-accent-600: rgb(var(--accent-600));
+
+  --text-2xs: 0.5rem;
+  --text-10xl: 10rem;
+  --text-12xl: 18rem;
+
+  --leading-snug: 1.45;
+
+  --breakpoint-xs: 450px;
+
+  --spacing-above_the_fold: calc(100svh - 2.5rem);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-size: 16px;
-  line-height: 1.5;
+@theme inline {
+  --font-sans: var(--font-inter), Inter, sans-serif;
+  --font-serif: var(--font-garamond-atf-subhead), var(--font-eb-garamond), Georgia, serif;
 }
 
-.h1 {
-  font-size: 2rem;
+@layer utilities {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+
+    /* Green */
+    --accent-100: 238 250 237; /* #eefaed */
+    --accent-200: 213 243 211; /* #d5f3d3 */
+    --accent-300: 187 230 184; /* #bbe6b8 */
+    --accent-400: 97 189 103; /* #61bd67 */
+    --accent-500: 24 160 33; /* #18a021 */
+    --accent-600: 127 142 126; /* #7f8e7e */
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .h1 {
+    font-size: 2rem;
+  }
+
+  .h2 {
+    font-size: 1.5rem;
+  }
+
+  .h3 {
+    font-size: 1.25rem;
+  }
 }
 
-.h2 {
-  font-size: 1.5rem;
+@utility eyebrow {
+  @apply text-sm uppercase font-sans;
 }
 
-.h3 {
-  font-size: 1.25rem;
+@utility callout_box {
+  @apply border-4 border-accent-200 px-5 py-4 rounded-3xl;
 }
 
 @layer components {
@@ -43,16 +78,8 @@ body {
     @apply font-sans;
   }
 
-  .eyebrow {
-    @apply text-sm uppercase font-sans;
-  }
-
-  .callout_box {
-    @apply border-4 border-accent-200 px-5 py-4 rounded-3xl;
-  }
-
   .gridWrapper {
-    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-5 max-w-screen-2xl mx-auto gap-y-4;
+    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-5 max-w-(--breakpoint-2xl) mx-auto gap-y-4;
   }
 
   .gridColSpanContent {
@@ -72,7 +99,7 @@ body {
   }
 
   .content_grid {
-    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-8 lg:grid-cols-10 lg:max-w-screen-xl md:gap-x-5 mx-auto gap-y-4;
+    @apply flex flex-col items-center md:items-start md:grid md:grid-cols-8 lg:grid-cols-10 lg:max-w-(--breakpoint-xl) md:gap-x-5 mx-auto gap-y-4;
   }
 
   .content_grid_span_8 {
@@ -92,54 +119,68 @@ body {
   }
 
   .reference_highlight {
-    @apply uppercase text-base bg-accent-100 px-0.5 py-px rounded mx-px hover:bg-accent-300 transition-colors;
+    @apply uppercase text-base bg-accent-100 px-0.5 py-px rounded-sm mx-px hover:bg-accent-300 transition-colors;
   }
 
-  .rich_text_formatting.sm\:text-lg\/normal .reference_highlight {
-    @apply sm:py-0.5;
-  }
+  .rich_text_formatting {
+    &.sm\:text-lg\/normal .reference_highlight {
+      @apply sm:py-0.5;
+    }
 
-  .rich_text_formatting p,
-  .rich_text_formatting blockquote,
-  .rich_text_formatting ul,
-  .rich_text_formatting ol {
-    @apply mb-6;
-  }
+    & p {
+      @apply mb-6;
+    }
 
-  .rich_text_formatting ul,
-  .rich_text_formatting ol {
-    @apply pl-8;
-  }
+    & blockquote {
+      @apply mb-6;
+    }
 
-  .rich_text_formatting ul {
-    @apply space-y-0.5;
-  }
+    & ul {
+      @apply mb-6;
+    }
 
-  .rich_text_formatting ul li:before {
-    content: '•';
-    @apply inline-block w-5 -ml-5;
-  }
+    & ol {
+      @apply mb-6;
+    }
 
-  .rich_text_formatting ol {
-    @apply space-y-1.5;
-    counter-reset: item;
-  }
+    & ul {
+      @apply pl-8;
+    }
 
-  .rich_text_formatting ol li:before {
-    counter-increment: item;
-    content: counter(item) '.';
-    @apply inline-block w-6 -ml-6;
-  }
+    & ol {
+      @apply pl-8;
+    }
 
-  .rich_text_formatting > :last-child {
-    @apply mb-0;
-  }
+    & ul {
+      @apply space-y-0.5;
+    }
 
-  .rich_text_formatting h4 {
-    @apply eyebrow mb-2;
-  }
+    & ul li:before {
+      content: '•';
+      @apply inline-block w-5 -ml-5;
+    }
 
-  .rich_text_formatting blockquote {
-    @apply callout_box text-lg/snug;
+    & ol {
+      @apply space-y-1.5;
+      counter-reset: item;
+    }
+
+    & ol li:before {
+      counter-increment: item;
+      content: counter(item) '.';
+      @apply inline-block w-6 -ml-6;
+    }
+
+    & > :last-child {
+      @apply mb-0;
+    }
+
+    & h4 {
+      @apply eyebrow mb-2;
+    }
+
+    & blockquote {
+      @apply callout_box text-lg/snug;
+    }
   }
 }

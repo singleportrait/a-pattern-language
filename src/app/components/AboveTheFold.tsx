@@ -33,7 +33,7 @@ const AboveTheFold = () => {
           <div className="content_grid w-full">
             <PageBorder
               label="a guide to the seminal architecture book"
-              classNames="content_grid_span_8 !py-5"
+              classNames="content_grid_span_8 py-5!"
               borderColor="border-b-black"
             />
           </div>
@@ -90,7 +90,7 @@ const AboveTheFold = () => {
           <div className="content_grid w-full">
             <PageBorder
               label="published in 1977"
-              classNames="content_grid_span_8 !py-5"
+              classNames="content_grid_span_8 py-5!"
               borderColor="border-b-black"
             />
           </div>
