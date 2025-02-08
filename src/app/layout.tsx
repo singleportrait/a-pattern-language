@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
-import { EB_Garamond, Inter } from 'next/font/google';
+import { EB_Garamond } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
+
+const aktiveGrotesk = localFont({
+  src: 'fonts/aktivgrotesk-regular.woff2',
+  variable: '--font-aktiv-grotesk-regular',
+});
 
 const garamondAtf = localFont({
   src: 'fonts/garamond-atf-subhead-regular.woff2',
@@ -13,13 +18,6 @@ const ebGaramond = EB_Garamond({
   weight: ['400'],
   style: ['normal', 'italic'],
   variable: '--font-eb-garamond',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -37,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ebGaramond.variable} ${inter.variable} ${garamondAtf.variable}`}>
+      <body className={`${ebGaramond.variable} ${aktiveGrotesk.variable} ${garamondAtf.variable}`}>
         <div>{children}</div>
       </body>
     </html>

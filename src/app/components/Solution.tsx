@@ -28,7 +28,7 @@ const Solution = ({ solution }: { solution: string }) => {
     const matched = confidenceIndicatorRegex.test(part);
     if (matched) return <ConfidenceGuide key={i} />;
     return (
-      <p key={i} className="text-xl sm:text-[1.375rem] leading-snug whitespace-pre-wrap">
+      <p key={i} className="text-xl sm:text-[1.3125rem] leading-snug whitespace-pre-wrap">
         {part}
       </p>
     );
