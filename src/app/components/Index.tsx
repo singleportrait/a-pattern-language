@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react';
 
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
 import SubSection from '@/app/components/SubSection';
-import type { SectionDto, SubSectionDto } from '@/sanity/lib/definitions';
+import { Confidence, type SectionDto, type SubSectionDto } from '@/sanity/lib/definitions';
 import BlockContent from './BlockContent';
 import SectionSidebar from '@/app/components/SectionSidebar';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
@@ -23,7 +23,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               <div className="content_grid_span_8 w-full pt-16" id={section.name}>
                 <TitleWithConfidence
                   title={section.name}
-                  confidence="high"
+                  confidence={Confidence.High}
                   titleSize={i === 0 ? 'small' : 'large'}
                 />
               </div>
@@ -49,7 +49,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
             </Fragment>
           ))}
           <div className="content_grid_span_8 mb-12 w-full">
-            <TitleWithConfidence confidence="high" />
+            <TitleWithConfidence confidence={Confidence.High} />
           </div>
         </div>
       </div>
