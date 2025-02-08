@@ -46,6 +46,12 @@ const blockContent = /* groq */ `
 }
 `;
 
+export enum Confidence {
+  Low = 'low',
+  Medium = 'medium',
+  High = 'high',
+}
+
 // Return all references included in block content !
 const blockContentReferencesOnly = /* groq */ `
   [@._type == 'block'].children[@._type == 'patternReference'] {
@@ -144,7 +150,7 @@ export interface PatternBaseDto {
   name: string;
   number: number;
   slug: string;
-  confidence: 'low' | 'medium' | 'high';
+  confidence: Confidence;
   image?: ImageReferenceDto;
   diagram?: ImageReferenceDto;
 }

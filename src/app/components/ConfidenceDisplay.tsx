@@ -1,7 +1,8 @@
 import { confidenceDisplay } from '@/app/helpers/confidence';
+import { Confidence } from '@/sanity/lib/definitions';
 
 type ConfidenceDisplayProps = {
-  confidence: 'low' | 'medium' | 'high';
+  confidence: Confidence;
   displayLabel?: boolean;
 };
 

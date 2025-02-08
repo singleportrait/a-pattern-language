@@ -1,9 +1,10 @@
 import ConfidenceDisplay from '@/app/components/ConfidenceDisplay';
+import { Confidence } from '@/sanity/lib/definitions';
 import classNames from 'classnames';
 
 type TitleWithConfidenceProps = {
   title?: string;
-  confidence: 'low' | 'medium' | 'high';
+  confidence: Confidence;
   titleSize?: 'large' | 'small';
   displayLabel?: boolean;
 };
@@ -17,7 +18,7 @@ const TitleWithConfidence = ({
   <>
     <div className="w-full flex items-center gap-x-4 h-12">
       <div className="grow border-b-2 border-b-accent-200" />
-      {(confidence === 'medium' || confidence === 'high') && (
+      {(confidence === Confidence.Medium || confidence === Confidence.High) && (
         <>
           <ConfidenceDisplay confidence={confidence} displayLabel={displayLabel} />
           <div className="grow border-b-2 border-b-accent-200" />

@@ -1,10 +1,12 @@
-export const confidenceDisplay = (confidence: 'low' | 'medium' | 'high') => {
+import { Confidence } from '@/sanity/lib/definitions';
+
+export const confidenceDisplay = (confidence: Confidence) => {
   switch (confidence) {
-    case 'low':
+    case Confidence.Low:
       return '';
-    case 'medium':
+    case Confidence.Medium:
       return '*';
-    case 'high':
+    case Confidence.High:
       return '**';
   }
 };

@@ -5,6 +5,7 @@ import { sanityFetch } from '@/sanity/lib/live';
 import { notFound } from 'next/navigation';
 import {
   allPagesQuery,
+  Confidence,
   pageBySlugQuery,
   type PageBaseDto,
   type PageDto,
@@ -56,7 +57,7 @@ export default async function PagePage(props: Props) {
       <div className="content_grid_wrapper pt-2">
         <div className="content_grid">
           <div className="content_grid_span_8">
-            <TitleWithConfidence title={page.name} confidence="high" displayLabel />
+            <TitleWithConfidence title={page.name} confidence={Confidence.High} displayLabel />
           </div>
           <div className="content_grid_span_6">
             <BlockContent content={page.content} />
@@ -74,7 +75,7 @@ export default async function PagePage(props: Props) {
                 >
                   <TitleWithConfidence
                     title={section.name}
-                    confidence={section.name ? 'high' : 'low'}
+                    confidence={section.name ? Confidence.High : Confidence.Low}
                     titleSize="small"
                   />
                 </div>
