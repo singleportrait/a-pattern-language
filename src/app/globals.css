@@ -21,7 +21,7 @@
 
   --breakpoint-xs: 450px;
 
-  --spacing-above_the_fold: calc(100svh - 2.5rem);
+  --spacing-above_the_fold: calc(100svh - 2.25rem);
 }
 
 @theme inline {

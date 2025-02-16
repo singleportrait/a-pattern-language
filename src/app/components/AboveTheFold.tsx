@@ -12,21 +12,21 @@ import diagram137 from '@public/above-the-fold/diagram_137.png';
 const AboveTheFold = () => {
   // This is only an issue on iOS Chromium that I've seen so far (Chrome and Brave)
   // They don't respect svh when scrolling down, even though can-i-use says they do
-  const [manualHeight, setManualHeight] = useState('calc(100svh - 2.5rem)');
+  const [manualHeight, setManualHeight] = useState('calc(100svh - 2.25rem)');
   useEffect(() => {
     if (
       typeof window !== undefined &&
       window?.visualViewport?.height &&
       navigator?.userAgent?.match('CriOS')
     ) {
-      setManualHeight(`calc(${window?.visualViewport?.height}px - 2.5rem)`);
+      setManualHeight(`calc(${window?.visualViewport?.height}px - 2.25rem)`);
     }
   }, []);
 
   return (
     <div className="w-full">
       <div
-        className="h-above_the_fold bg-accent-200 px-5 flex flex-col justify-between items-center -mx-5 -mt-5 -mb-4 overflow-hidden"
+        className="h-above_the_fold bg-accent-200 px-5 flex flex-col justify-between items-center -mx-5 -mt-6 -mb-4 overflow-hidden"
         style={{ height: manualHeight }}
       >
         <div className="w-full">
