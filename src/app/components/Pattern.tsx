@@ -85,19 +85,25 @@ const Pattern = ({ pattern }: PatternProps) => {
         <PageBorder label={pageFooterLabel} classNames="content_grid_span_8" />
         {(previousPattern || nextPattern) && (
           <div className="content_grid_span_8 w-full">
-            <div className="flex w-full justify-between">
+            <div className="flex w-full justify-between gap-x-8">
               {previousPattern ? (
-                <Link href={`/patterns/${previousPattern.slug}`}>
-                  &larr; {previousPattern.number}{' '}
-                  <span className="hidden sm:inline">{previousPattern.name}</span>
+                <Link href={`/patterns/${previousPattern.slug}`} className="flex gap-x-1">
+                  <span>&larr;</span>
+                  <span className="flex flex-col sm:flex-row sm:gap-x-1.5">
+                    {previousPattern.number}
+                    <span>{previousPattern.name}</span>
+                  </span>
                 </Link>
               ) : (
                 <div />
               )}
               {nextPattern ? (
-                <Link href={`/patterns/${nextPattern.slug}`} className="text-right">
-                  {nextPattern.number} <span className="hidden sm:inline">{nextPattern.name}</span>{' '}
-                  &rarr;
+                <Link href={`/patterns/${nextPattern.slug}`} className="flex gap-x-1 text-right">
+                  <span className="flex flex-col-reverse sm:flex-row sm:gap-x-1.5 text-right">
+                    <span>{nextPattern.name}</span>
+                    {nextPattern.number}
+                  </span>
+                  <span>&rarr;</span>
                 </Link>
               ) : (
                 <div />
