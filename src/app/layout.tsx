@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { EB_Garamond } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     default: 'A Pattern Language Index',
   },
   description: 'A guide to the seminal architecture book by Christopher Alexander.',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#d5f3d3',
 };
 
 export default function RootLayout({
