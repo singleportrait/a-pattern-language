@@ -12,7 +12,7 @@ import {
 } from '@/sanity/lib/definitions';
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
 import BlockContent from '@/app/components/BlockContent';
-import PageBorder from '@/app/components/PageFooter';
+import PageBorder from '@/app/components/PageBorder';
 import SectionSidebar from '@/app/components/SectionSidebar';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
 import portableTextToPlainText from '@/app/helpers/portableTextToPlainText';

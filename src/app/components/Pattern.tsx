@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { PatternDto } from '@/sanity/lib/definitions';
 import BlockContent from '@/app/components/BlockContent';
 import TitleWithConfidence from '@/app/components/TitleWithConfidence';
-import PageBorder from '@/app/components/PageFooter';
+import PageBorder from '@/app/components/PageBorder';
 import Solution from '@/app/components/Solution';
 import ImageWithMultiply from '@/app/components/ImageWithMultiply';
 

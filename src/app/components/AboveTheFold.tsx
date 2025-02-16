@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import PageBorder from '@/app/components/PageFooter';
+import PageBorder from '@/app/components/PageBorder';
 
 import diagram6 from '@public/above-the-fold/diagram_6.png';
 import diagram21 from '@public/above-the-fold/diagram_21.png';

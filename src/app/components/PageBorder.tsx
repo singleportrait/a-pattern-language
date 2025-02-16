@@ -19,7 +19,7 @@ const PageBorder = ({
       })}
     >
       <div className={`grow border-b-2 ${borderColor}`} />
-      <p className="font-serif">{label}</p>
+      <p className="font-serif pb-1">{label}</p>
       <div className={`grow border-b-2 ${borderColor}`} />
     </div>
   );
