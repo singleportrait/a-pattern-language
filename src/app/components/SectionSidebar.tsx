@@ -38,7 +38,7 @@ const SectionSidebarContents = ({
             {showType === 'patterns' && (
               <Link
                 key={subSection._key}
-                href={`#${subSection._key}`}
+                href={`#${subSection.title}`}
                 className={classNames({
                   'flex group py-1': true,
                   'font-bold': selectedSection === subSection._key,

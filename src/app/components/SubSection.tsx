@@ -50,7 +50,7 @@ const SubSection = ({
   return (
     <div
       key={subSection._key}
-      id={subSection._key}
+      id={subSection.title}
       className="flex flex-col gap-y-2 pt-16 -mb-4"
       ref={subSectionRef}
     >
