@@ -25,7 +25,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-aktiv-grotesk-regular), sans-serif;
+  --font-sans: var(--font-aktiv-grotesk), sans-serif;
   --font-serif: var(--font-garamond-atf-subhead), var(--font-eb-garamond), Georgia, serif;
 }
 
