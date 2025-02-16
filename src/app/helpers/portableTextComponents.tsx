@@ -47,7 +47,7 @@ export const portableTextComponents = {
                 <ImageWithMultiply
                   image={image.image}
                   alt={image.alt}
-                  className="max-h-52 sm:max-h-88 w-auto"
+                  className="h-52 sm:h-88 w-auto"
                 />
               </span>
               {image.caption && image.captionUrl && (
