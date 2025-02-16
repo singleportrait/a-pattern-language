@@ -49,7 +49,7 @@ const PatternsSidebarContents = ({ sections }: PatternsSidebarProps) => {
           )}
 
           {section?.subSections
-            ?.filter(subSection => subSection.title)
+            ?.filter(subSection => subSection.patterns?.length)
             .map((subSection: SubSectionDto) => (
               <div
                 key={subSection._key}
