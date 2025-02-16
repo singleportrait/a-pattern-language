@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { EB_Garamond } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body className={`${ebGaramond.variable} ${aktivGrotesk.variable} ${garamondAtf.variable}`}>
         <div>{children}</div>
       </body>
+      <GoogleAnalytics gaId="G-72FJTC1JS1" />
     </html>
   );
 }
