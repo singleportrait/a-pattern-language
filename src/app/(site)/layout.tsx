@@ -1,3 +1,4 @@
+import Footer from '@/app/components/Footer';
 import Menu from '@/app/components/Menu';
 
 type Props = {
@@ -9,6 +10,7 @@ export default async function SiteLayout(props: Props) {
     <>
       <Menu />
       {props.children}
+      <Footer />
     </>
   );
 }

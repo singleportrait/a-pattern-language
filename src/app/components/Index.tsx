@@ -48,7 +48,7 @@ const Index = ({ sections }: { sections: SectionDto[] }) => {
               </div>
             </Fragment>
           ))}
-          <div className="content_grid_span_8 mb-12 w-full">
+          <div className="content_grid_span_8 mt-12 w-full">
             <TitleWithConfidence confidence={Confidence.High} />
           </div>
         </div>
