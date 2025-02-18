@@ -12,7 +12,9 @@ const ConfidenceDisplay = ({ confidence, displayLabel = false }: ConfidenceDispl
       <div className="font-serif text-8xl text-center leading-[0.1] pt-[2.3rem]">
         {confidenceDisplay(confidence)}
       </div>
-      {displayLabel && <div className="text-2xs uppercase">{confidence} Confidence</div>}
+      {displayLabel && (
+        <div className="text-2xs uppercase tracking-wide">{confidence} Confidence</div>
+      )}
     </div>
   );
 };
