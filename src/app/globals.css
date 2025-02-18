@@ -121,7 +121,7 @@
   }
 
   .reference_highlight {
-    @apply uppercase text-base bg-accent-100 px-0.5 py-px rounded-sm mx-px hover:bg-accent-300 transition-colors;
+    @apply uppercase text-base tracking-wide bg-accent-100 px-0.5 py-px rounded-sm mx-px hover:bg-accent-300 transition-colors;
   }
 
   .rich_text_formatting {

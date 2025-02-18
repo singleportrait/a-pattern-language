@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const titleClasses = 'px-3 uppercase tracking-wide text-right flex items-center';
+const titleClasses = 'px-5 uppercase tracking-wide text-right flex items-center';
 
 const Menu = () => {
   const pathname = usePathname();
