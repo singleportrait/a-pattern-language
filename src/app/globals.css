@@ -80,6 +80,12 @@
     @apply font-sans;
   }
 
+  .above_the_fold_headline {
+    @media screen and (min-width: 640px) and (max-width: 1024px) and (max-height: 750px) {
+      @apply text-[16svh]!;
+    }
+  }
+
   .gridWrapper {
     @apply flex flex-col items-center md:items-start md:grid md:grid-cols-5 xl:grid-cols-7 md:gap-x-5 max-w-(--breakpoint-2xl) mx-auto gap-y-4;
   }
