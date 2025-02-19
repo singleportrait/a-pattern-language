@@ -55,7 +55,9 @@ const Pattern = ({ pattern }: PatternProps) => {
             </div>
             {pattern.isPatternGuide && (
               <div className="flex flex-col gap-y-2 w-full text-accent-500">
-                <p className="eyebrow">Problem Body—Not Included on the site! Go read the book!</p>
+                <p className="eyebrow">
+                  Background &amp; Research: Not Included on the site&mdash;Go read the book!
+                </p>
                 <p className="sm:text-lg/normal">
                   After the headline comes the body of the problem. This is the longest section. It
                   describes the empirical background of the pattern, the evidence for its validity,
