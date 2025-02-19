@@ -26,7 +26,7 @@ const AboveTheFold = () => {
   return (
     <div className="w-full">
       <div
-        className="h-above_the_fold bg-accent-200 px-5 flex flex-col justify-between items-center -mx-5 -mt-6 -mb-4 overflow-hidden"
+        className="h-above_the_fold sm:h-auto! sm:min-h-above_the_fold bg-accent-200 px-5 flex flex-col justify-between items-center -mx-5 -mt-6 -mb-4 overflow-hidden"
         style={{ height: manualHeight }}
       >
         <div className="w-full">
@@ -47,18 +47,18 @@ const AboveTheFold = () => {
             <Image
               src={diagram6}
               alt="Diagram for pattern 6"
-              className="mix-blend-multiply h-28 sm:h-40 lg:h-[20svh] w-auto -ml-12 md:ml-0"
+              className="mix-blend-multiply h-28 sm:h-[17svh] lg:h-[20svh] w-auto -ml-12 md:ml-0"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-4 sm:items-center pb-4">
-          <h1 className="font-serif text-[72px] xs:text-[90px] sm:text-[120px] md:text-[130px] lg:text-[130px] xl:text-[140px] leading-[80%] text-center">
-            A Pattern <br className="xl:hidden" />
+        <div className="flex flex-col gap-y-8 sm:gap-y-12 lg:gap-y-4 sm:items-center pb-4">
+          <h1 className="above_the_fold_headline font-serif text-[72px] xs:text-[90px] sm:text-[120px] xl:text-[140px] leading-[80%] text-center">
+            A Pattern <br className="lg:hidden" />
             Language
           </h1>
 
-          <div className="relative xl:-left-32 text-sm xs:text-base">
+          <div className="relative lg:-left-28 xl:-left-32 text-sm xs:text-base">
             <ul className="flex flex-col sm:flex-row sm:gap-6 uppercase">
               <li>Christopher Alexander</li>
               <li>Sara Ishikawa</li>
