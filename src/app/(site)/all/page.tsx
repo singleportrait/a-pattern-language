@@ -7,7 +7,7 @@ import BlockContent from '@/app/components/BlockContent';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'A Pattern Language',
+  title: 'All',
 };
 
 export default async function AllContent() {

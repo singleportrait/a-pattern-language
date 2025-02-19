@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /grid
+Disallow: /all

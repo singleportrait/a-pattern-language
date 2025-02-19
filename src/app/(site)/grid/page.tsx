@@ -8,7 +8,7 @@ import PatternsGrid from '@/app/components/PatternsGrid';
 import { Suspense } from 'react';
 
 export const metadata = {
-  title: 'Grid – A Pattern Language',
+  title: 'Grid View',
 };
 
 export default async function Grid() {
