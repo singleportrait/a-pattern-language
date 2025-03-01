@@ -14,6 +14,7 @@ const AboveTheFold = () => {
   // They don't respect svh when scrolling down, even though can-i-use says they do
   const [manualHeight, setManualHeight] = useState('calc(100svh - 2.25rem)');
   useEffect(() => {
+    console.log('User agent:', navigator?.userAgent);
     if (
       typeof window !== undefined &&
       window?.visualViewport?.height &&
@@ -37,6 +38,7 @@ const AboveTheFold = () => {
               borderColor="border-b-black"
             />
           </div>
+          <h3>{navigator?.userAgent}</h3>
 
           <div className="flex md:justify-between items-center md:px-8 lg:px-[5vw]">
             <Image
