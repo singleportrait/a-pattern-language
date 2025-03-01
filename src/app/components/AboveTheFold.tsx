@@ -17,7 +17,7 @@ const AboveTheFold = () => {
     if (
       typeof window !== undefined &&
       window?.visualViewport?.height &&
-      navigator?.userAgent?.match('CriOS')
+      (navigator?.userAgent?.match('CriOS') || navigator?.userAgent?.match('Instagram'))
     ) {
       setManualHeight(`calc(${window?.visualViewport?.height}px - 2.25rem)`);
     }
