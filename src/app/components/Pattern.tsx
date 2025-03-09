@@ -53,19 +53,19 @@ const Pattern = ({ pattern }: PatternProps) => {
               <p className="eyebrow">Problem:</p>
               <p className="sm:text-lg/normal whitespace-pre-wrap">{pattern.problem}</p>
             </div>
-            {pattern.isPatternGuide && (
-              <div className="flex flex-col gap-y-2 w-full text-accent-500">
-                <p className="eyebrow">
-                  Background &amp; Research: Not Included on the site&mdash;Go read the book!
-                </p>
+            <div className="flex flex-col gap-y-2 w-full text-accent-500">
+              <p className="eyebrow">
+                Background &amp; Research: Not Included on the site&mdash;Go read the book!
+              </p>
+              {pattern.isPatternGuide && (
                 <p className="sm:text-lg/normal">
                   After the headline comes the body of the problem. This is the longest section. It
                   describes the empirical background of the pattern, the evidence for its validity,
                   the range of different ways the pattern can be manifested in a building, and so
                   on.
                 </p>
-              </div>
-            )}
+              )}
+            </div>
             <div className="flex flex-col gap-y-2 w-full">
               <p className="eyebrow">Solution:</p>
               <Solution solution={pattern.solution} />
